@@ -1,8 +1,8 @@
 :root {
     --footer_height: 200px;
     --filters_width: 20%;
-    --menu_height: 50px;
-    --main_color: purple;
+    --menu_height: 100px;
+    --main_color: rgb(255, 80, 80);
 }
 
 html {
@@ -25,7 +25,7 @@ footer {
     height: var(--footer_height);
     width: 100%;
     overflow:hidden;
-    background-color: lightgrey;
+    background-color: rgb(255, 153, 102);
 }
 
 #menu {
@@ -51,4 +51,14 @@ footer {
     width: 250px;
     height: 250px;
     border: 1px solid grey;
+}
+
+.menu-item {
+    font-size: 30px;
+    text-align: center;
+    border: 1px solid rgba(60, 60, 60, 0.6);
+    margin-top: 10px;
+    margin-left: 50px;
+    padding: 10px;
+    float:left;
 }
