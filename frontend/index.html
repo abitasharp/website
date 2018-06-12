@@ -2,59 +2,38 @@
 <html>
     <head>
         <title>Abita #</title>
-        <link type="text/css" rel="stylesheet" href="style.css"/>
+        <link type="text/css" rel="stylesheet" href="css/style.css"/>
+        <link type="text/css" rel="stylesheet" href="css/ol.css"/>
     </head>
     <body>
         <div id="wrapper">
             <div id="menu">
                 <div class="menu-item">Abita # + Logo</div>
-				<span style="float:right">
-					<img src="img/italy.png"/>
-					<img src="img/uk.png"/>
-				</span>
-				<div id="sottomenu" style="float:align">
-					<ul id="menulist" style="list-style-type:none">
-						<li><a href="#"><h3>Ciao, Gigi</h3></a></li>
-						<li><a href="#"><h3>Gestione annunci</h3></a></li>
-						<li><a href="#"><h3>Contatti</h3></a></li>
-					</ul>
-				</div>
-				<!--<div class="menu-item">I miei annunci</div>
-                <div class="menu-item">Profile</div>-->
-			</div>
+                <div class="menu-item">I miei annunci</div>
+                <div class="menu-item">Profile</div>
+                <div class="menu-item" style="float:right">Lang</div>
+            </div>
             <div id="filters">
-			  <h2 class="filter_list">
-				<img src="img/gigi.png"class="filter_icon"/>
-				<span>Filtri:</span>
-			  </h2>
                 <form id="form-filters">
-					<h3><input id="all" type="checkbox" name="Tutte" value="tutte">
-						<u>Tutte</u></h3></br>
-					<hr class="horiz_line" width="100%" align="left"/>
-					<input class="attrib" type="radio" name="Sesso" value="maschio">Maschio
-					<input class="attrib" type="radio" name="Sesso" value="femmina">Femmina</br>
-					<input class="attrib" type="checkbox" name="Erasmus" value="erasmus">Erasmus</br>
-					<input class="attrib" type="checkbox" name="Animali" value="animali">Animali</br>
-					<input class="attrib" type="checkbox" name="Fumatore" value="fumatore">Fumatore</br>
-					<input class="attrib" type="checkbox" name="Matricola" value="matricola">Matricola</br>
+                    tipo annuncio<br/>
+                    costo<br/>
+                    periodo<br/>
+                    genere<br/>
+                    fumatore<br/>
+                    erasmus<br/>
+                    animali<br/>
+                    studente/lavoratore/famiglia<br/>
                 </form>
-                <div id="map-wrapper">
-                    
-                </div>
+                <div id="g-map-wrapper"></div>
+                <div id="o-map-wrapper"></div>
             </div>
             <br style="clear:both"/>
-			<div id="main">
-			</div>
         </div>
-        
         <footer>
-			<ul id="follow"><h2>Seguici</h2><br/>
-				<li class="iconfow"><a href="#"><img src="img/facebook.png"/></a></li>
-				<li class="iconfow"><a href="#"><img src="img/twitter.png"/></a></li>
-				<li class="iconfow"><a href="#"><img src="img/instagram.png"/></a></li>
-			</ul>
+            Footer content
         </footer>
     </body>
-    <script src="script.js"></script>
-    <script class="maps" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOcvf5dD1bGJpM58W3ez3NtMmCp_Id17w&callback=loadMap"></script>
+    <script src="script/ol.js"></script>
+    <script src="script/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOcvf5dD1bGJpM58W3ez3NtMmCp_Id17w&callback=loadMap"></script>
 </html>
