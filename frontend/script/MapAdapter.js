@@ -53,7 +53,7 @@ var iconStyle = new ol.style.Style({
         anchorXUnits: 'fraction',
         anchorYUnits: 'fraction',
         opacity: 1,
-        src: 'pin.png'
+        src: 'img/pin.png'
     }))
 });
 

@@ -1,0 +1,27 @@
+:root {
+    --filters_width: 20%;
+    --filters_bg_color: rgb(243, 243, 243);
+}
+
+#filters {
+    float: left;
+    width: var(--filters_width);
+    background-color: var(--filters_bg_color);
+    border-right: 1px solid rgb(190, 190, 190);
+    border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+#form-filters {
+    background-color: rgb(134, 172, 172);
+    margin: 10px;
+    padding: 10px;
+    text-align: justify
+}
+
+#o-map-wrapper, #g-map-wrapper {
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    border: 1px solid grey;
+}
+
