@@ -1,8 +1,7 @@
 :root {
-    --footer_height: 200px;
+    --footer_height: 250px;
     --filters_width: 20%;
     --menu_height: 100px;
-    --main_color: rgb(255, 80, 80);
 }
 
 html {
@@ -18,37 +17,84 @@ body {
     width: 100%;
     margin-bottom: var(--footer_height);
 }
-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: var(--footer_height);
-    width: 100%;
-    overflow:hidden;
-    background-color: rgb(255, 153, 102);
-}
 
 #menu {
-    background-color: var(--main_color);
+    background-color:white;
     width: 100%;
     height: var(--menu_height);
     box-shadow: 0 2px 2px 1px black;
 }
+
+#sottomenu{
+	height: 40px;
+	width: 80%;
+	margin-top: 40px;
+	float: right;
+}
+
+
+ul#menulist {
+    font-family: Verdana, sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+  
+ul#menulist li {
+    background-color: rgb(231, 14, 14) ;
+    border-bottom: 5px solid red;
+    display: block;
+    width: 150px;
+    height: 30px;
+    margin: 2px;
+    float: left;
+	
+}
+ 
+ul#menulist li a {
+    color: black;
+    display: block;
+	margin-bottom: 5px;
+    font-weight: bold;
+    line-height: 25px;
+    text-decoration: none;
+    width: 150px;
+    height: 25px;
+    text-align: center;
+}
+ 
+ul#menulist li.active, ul#menu li:hover {
+    background-color: #54BAE2;
+    border-bottom: 5px solid #FF831C;
+}
+
 #filters {
     float: left;
     width: var(--filters_width);
-    background-color: var(--main_color);
-    box-shadow: 2px 3px 2px 1px black;
+    background-color: white;
+    /*box-shadow: 2px 3px 50px 2px purple;*/
 }
+
+.filter_icon{
+	margin-left:10px;
+}
+
 #form-filters {
     margin: 10px;
     padding: 10px;
     border: 1px solid grey;
     border-radius: 10px;
 }
-#o-map-wrapper, #g-map-wrapper {
+
+.horiz_line {
+	margin-top: 0px;
+	border-top: none;
+}
+
+#map-wrapper {
     margin: 10px;
-    width: 250px;
+    width: auto;
     height: 250px;
     border: 1px solid grey;
 }
@@ -60,5 +106,41 @@ footer {
     margin-top: 10px;
     margin-left: 50px;
     padding: 10px;
-    float: left;
+    float:left;
 }
+
+#main{
+	min-width: 80%;
+	min-height: 70%;
+	float: right;
+	max-height: 100%; 
+}
+
+footer {
+ 
+    left: 0;
+    bottom: 0;
+    height: var(--footer_height);
+    width: 100%;
+    background: rgb(26, 33, 39);
+    overflow:hidden;
+}
+
+#follow{
+	text-align:center;
+	list-style-type:none;
+	color: rgb(224,73,56);
+	float:right;
+	margin-right:15px;
+	margin-top: calc(var( --footer_height) * 0.2);
+	border-left: 2px solid lightgray;
+}
+
+.iconfow{
+	margin: 5px;
+	float:right;
+}
+
+
+
+
