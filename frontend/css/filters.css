@@ -3,7 +3,7 @@
     --filters_bg_color: rgb(243, 243, 243);
 }
 
-#filters {
+#filters-container {
     float: left;
     width: var(--filters_width);
     background-color: var(--filters_bg_color);
@@ -12,7 +12,7 @@
 }
 
 #form-filters {
-    background-color: rgb(134, 172, 172);
+    /*background-color: rgb(134, 172, 172);*/
     margin: 10px;
     padding: 10px;
     text-align: justify
@@ -25,11 +25,13 @@
     border: 1px solid grey;
 }
 
-input.form-input {
-    background-color: white;
-    padding-left: 20px;
+.form-input, #form-filters > label {
+    margin-top: 10px;
+    font-family:  'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
-input.form-input:focus {
-    border: 1px solid var(--menu_bg_color);
+.form-input:focus {
+    box-shadow: 2px 2px 2px 1px var(--menu_bg_color);
 }

@@ -20,38 +20,49 @@
                 <div id="profilo" class="menu-item">Il mio profilo</div>
                 <div id="lang" class="menu-item">Lang</div>
             </div>
-            <div id="filters">
+            <div id="filters-container">
                 <form id="form-filters">
-                    <label for="tipologia">Tipologia</label>
-                    <select name="tipologia">
+                    <label for="tipologia">tipologia</label>
+                    <select name="tipologia" id="input-tipologia" class="form-input">
                         <option value="stanza">stanza</option>
                         <option value="posto letto">posto letto</option>
                         <option value="casa-affitto">casa - affitto</option>
                         <option value="casa-vendita">casa - vendita</option>
-                    </select><br/>
-
-                    <label for="prezzo">Prezzo</label>
-                    <select name="prezzo">
+                    </select>
+                    <br/>
+                    <label for="prezzo">prezzo</label>
+                    <select name="prezzo" id="input-prezzo" class="form-input">
                             <option value="mensile">mensile</option>
                             <option value="a notte">a notte</option>
                             <option value="tutto">tutto</option>
                     </select>
-                    <input type="range"/><br/>
-
-                    <label for="periodo">Periodo</label>
-                    <input type="date" name="periodo" min="2018-06-14" value="2018-06-14"/><br/>
-
-                    <input type="radio" id="form-input" class="form-filters" name="sex" value="M">Maschio
-                    <input type="radio" id="form-imput" class="form-filters" name="sex" value="F">Femmina<br />
-                    <input type="checkbox" id="form-input" class="form-filters" name="fumatore" value="fumatore">fumatore <br/>
-                    <input type="checkbox" id="form-input" class="form-filters" name="erasmus" value="erasmus">erasmus<br />
-                    <input type="checkbox" id="form-input" class="form-filters" name="animali" value="animali">animali<br />
-                    <input type="checkbox" id="form-input" class="form-filters" name="studente" value="studente">studente <br />
-                    <input type="checkbox" id="form-input" class="form-filters" name="lavoratore" value="lavoratore">lavoratore<br />
-                    <input type="checkbox" id="form-input" class="form-filters" name="famiglia" value="famiglia">famiglia<br />
+                    <input type="range"/>
+                    <br/>
+                    <label for="periodo">a partire da</label>
+                    <input type="date" name="periodo" id="input-periodo" class="form-input" min="2018-06-14" value="2018-06-14"/>
+                    <br/>
+                    <fieldset id="input-sex" class="form-input">
+                        <input type="radio" value="M" name="input-sex" class="form-input"\>M
+                        <input type="radio" value="F" name="input-sex" class="form-input"\>F
+                    </fieldset>
+                    <br/>
+                    <!-- <div id="g-map-wrapper"></div> -->
+                    <div id="o-map-wrapper" class="form-input"></div>
+                    <label for="fumatore">fumatore</label>
+                    <input type="checkbox" name="fumatore" id="input-fumatore" class="form-input" value="fumatore"\>
+                    <br/>
+                    <label for="erasmus">erasmus</label>
+                    <input type="checkbox" name="erasmus" id="input-erasmus" class="form-input" value="erasmus"\>
+                    <br/>
+                    <label for="animali">animali</label>
+                    <input type="checkbox" name="animali" id="input-animali" class="form-input" value="animali"\>
+                    <br/>
+                    <fieldset id="input-status" class="form-input">
+                        <input type="radio" name="input-status" value="studente" class="form-input"\>studente
+                        <input type="radio" name="input-status" value="lavoratore" class="form-input"\>lavoratore
+                        <input type="radio" name="input-status" value="famiglia" class="form-input"\>famiglia
+                    </fieldset>
                 </form>
-                <!-- <div id="g-map-wrapper"></div> -->
-                <div id="o-map-wrapper"></div>
             </div>
             <br style="clear:both"/>
         </div>
