@@ -22,17 +22,30 @@
             </div>
             <div id="filters">
                 <form id="form-filters">
-                   <!--<input type="checkbox" />tipo annuncio<br />-->
-                    costo<br />
-                    periodo<br />
+                    <!--<input type="checkbox" />tipo annuncio<br />-->
+                    Tipologia annuncio:
+                    <select name="Tipo Annuncio">
+                        <option value="casa" selected="selected">Casa</option>
+                        <option value="stanza">Stanza</option>
+                        <option value="postoLetto">Posto Letto</option>
+                    </select><br /><br />
+                    Costo:  <input type="range"  id="form-input" class="form-filters" name="costo" value="costo" /><br /><br />
+                    <label>
+                        Periodo:<br />
+                        da:<input type="date"  id="form-input" class="form-filters" name="mydatetime">
+                        a:<input type="date"  id="form-input" class="form-filters" name="mydatetime">
+                    </label><br /><br />
+                <!--<input type="reset" value="Resetta il form">
+                    <input type="submit" value="Invia"><br />
+                -->
                     <input type="radio" id="form-input" class="form-filters" name="sex" value="M">Maschio
                     <input type="radio" id="form-imput" class="form-filters" name="sex" value="F">Femmina<br />
-                    <input type="checkbox" id="form-input" class="form-filters" name="fumatore" value="fumatore">fumatore <br/>
+                    <input type="checkbox" id="form-input" class="form-filters" name="fumatore" value="fumatore">fumatore <br />
                     <input type="checkbox" id="form-input" class="form-filters" name="erasmus" value="erasmus">erasmus<br />
                     <input type="checkbox" id="form-input" class="form-filters" name="animali" value="animali">animali<br />
-                    <input type="checkbox" id="form-input" class="form-filters" name="studente" value="studente">studente <br />
-                    <input type="checkbox" id="form-input" class="form-filters" name="lavoratore" value="lavoratore">lavoratore<br />
-                    <input type="checkbox" id="form-input" class="form-filters" name="famiglia" value="famiglia">famiglia<br />
+                    <input type="radio" id="form-input" class="form-filters" name="studente" value="studente">studente
+                    <input type="radio" id="form-input" class="form-filters" name="lavoratore" value="lavoratore">lavoratore
+                    <input type="radio" id="form-input" class="form-filters" name="famiglia" value="famiglia">famiglia
                 </form>
                 <!-- <div id="g-map-wrapper"></div> -->
                 <div id="o-map-wrapper"></div>
