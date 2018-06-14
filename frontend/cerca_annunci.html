@@ -25,7 +25,7 @@
             <div id="filters-container">
                 <form id="form-filters">
                     <label for="tipologia">tipologia</label>
-                    <select name="tipologia" id="input-tipologia" class="form-input">
+                    <select name="tipologia" id="input-tipologia">
                         <option value="stanza">stanza</option>
                         <option value="posto letto">posto letto</option>
                         <option value="casa-affitto">casa - affitto</option>
@@ -33,39 +33,47 @@
                     </select>
                     <br/>
                     <label for="prezzo">prezzo</label>
-                    <select name="prezzo" id="input-prezzo" class="form-input">
-                            <option value="mensile">mensile</option>
-                            <option value="a notte">a notte</option>
-                            <option value="tutto">tutto</option>
+                    <select name="prezzo" id="input-prezzo">
+                        <option value="mensile">mensile</option>
+                        <option value="a notte">a notte</option>
+                        <option value="tutto">tutto</option>
                     </select>
-                    <input type="range" name="prezzo-massimo" id="prezzo-massimo" class="form-input"/>
+                    <input type="number" name="prezzo-massimo" id="prezzo-massimo" min="1" step="any"/> €
                     <br/>
                     <label for="periodo">a partire da</label>
-                    <input type="date" name="periodo" id="input-periodo" class="form-input" min="2018-06-14" value="2018-06-14"/>
+                    <input type="date" name="periodo" id="input-periodo" min="2018-06-14" value="2018-06-14"/>
                     <br/>
-                    <fieldset id="input-sex" class="form-input">
-                        <input type="radio" value="M" name="input-sex" class="form-input"\>M
-                        <input type="radio" value="F" name="input-sex" class="form-input"\>F
+                    <fieldset>
+                        <legend>caratteristiche personali</legend>
+                        <input type="radio" name="input-sex" id="input-m" value="m"\>uomo
+                        <input type="radio" name="input-sex" id="input-f" value="f"\>donna
+                        <hr/>
+                        <label for="fumatore">fumatore</label>
+                        <input type="checkbox" name="fumatore" id="input-fumatore"\>
+                        <label for="erasmus">erasmus</label>
+                        <input type="checkbox" name="erasmus" id="input-erasmus"\>
+                        <label for="animali">animali</label>
+                        <input type="checkbox" name="animali" id="input-animali"\>
+                        <label for="studente">studente</label>
+                        <input type="checkbox" name="studente" id="input-studente"\>
+                        <label for="lavoratore">lavoratore</label>
+                        <input type="checkbox" name="lavoratore" id="input-lavoratore"\>
+                        <label for="famiglia">famiglia</label>
+                        <input type="checkbox" name="famiglia" id="input-famiglia"\>
                     </fieldset>
                     <br/>
-                    <label for="fumatore">fumatore</label>
-                    <input type="checkbox" name="fumatore" id="input-fumatore" class="form-input" value="fumatore"\>
-                    <br/>
-                    <label for="erasmus">erasmus</label>
-                    <input type="checkbox" name="erasmus" id="input-erasmus" class="form-input" value="erasmus"\>
-                    <br/>
-                    <label for="animali">animali</label>
-                    <input type="checkbox" name="animali" id="input-animali" class="form-input" value="animali"\>
-                    <br/>
-                    <fieldset id="input-status" class="form-input">
-                        <input type="radio" name="input-status" value="studente" class="form-input"\>studente
-                        <input type="radio" name="input-status" value="lavoratore" class="form-input"\>lavoratore
-                        <input type="radio" name="input-status" value="famiglia" class="form-input"\>famiglia
-                    </fieldset>
                 </form>
                 <!-- <div id="g-map-wrapper"></div> -->
-                <div id="o-map-wrapper" class="form-input"></div>
+                <div id="o-map-wrapper"></div>
             </div>
+
+
+            <div style="float: right; width: 75%; height: 400px; margin: 50px; border: 1px solid black;"></div>
+            <div style="float: right; width: 75%; height: 400px; margin: 50px; border: 1px solid black;"></div>
+            <div style="float: right; width: 75%; height: 400px; margin: 50px; border: 1px solid black;"></div>
+
+
+
             <br style="clear:both"/>
         </div>
         <footer>
