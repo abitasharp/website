@@ -25,3 +25,11 @@
     border: 1px solid grey;
 }
 
+input.form-input {
+    background-color: white;
+    padding-left: 20px;
+}
+
+input.form-input:focus {
+    border: 1px solid var(--menu_bg_color);
+}
