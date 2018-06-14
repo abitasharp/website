@@ -12,7 +12,7 @@
 }
 
 #form-filters {
-    /*background-color: rgb(134, 172, 172);*/
+    color: var(--footer_color);
     margin: 10px;
     padding: 10px;
     text-align: justify
@@ -29,9 +29,16 @@
     margin-top: 10px;
     font-family:  'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     font-size: 16px;
-    transition: 0.3s;
+    transition: 0.2s;
+}
+
+select.form-input {
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 .form-input:focus {
-    box-shadow: 2px 2px 2px 1px var(--menu_bg_color);
+    box-shadow: 0 0 5px 1px var(--menu_bg_color);
 }
