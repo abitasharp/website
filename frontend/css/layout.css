@@ -42,9 +42,10 @@ footer {
     width: 100%;
     height: var(--menu_height);
     padding: 0;
-    background-color: var(--menu_bg_color);
+    background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 0 2px 2px 1px rgb(190, 190, 190);
     border-bottom: 1px solid rgb(190, 190, 190);
+	position: fixed;
 }
 
 .menu-item {
@@ -74,4 +75,16 @@ footer {
 
 .menu-item#lang {
     float:right
+}
+
+#imgmenu {
+	width:100%;
+	height: 500px;
+	margin-top: var(--menu_height)/2;
+}
+
+.bologna {
+	width: 100%;
+	height: 500px;
+	border-bottom:1px solid gray;
 }

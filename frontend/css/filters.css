@@ -13,6 +13,8 @@
     background-color: var(--filters_bg_color);
     border-right: 1px solid rgb(190, 190, 190);
     border-bottom: 1px solid rgb(190, 190, 190);
+	border-top:1px solid rgb(190, 190, 190);	
+	margin-top: 20px;
 }
 
 #form-filters {
