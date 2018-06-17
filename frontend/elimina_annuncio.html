@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Abita # login</title>
+        <title>Abita # shutter</title>
 
         <meta charset="UTF-8"/>
         <meta name="description" content=""/>
@@ -16,7 +16,6 @@
         <div id="wrapper">
             <div id="menu">
                 <div id="logo" class="menu-item"><img src="img/logo.png" alt="logo" title="Abita sharp" /></div>
-                <div id="signup" class="menu-item"><a href="URL">Registrati</a></div>
                 <!--<div id="lang" class="menu-item">Lang</div>-->
                 <img src="img/italy.png" id="img-lingua" width="30px" height="30px" style="float:right"/>
                 <img src="img/uk.png" id="img-lingua" width="30px" height="30px" style="float:right" />
@@ -25,11 +24,12 @@
 
 
             <form id="container">
-                <div>Accedi</div><br/>
-                <input type="text" name="email" id="input-email" value="email"/><br/>
-                <input type="password" name="password" id="input-password" value="password"/><br/>
+                <div>Elimina Annuncio</div><br/>
+                <input type="text" name="annuncioid" id="input-annuncioid" value="ID Annuncio"/><br/>
+                <textarea id="message" id="input-message" value="Message..." >Message...</textarea><br/>
                 <div></div><br/>
-                <input type="submit" name="submit" id="input-submit" value="Login"/><br/>
+                <input type="submit" name="execute" id="input-submit" value="Execute"/><br/>
+                <input type="submit" name="cancel" id="input-submit" value="Cancel"/><br/>
             </form>
 
 

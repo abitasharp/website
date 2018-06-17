@@ -27,6 +27,7 @@ body {
 }
 
 footer {
+    color: white;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -74,4 +75,11 @@ footer {
 
 .menu-item#lang {
     float:right
+}
+
+/*Link*/
+
+a {
+    color: white;
+    text-decoration: none;
 }
