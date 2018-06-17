@@ -3,7 +3,7 @@
 :root {
     --menu_height: 80px;
     --menu_bg_color: rgb(255, 153, 0);
-    
+    --logo_width: 250px;
     --footer_color: rgb(26, 33, 39);
     --footer_height: 200px;
 }
@@ -60,6 +60,7 @@ footer {
 
 .menu-item#logo {
     height: var(--menu_height);
+    width: var(--logo_width);
     margin: 0;
 }
 
