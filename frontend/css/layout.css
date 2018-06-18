@@ -27,6 +27,7 @@ body {
 }
 
 footer {
+    color: white;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -46,13 +47,14 @@ footer {
     width: 100%;
     height: var(--menu_height);
     padding: 0;
-    background-color: rgba(255, 145, 0, 0.918);
+    background-color: var(--menu_bg_color);
     box-shadow: 0 2px 5px 1px rgb(190, 190, 190);
 }
 
 .menu-item {
     height: calc(var(--menu_height) / 2);
     margin-top: calc(var(--menu_height) / 2);
+    margin-left: 100px;
     float: left;
 
     color: white;
@@ -67,14 +69,13 @@ footer {
     margin: 0;
 }
 
-.menu-item#annunci {
-    margin-left: 100px;
-}
-
-.menu-item#profilo {
-    margin-left: 50px;
-}
-
 .menu-item#lang {
     float:right
+}
+
+/* Links */
+
+a {
+    color: white;
+    text-decoration: none;
 }

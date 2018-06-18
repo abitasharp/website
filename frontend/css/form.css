@@ -1,0 +1,45 @@
+/* Variables */
+
+:root {
+    --container_width: 350px;
+    --container_bg_color: rgb(243, 243, 243);
+}
+
+/* Containers */
+
+#container {
+    margin: auto;
+    margin-top: 200px;
+    width: var(--container_width);
+    background-color: var(--container_bg_color);
+    border: 1px solid rgb(190, 190, 190);
+    text-align: center;
+    padding: 25px;
+}
+
+#container input:hover,
+#container textarea:hover {
+    box-shadow: 0 0 5px 1px var(--menu_bg_color);
+}
+
+/* Interactive input box properties */
+
+#container input {
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid rgb(220, 220, 220);
+    padding: 5px;
+    transition: 0.2s;
+}
+
+/* Textarea */
+
+textarea {
+    resize: none;
+}
+
+textarea#message {
+    height: 150px;
+    width: 240px;
+    margin-top: 10px
+}
