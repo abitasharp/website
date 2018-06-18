@@ -56,12 +56,12 @@ footer {
     margin-top: calc(var(--menu_height) / 2);
     margin-left: 100px;
     float: left;
-
     color: white;
     font-family:  'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
     font-size: 22px;
     text-shadow: 1px 1px rgb(190, 190, 190);
 }
+
 
 .menu-item#logo {
     height: var(--menu_height);
