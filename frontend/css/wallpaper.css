@@ -1,0 +1,11 @@
+#wallpaper-container {
+    display: grid;
+	height: calc(100% - var(--menu_height));
+    overflow: hidden;
+}
+
+#wallpaper {
+	max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
+}
