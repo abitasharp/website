@@ -1,7 +1,7 @@
 {
   "profiles": {
 
-    "Test": {
+    "Abitasharp": {
       "commandName": "Project",       // Kestrel web server
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
