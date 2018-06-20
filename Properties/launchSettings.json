@@ -1,0 +1,13 @@
+{
+  "profiles": {
+
+    "Test": {
+      "commandName": "Project",       // Kestrel web server
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5000/"
+    }
+
+  }
+}

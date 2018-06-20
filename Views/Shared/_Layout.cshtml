@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Abita# @ViewData["Title"]</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/layout.css")" />
+    @RenderSection("css");
+</head>
+<body>
+    <div id="wrapper">
+        <div id="menu">
+            <div id="logo" class="menu-item"><img src="@Url.Content("~/img/logo.png")" alt="logo" title="Abita sharp" /></div>
+            <div class="menu-item">I miei annunci</div>
+            <div class="menu-item">Il mio profilo</div>
+            <div id="lang" class="menu-item">
+                <img src="@Url.Content("~/img/italy.png")" width="30" alt="italiano" height="30" />
+                <img src="@Url.Content("~/img/uk.png")" width="30" alt="inglese" height="30" />
+            </div>
+        </div>
+        
+        @RenderBody()
+
+        <br style="clear:both" />
+    </div>
+    <footer>
+        Footer content
+    </footer>
+</body>
+@RenderSection("script")
+</html>
