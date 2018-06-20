@@ -2,7 +2,7 @@
 
 :root {
     --menu_height: 80px;
-    --menu_bg_color: rgb(255, 153, 0);
+    --menu_bg_color: rgb(255, 153, 0, 0.7);
     --logo_width: 250px;
     --footer_color: rgb(26, 33, 39);
     --footer_height: 200px;
