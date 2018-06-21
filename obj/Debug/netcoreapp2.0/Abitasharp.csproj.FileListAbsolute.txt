@@ -1,0 +1,12 @@
+F:\abitasharp\website\bin\Debug\netcoreapp2.0\Abitasharp.deps.json
+F:\abitasharp\website\bin\Debug\netcoreapp2.0\Abitasharp.runtimeconfig.json
+F:\abitasharp\website\bin\Debug\netcoreapp2.0\Abitasharp.runtimeconfig.dev.json
+F:\abitasharp\website\bin\Debug\netcoreapp2.0\Abitasharp.dll
+F:\abitasharp\website\bin\Debug\netcoreapp2.0\Abitasharp.pdb
+F:\abitasharp\website\obj\Debug\netcoreapp2.0\Abitasharp.csprojAssemblyReference.cache
+F:\abitasharp\website\obj\Debug\netcoreapp2.0\Abitasharp.csproj.CoreCompileInputs.cache
+F:\abitasharp\website\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+F:\abitasharp\website\obj\Debug\netcoreapp2.0\Abitasharp.AssemblyInfoInputs.cache
+F:\abitasharp\website\obj\Debug\netcoreapp2.0\Abitasharp.AssemblyInfo.cs
+F:\abitasharp\website\obj\Debug\netcoreapp2.0\Abitasharp.dll
+F:\abitasharp\website\obj\Debug\netcoreapp2.0\Abitasharp.pdb
