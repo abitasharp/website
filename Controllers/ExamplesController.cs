@@ -21,7 +21,7 @@ namespace Abitasharp.Controllers
         // GET: Examples
         public async Task<IActionResult> Index()
         {
-            return View("EliminaAnnuncio");
+            return View("Login");
         }
 
         // GET: Examples/Details/5

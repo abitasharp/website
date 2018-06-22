@@ -1,20 +1,17 @@
 ﻿@section css{
-    <link type="text/css" rel="stylesheet" href="css/layout.css" />
-    <link type="text/css" rel="stylesheet" href="css/form.css" />
-    <link type="text/css" rel="stylesheet" href="css/ol.css" />
-}
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/form.css")" />
+    }
 
 @section script{
 
 }
 
-        <form id="container">
-            <div>Elimina Annuncio</div><br />
-            <input type="text" name="annuncioid" id="input-annuncioid" value="ID Annuncio" /><br />
-            <textarea id="message" id="input-message" value="Message...">Message...</textarea><br />
-            <div></div><br />
-            <input type="submit" name="execute" id="input-submit" value="Execute" /><br />
-            <input type="submit" name="cancel" id="input-submit" value="Cancel" /><br />
-        </form>
+<form id="container">
+    <div>Elimina Annuncio</div><br />
+    <input type="text" name="annuncioid" id="input-annuncioid" value="ID Annuncio" /><br />
+    <textarea id="message" id="input-message" value="Message...">Message...</textarea><br />
+    <div></div><br />
+    <input type="submit" name="execute" id="input-submit" value="Execute" /><br />
+    <input type="submit" name="cancel" id="input-submit" value="Cancel" /><br />
+</form>
 
-    
