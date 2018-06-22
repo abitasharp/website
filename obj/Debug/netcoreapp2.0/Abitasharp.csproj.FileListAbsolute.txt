@@ -22,3 +22,15 @@ C:\Users\Francesco\Source\Repos\website\obj\Debug\netcoreapp2.0\Abitasharp.Assem
 C:\Users\Francesco\Source\Repos\website\obj\Debug\netcoreapp2.0\Abitasharp.AssemblyInfo.cs
 C:\Users\Francesco\Source\Repos\website\obj\Debug\netcoreapp2.0\Abitasharp.dll
 C:\Users\Francesco\Source\Repos\website\obj\Debug\netcoreapp2.0\Abitasharp.pdb
+C:\Users\IEUser\Source\Repos\website\bin\Debug\netcoreapp2.0\Abitasharp.deps.json
+C:\Users\IEUser\Source\Repos\website\bin\Debug\netcoreapp2.0\Abitasharp.runtimeconfig.json
+C:\Users\IEUser\Source\Repos\website\bin\Debug\netcoreapp2.0\Abitasharp.runtimeconfig.dev.json
+C:\Users\IEUser\Source\Repos\website\bin\Debug\netcoreapp2.0\Abitasharp.dll
+C:\Users\IEUser\Source\Repos\website\bin\Debug\netcoreapp2.0\Abitasharp.pdb
+C:\Users\IEUser\Source\Repos\website\obj\Debug\netcoreapp2.0\Abitasharp.csprojAssemblyReference.cache
+C:\Users\IEUser\Source\Repos\website\obj\Debug\netcoreapp2.0\Abitasharp.csproj.CoreCompileInputs.cache
+C:\Users\IEUser\Source\Repos\website\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\IEUser\Source\Repos\website\obj\Debug\netcoreapp2.0\Abitasharp.AssemblyInfoInputs.cache
+C:\Users\IEUser\Source\Repos\website\obj\Debug\netcoreapp2.0\Abitasharp.AssemblyInfo.cs
+C:\Users\IEUser\Source\Repos\website\obj\Debug\netcoreapp2.0\Abitasharp.dll
+C:\Users\IEUser\Source\Repos\website\obj\Debug\netcoreapp2.0\Abitasharp.pdb
