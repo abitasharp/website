@@ -9,7 +9,7 @@
 
 #container {
     margin: auto;
-    margin-top: 200px;
+    margin-top: calc(var(--menu_height) * 2);
     width: var(--container_width);
     background-color: var(--container_bg_color);
     border: 1px solid rgb(190, 190, 190);
