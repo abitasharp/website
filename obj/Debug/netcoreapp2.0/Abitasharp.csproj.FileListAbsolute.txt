@@ -34,3 +34,15 @@ C:\Users\IEUser\Source\Repos\website\obj\Debug\netcoreapp2.0\Abitasharp.Assembly
 C:\Users\IEUser\Source\Repos\website\obj\Debug\netcoreapp2.0\Abitasharp.AssemblyInfo.cs
 C:\Users\IEUser\Source\Repos\website\obj\Debug\netcoreapp2.0\Abitasharp.dll
 C:\Users\IEUser\Source\Repos\website\obj\Debug\netcoreapp2.0\Abitasharp.pdb
+F:\website\bin\Debug\netcoreapp2.0\Abitasharp.deps.json
+F:\website\bin\Debug\netcoreapp2.0\Abitasharp.runtimeconfig.json
+F:\website\bin\Debug\netcoreapp2.0\Abitasharp.runtimeconfig.dev.json
+F:\website\bin\Debug\netcoreapp2.0\Abitasharp.dll
+F:\website\bin\Debug\netcoreapp2.0\Abitasharp.pdb
+F:\website\obj\Debug\netcoreapp2.0\Abitasharp.csprojAssemblyReference.cache
+F:\website\obj\Debug\netcoreapp2.0\Abitasharp.csproj.CoreCompileInputs.cache
+F:\website\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+F:\website\obj\Debug\netcoreapp2.0\Abitasharp.AssemblyInfoInputs.cache
+F:\website\obj\Debug\netcoreapp2.0\Abitasharp.AssemblyInfo.cs
+F:\website\obj\Debug\netcoreapp2.0\Abitasharp.dll
+F:\website\obj\Debug\netcoreapp2.0\Abitasharp.pdb

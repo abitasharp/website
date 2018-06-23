@@ -1,0 +1,57 @@
+﻿@section css {
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/form.css")" />
+}
+
+@section script {}
+
+    <form id="container" style="width:50%;font-size:0.85em">
+        <h2>Crea Annuncio</h2>
+        <hr /><br />
+
+        <label for="tipologia">Tipologia</label>
+        <select name="tipologia" id="input-tipologia">
+            <option value="casa">Casa</option>
+            <option value="stanza">Stanza</option>
+            <option value="postoLetto">Posto letto</option>
+        </select>
+
+        <label for="pagamento">Pagamento</label>
+        <select name="pagamento" id="input-pagamento">
+            <option value="mensile">mensile</option>
+            <option value="a notte">a notte</option>
+            <option value="tutto">tutto</option>
+        </select>
+        <label for="prezzo">Prezzo</label> <input type="number" name="prezzo" id="input-prezzo" value="" /><br />
+
+        <label for="indirizzo">Indirizzo</label> <input type="text" name="addr" id="input-addr" value="" /><br /><br /><br />
+
+        <span name="disponibilita">Disponibilità</span><br />
+        <label for="da">da:</label><input name="da" type="date" />     <label for="a">a:</label><input name="a" type="date" /><br />
+        <br /><br />
+        <fieldset style="width:50%;margin:auto" >
+            <legend>Caratteristiche affittuario</legend>
+            <input type="checkbox" name="input-sex" id="input-m" value="m" \>uomo
+            <input type="checkbox" name="input-sex" id="input-f" value="f" \>donna
+            <hr />
+            <label for="fumatore">fumatore</label>
+            <input type="checkbox" name="fumatore" id="input-fumatore" \>
+            <label for="erasmus">erasmus</label>
+            <input type="checkbox" name="erasmus" id="input-erasmus" \>
+            <label for="animali">animali</label>
+            <input type="checkbox" name="animali" id="input-animali" \>
+            <label for="studente">studente</label>
+            <input type="checkbox" name="studente" id="input-studente" \>
+            <label for="lavoratore">lavoratore</label>
+            <input type="checkbox" name="lavoratore" id="input-lavoratore" \>
+            <label for="famiglia">famiglia</label>
+            <input type="checkbox" name="famiglia" id="input-famiglia" \>
+        </fieldset>
+        <br /><br />
+
+        <textarea name="note" rows="20" cols="50">Note...</textarea><br />
+
+        <label for="foto">Foto</label> <input name="foto" type="file" accept="image/jpeg,image/x-png" value="Aggiungi foto" /> <br />
+
+        <input name="annulla" type="button" value="Annulla" /> <input name="salva" type="button" value="Salva" /><br />
+        <div></div><br />
+    </form>
