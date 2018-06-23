@@ -1,0 +1,59 @@
+﻿@section css{
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/form.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/registrazione.css")" />
+}
+
+@section script{
+    <script src="@Url.Content("~/script/Registrazione.js")"></script>
+}
+
+    <form id="container">
+        <h2>Registrazione</h2>
+        <hr/>
+            PRIVATO
+            <input type="radio" name="profilo" id="radio-privato" checked="checked" onclick="ShowForm()"/>
+            AZIENDA
+            <input type="radio" name="profilo" id="radio-azienda" onclick="ShowForm()" />
+        <div id="privato">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="input-nome" value="Name" /><br />
+            <label for="cognome">Cognome:</label>
+            <input type="text" name="cognome" id="input-cognome" value="Surname" /><br />
+            <label for="e-mail">E-mail:</label>
+            <input type="text" name="e-mail" id="input-mail" value="E-mail" /><br />
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="input-password" value="Password" /><br />
+            <label for="confpass">Conferma Password:</label>
+            <input type="password" name="confpass" id="input-confpass" value="Confpass" /><br />
+            <label for="telefono">Telefono:</label>
+            <input type="text" name="telefono" id="input-telefono" value="Phone" /><br />
+            <label for="dataNascita">Data di Nascita:</label>
+            <input type="date" name="dataNascita" id="input-dataNascita" value="Birthday" /><br /></br>
+            <label for="notifiche">Abilita Notifiche</label>
+            <input type="checkbox" name="notifiche" id="input-notifica" value="Notify" /><br />
+            <label for="privacy">Accetta il contratto sulla privacy</label>
+            <input type="checkbox" name="privacy" id="input-privacy" value="Privacy" /><br />
+            </br></br>
+        </div>
+
+        <div id="azienda">
+            <label for="nomeAzienda">Nome Azienda:</label>
+            <input type="text" name="nomeAzienda" id="input-nomeAzienda" value="NameAzienda" /><br />
+            <label for="e-mail">E-mail:</label>
+            <input type="text" name="e-mail" id="input-mail" value="E-mail" /><br />
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="input-password" value="Password" /><br />
+            <label for="confpass">Conferma Password:</label>
+            <input type="password" name="confpass" id="input-confpass" value="Confpass" /><br />
+            <label for="telefono">Telefono:</label>
+            <input type="text" name="telefono" id="input-telefono" value="Phone" /><br />
+            <label for="iva">Partita Iva:</label>
+            <input type="text" name="iva" id="input-iva" value="Iva" /><br /></br>
+            <label for="privacy">Accetta il contratto sulla privacy</label>
+            <input type="checkbox" name="privacy" id="input-privacy" value="Privacy" /><br />
+            </br></br>
+        </div>
+        <input type="submit" name="registra" id="input-submit" value="Registra" />
+        <input type="submit" name="annulla" id="input-submit" value="Annulla" /><br />
+
+    </form>
