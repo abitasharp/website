@@ -1,0 +1,21 @@
+﻿#container {
+    font-size: 1em;
+    text-align: left;
+}
+
+#close{   
+    float:right;
+}
+
+.mioannuncio {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    display:inline-block;
+    border-radius: 2px;
+}
+
+#title{
+    text-align:justify;
+}

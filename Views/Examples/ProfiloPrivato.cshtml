@@ -1,0 +1,28 @@
+﻿@section css{
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/form.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/profilo.css")" />
+}
+
+@section script{}
+
+    <form id="container">
+        <h2 id="title">ProfiloPrivato</h2>
+        <hr />
+
+        <div>
+            <div class="section">Nome: <b>Bibbo</b> </div>
+            <div class="section">Cognome: <b>Babbo</b> </div>
+            <div class="section">E-mail: <b>BibboBabbo@gmail.com</b> </div>
+        </div>
+        <ul id="contatti">Contatti:
+            <li><b>1234567819</b></li>
+            <li><b>7896541236</b></li>
+        </ul><br />
+        I miei annunci:<br />
+        <span class="mioannuncio"></span>
+        <span class="mioannuncio"></span>
+        <span class="mioannuncio"></span>
+
+        <input type="submit" name="chiudi" id="close" value="Chiudi" /><br />
+
+    </form>
