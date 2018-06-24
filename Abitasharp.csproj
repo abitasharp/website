@@ -28,4 +28,10 @@
     <None Include="Views\Examples\BannaUtente.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Examples\launchSettings.json">
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

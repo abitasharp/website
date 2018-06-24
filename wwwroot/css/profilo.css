@@ -30,6 +30,10 @@
     border:none;
 }
 
+#container input[type=submit] {
+    float:right;
+}
+
 #mail{
     color:black;
     font-size: 0.8em;

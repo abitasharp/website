@@ -1,0 +1,29 @@
+﻿#container {
+    font-size: 1em;
+}
+
+#container input[type=submit] {
+    margin: 10px;
+}
+
+
+.section{
+    float:left;
+}
+
+#mail {
+    color: black;
+    font-size: 0.8em;
+}
+
+#mail:hover {
+    color: rgb(255, 153, 0);
+}
+
+.phone {
+    color: black;
+}
+
+.phone:hover {
+    color: rgb(255, 153, 0);
+}
