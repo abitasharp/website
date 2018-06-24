@@ -24,8 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Examples\EliminaAnnuncio.cshtml" />
-    <None Include="Views\Examples\BannaUtente.cshtml" />
+    <None Include="Views\DashBoard\EliminaAnnuncio.cshtml" />
+    <None Include="Views\DashBoard\BannaUtente.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\CercaProfilo\" />
   </ItemGroup>
 
 </Project>

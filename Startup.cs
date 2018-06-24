@@ -48,7 +48,7 @@ namespace Abitasharp
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=CercaAnnunci}/{action=Index}/{id?}");
             });
         }
     }
