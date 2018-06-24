@@ -1,28 +1,41 @@
 ﻿@section css{
     <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/form.css")" />
     <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/profilo.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/annunci.css")" />
 }
 
 @section script{}
 
-    <form id="container">
-        <h2 id="title">ProfiloPrivato</h2>
-        <hr />
+<div id="container">
+    <h2 id="title">Profilo Privato</h2>
+    <hr />
 
-        <div>
-            <div class="section">Nome: <b>Bibbo</b> </div>
-            <div class="section">Cognome: <b>Babbo</b> </div>
-            <div class="section">E-mail: <b>BibboBabbo@gmail.com</b> </div>
+    <div>
+        <div class="section">Nome:<input type="text" readonly name="nome" value="Bibbo" /></div>
+        <div class="section">Cognome:<input type="text" name="cognome" value="Babbo" /></div><br />
+
+        <fieldset>
+            <legend>Contatti</legend>
+            E-mail: <a id="mail" href="mailto:bibbobabbo@gmail.com">bibbobabbo@gmail.com</a><br />
+            Telefono: <a class="phone" href="tel:3177594940">317.759.4940</a><br />
+            Telefono: <a class="phone" href="tel:3177594940">317.759.4940</a><br />
+        </fieldset><br />
+    </div>
+</div>
+
+    <div id="annuncio-container">
+        <div class="annuncio-preview">
+            <div class="tipologia">Affitto posto letto in doppia</div>
+            <div class="indirizzo">Via del Borgo di San Pietro 85, Bologna, BO, Italy</div>
+            <div class="prezzo">Affitto mensile: 260.00 €</div>
+            <div class="disponibilità">A partire dal 01/09/2018</div>
+            <div class="note">Bla bla bla</div>
+            <div class="gallery"></div>
         </div>
-        <ul id="contatti">Contatti:
-            <li><b>1234567819</b></li>
-            <li><b>7896541236</b></li>
-        </ul><br />
-        I miei annunci:<br />
-        <span class="mioannuncio"></span>
-        <span class="mioannuncio"></span>
-        <span class="mioannuncio"></span>
+        <div class="annuncio-preview">
+        </div>
+        <div class="annuncio-preview">
+        </div>
+    </div>
 
-        <input type="submit" name="chiudi" id="close" value="Chiudi" /><br />
 
-    </form>

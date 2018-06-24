@@ -3,22 +3,25 @@
     width: 50%;
 }
 
-#report{
+#tab {
     width: 100%;
-    height: 70%;
-    overflow-y: scroll;
+    height: auto;
     background-color: cadetblue;
+    color:whitesmoke;
 }
 
-#ulid{
-    list-style-type:none;
+table {
+    width: 100%;
 }
 
-#ulid>li{
-    display:inline;
-    margin:60px;
+table,th,td{
+    border:1px solid black;
+    text-align:left;
+    border-collapse:collapse;
 }
 
 #close{
     float:right;
 }
+
+

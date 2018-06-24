@@ -1,6 +1,6 @@
 ﻿@section css {
     <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/form.css")" />
-    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/segnalazioni.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/log.css")" />
 }
 
 @section script {}
@@ -9,17 +9,29 @@
         <h2>Segnalazioni</h2>
         <hr /><br />
 
-        <div id="report">
-            <ul id="ulid">
-                <li>Data</li>
-                <li>Ora</li>
-                <li>Annuncio</li>
-                <li>Utente</li>
-                <li>Messaggio</li>
-            </ul>
-            <hr /><br /><br />
-        </div>
-        <br /><br />
+        <div id="tab">
+            <table id="segn">
+                <tr>
+                    <th>Data</th>
+                    <th>Ora</th>
+                    <th>Annuncio</th>
+                    <th>Utente</th>
+                    <th>Messaggio</th>
+                </tr>
+                <tr>
+                    <td class="datiSeg">04/12/5555</td>
+                    <td class="datiSeg">12:52</td>
+                    <td class="datiSeg">Ciaoasfsdagfggawrfsads</td>
+                    <td class="datiSeg">0938147duashid093</td>
+                    <td class="datiSeg" style="max-width:200px">
+                        <div style="overflow-x:scroll;  white-space:nowrap;">
+                            zoooooooooooo oooooooooooo oooooooooooo oooooooooooo oooooooooooo ooooooooooooi!
+                        </div>
+                    
+                    </td>
+                </tr>
+            </table>
+        </div><br />
 
         <input type="submit" name="chiudi" id="close" value="Chiudi" /><br />
 

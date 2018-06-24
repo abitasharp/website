@@ -1,27 +1,42 @@
 ﻿@section css{
     <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/form.css")" />
     <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/profilo.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/annunci.css")" />
 }
 
 @section script{}
 
-    <form id="container">
-        <h2 id="title">ProfiloAzienda</h2>
+    <div id="container">
+        <h2 id="title">Profilo Azienda</h2>
         <hr />
 
         <div>
-            <div class="section">Nome: <b>TempoCasa</b> </div>
-            <div class="section">E-mail: <b>tempocasa@gmail.com</b> </div>
-            <ul id="contatti">Contatti:
-                <li><b>1234567819</b></li>
-                <li><b>7896541236</b></li>
-            </ul><br />
-       </div>
-        I miei annunci:<br />
-        <span class="mioannuncio"></span>
-        <span class="mioannuncio"></span>
-        <span class="mioannuncio"></span>
-       
-        <input type="submit" name="chiudi" id="close" value="Chiudi" /><br />
-        
-    </form>
+            <div class="section">Nome Azienda:<input type="text" readonly name="nome" value="Tempo Casa" /></div>
+            <div class="section">Partita Iva:<input type="text" readonly name="iva" value="partitaiva" /></div>
+            <br />
+
+            <fieldset>
+                <legend>Contatti</legend>
+                E-mail: <a id="mail" href="mailto:tempocasa@gmail.com">tempocasa@gmail.com</a><br />
+                Telefono: <a class="phone" href="tel:3177594940">317.759.4940</a><br />
+                Telefono: <a class="phone" href="tel:3177594940">317.759.4940</a><br />
+            </fieldset><br />
+        </div>
+    </div>
+
+        <div id="annuncio-container">
+            <div class="annuncio-preview">
+                <div class="tipologia">Affitto posto letto in doppia</div>
+                <div class="indirizzo">Via del Borgo di San Pietro 85, Bologna, BO, Italy</div>
+                <div class="prezzo">Affitto mensile: 260.00 €</div>
+                <div class="disponibilità">A partire dal 01/09/2018</div>
+                <div class="note">Bla bla bla</div>
+                <div class="gallery"></div>
+            </div>
+            <div class="annuncio-preview">
+            </div>
+            <div class="annuncio-preview">
+            </div>
+        </div>
+
+    </div>
