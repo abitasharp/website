@@ -9,11 +9,11 @@ using Abitasharp.Models;
 
 namespace Abitasharp.Controllers
 {
-    public class ExamplesController : Controller
+    public class GestioneAnnunciController : Controller
     {
         private readonly ExampleContext _context;
 
-        public ExamplesController(ExampleContext context)
+        public GestioneAnnunciController(ExampleContext context)
         {
             _context = context;
         }
@@ -21,36 +21,24 @@ namespace Abitasharp.Controllers
         // GET: Examples
         public async Task<IActionResult> Index()
         {
-            return View("ModificaProfiloAzienda");
+            return View("GestioneAnnunci");
         }
 
-        // GET: Examples/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var example = await _context.Example
-                .SingleOrDefaultAsync(m => m.ID == id);
-            if (example == null)
-            {
-                return NotFound();
-            }
-
-            return View(example);
-        }
 
         // GET: Examples/Create
-        public async Task<IActionResult> Create(int ID, string testo)
+        public async Task<IActionResult> Crea()
         {
-            Example example = new Example();
-            example.ID = ID;
-            example.Testo = testo;
-            _context.Add(example);
-            await _context.SaveChangesAsync();
-            return View("CercaAnnunci");
+            return View("EditAnnuncio");
+        }
+
+        public async Task<IActionResult> Modifica()
+        {
+            return View("EditAnnuncio");
+        }
+
+        public async Task<IActionResult> Chiudi()
+        {
+            return View("ChiudiAnnuncio");
         }
 
         // POST: Examples/Create
