@@ -3,7 +3,25 @@
     --preview_height: 300px;
 }
 
+#annuncio-container {
+    float: right;
+    width: var(--container_width);
+    margin: 30px;
+}
 
+
+
+.annuncio-preview {
+    width: 100%;
+    height: var(--preview_height);
+    margin: auto;
+    margin-bottom: 30px;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+    font-size: 0.9em;
+}
 
 #annuncio {
     width: 90%;
