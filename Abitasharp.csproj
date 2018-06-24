@@ -32,4 +32,10 @@
     <Folder Include="Views\CercaProfilo\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Examples\launchSettings.json">
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

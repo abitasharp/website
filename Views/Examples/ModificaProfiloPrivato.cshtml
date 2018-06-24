@@ -1,0 +1,36 @@
+﻿@section css{
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/form.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/modificaProfilo.css")" />
+}
+
+@section script{
+    <script src="@Url.Content("~/script/modificaProfilo.js")"></script>
+}
+
+    <div id="container">
+        <h2 id="title">Modifica Profilo</h2>
+        <hr />
+
+        <div>
+            <form>
+            <div class="section">Nome:<input type="text" name="nome" value="Bibbo" onchange="ShowButton()" /></div>
+            <div class="section">Cognome:<input type="text" name="cognome" value="Babbo" onchange="ShowButton()" /></div>
+            <div class="section">Password:<input type="password" name="password" value="" onchange="ShowButton()" /></div>
+            <div class="section">Conferma Password:<input type="password" name="confPass" value="" onchange="ShowButton()"/></div><br />
+            </form>
+            <fieldset>
+                <legend>Contatti</legend>
+                E-mail: <a id="mail" href="mailto:bibbobabbo@gmail.com">bibbobabbo@gmail.com</a><br />
+                Telefono: <a class="phone" href="tel:3177594940">317.759.4940</a><br />
+                Telefono: <a class="phone" href="tel:3177594940">317.759.4940</a><br />
+            </fieldset><br />
+        </div>
+
+        <input id="applica" type="submit" name="cancel" value="Applica"  style="display:none; background-color:rgb(255, 153, 0);" />
+        <input type="submit" name="cancel" id="input-submit" value="Annulla"/><br />
+    </div>
+
+
+
+
+
