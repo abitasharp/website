@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Controllers.Interfacce
 {
-    interface ICreaAnnuncio
+    public interface ICreaAnnuncio
     {
         IActionResult show();
         IActionResult crea();

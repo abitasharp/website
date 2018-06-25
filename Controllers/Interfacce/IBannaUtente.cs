@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Controllers.Interfacce
 {
-    interface IBannaUtente
+    public interface IBannaUtente
     {
         IActionResult show();
 

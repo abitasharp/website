@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Controllers.Interfacce
 {
-    interface IChiudiAnnuncio
+    public interface IChiudiAnnuncio
     {
         IActionResult show();
         IActionResult chiudiAnnuncio();

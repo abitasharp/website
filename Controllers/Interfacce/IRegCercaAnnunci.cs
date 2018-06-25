@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Controllers.Interfacce
 {
-    interface IRegCercaAnnunci : ICercaAnnunci
+    public interface IRegCercaAnnunci : ICercaAnnunci
     {
 
         void segnala();

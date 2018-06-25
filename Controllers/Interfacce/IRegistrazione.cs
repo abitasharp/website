@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Controllers.Interfacce
 {
-    interface IRegistrazione
+    public interface IRegistrazione
     {
         IActionResult registra();
         IActionResult show();

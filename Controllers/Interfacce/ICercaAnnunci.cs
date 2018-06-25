@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Controllers.Interfacce
 {
-    interface ICercaAnnunci
+    public interface ICercaAnnunci
     {
         IActionResult show();
         IActionResult visualizza();

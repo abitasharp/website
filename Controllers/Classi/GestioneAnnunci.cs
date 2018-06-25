@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Controllers.Classi
 {
-    public class GestioneAnnunci : IGestioneAnnunci
+    public class GestioneAnnunci : Controller, IGestioneAnnunci
     {
         public IActionResult show()
         {
-            throw new NotImplementedException();
+            return View("Views/GestioneAnnunci/GestioneAnnunci.cshtml");
         }
     }
 }

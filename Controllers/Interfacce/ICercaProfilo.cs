@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Controllers.Interfacce
 {
-    interface ICercaProfilo
+    public interface ICercaProfilo
     {
         IActionResult show();
 

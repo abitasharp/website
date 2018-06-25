@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Controllers.Interfacce
 {
-    interface IModificaAnnuncio
+    public interface IModificaAnnuncio
     {
         IActionResult show();
         IActionResult modificaAnnuncio();
