@@ -22,8 +22,7 @@ namespace Abitasharp.Controllers
 
         public AccountController(ILogin login, IRegistrazione registrazione,
             //UserManager<Utente> userManager, SignInManager<Utente> signInManager,
-            ILogger<AccountController> logger
-            )
+            ILogger<AccountController> logger)
         {
             _login = login;
             _registrazione = registrazione;

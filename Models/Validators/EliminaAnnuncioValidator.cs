@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Models.Validators
 {
-    public class LoginValidator
+    public class EliminaAnnuncioValidator
     {
         [Required]
-        [StringLength(254)]
-        public string Email { get; set; }
+        [StringLength(40)]
+        public string AnnuncioId { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Password { get; set; }
+        [StringLength(1000)]
+        public string Messaggio { get; set; }
     }
 }
