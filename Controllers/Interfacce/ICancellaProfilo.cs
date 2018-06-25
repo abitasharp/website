@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Controllers.Interfacce
 {
-    interface ICancellaProfilo
+    public interface ICancellaProfilo
     {
         IActionResult show();
         IActionResult cancella();
