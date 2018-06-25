@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Models
 {
-    public class Example
+    public class Admin : Utente 
     {
-        public int ID { get; set; }
-        public string Testo { get; set; }
+
     }
 }

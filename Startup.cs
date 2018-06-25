@@ -27,7 +27,7 @@ namespace Abitasharp
         {
             services.AddMvc();
 
-            services.AddDbContext<ExampleContext>(options =>
+            services.AddDbContext<ApplicationContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             _registerControllers(services);
