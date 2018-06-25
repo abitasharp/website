@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Abitasharp.Controllers.Interfacce;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Abitasharp.Controllers
 {
     public class CercaProfiloController : Controller
     {
-        public IActionResult Index()
-        {
-            return View("CercaProfilo");
-        }
+        private readonly ICercaProfilo _cercaProfilo;
 
-        public IActionResult Visualizza()
+        public CercaProfiloController(ICercaProfilo cercaProfilo)
         {
-            return View("Views/GestioneProfilo/ProfiloPrivato");
+            _cercaProfilo = cercaProfilo;
         }
+        public IActionResult Index() => _cercaProfilo.show();
+
+        public IActionResult Visualizza() => _cercaProfilo.visualizza();
     }
 }

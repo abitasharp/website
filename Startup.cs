@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Abitasharp.Models;
 using Abitasharp.Controllers.Interfacce;
 using Abitasharp.Controllers.Classi;
+using Microsoft.Extensions.Logging;
 
 namespace Abitasharp
 {
@@ -34,7 +35,7 @@ namespace Abitasharp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -54,6 +55,8 @@ namespace Abitasharp
                     name: "default",
                     template: "{controller=CercaAnnunci}/{action=Index}/{id?}");
             });
+
+            
         }
 
         private void _registerControllers(IServiceCollection services)

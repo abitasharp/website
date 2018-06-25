@@ -9,14 +9,16 @@ namespace Abitasharp.Controllers.Classi
 {
     public class CreaAnnuncio : ICreaAnnuncio
     {
-        public IActionResult crea()
-        {
-            throw new NotImplementedException();
-        }
 
         public IActionResult show()
         {
             throw new NotImplementedException();
         }
+
+        public IActionResult crea()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

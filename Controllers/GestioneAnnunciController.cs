@@ -13,42 +13,38 @@ namespace Abitasharp.Controllers
     public class GestioneAnnunciController : Controller
     {
         private readonly IGestioneAnnunci _gestioneAnnunci;
+        private readonly ICreaAnnuncio _creaAnnuncio;
+        private readonly IModificaAnnuncio _modificaAnnuncio;
+        private readonly IChiudiAnnuncio _chiudiAnnuncio;
 
-        public GestioneAnnunciController(IGestioneAnnunci gestioneAnnunci)
+        public GestioneAnnunciController(IGestioneAnnunci gestioneAnnunci, ICreaAnnuncio creaAnnuncio, IModificaAnnuncio modificaAnnuncio, IChiudiAnnuncio chiudiAnnuncio)
         {
             _gestioneAnnunci = gestioneAnnunci;
         }
 
-        // GET: Examples
+
         public async Task<IActionResult> Index() => _gestioneAnnunci.show();
 
 
 
-        // GET: Examples/Create
-        public async Task<IActionResult> Crea()
-        {
-            return View("EditAnnuncio");
-        }
+        [HttpGet]
+        public IActionResult Crea() => _creaAnnuncio.show();
 
-        public async Task<IActionResult> Modifica()
-        {
-            return View("EditAnnuncio");
-        }
+        [HttpGet]
+        public IActionResult Modifica() => _modificaAnnuncio.show();
 
-        public async Task<IActionResult> Chiudi()
-        {
-            return View("ChiudiAnnuncio");
-        }
+        [HttpGet]
+        public IActionResult Chiudi() => _chiudiAnnuncio.show();
 
-        
 
-       
 
-        
 
-        
 
-        
+
+
+
+
+
     }
 }
 

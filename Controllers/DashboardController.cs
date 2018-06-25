@@ -2,35 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Abitasharp.Controllers.Interfacce;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Abitasharp.Controllers
 {
     public class DashboardController : Controller
     {
-        public IActionResult Index()
-        {
-            return View("Dashboard");
-        }
+        private readonly IAmministraPiattaforma _dashboard;
+        private readonly IEliminaAnnuncio _eliminaAnnuncio;
+        private readonly IBannaUtente _bannaUtente;
 
-        public IActionResult EliminaAnnuncio()
+        public DashboardController(IAmministraPiattaforma dashboard, IEliminaAnnuncio eliminaAnnuncio, IBannaUtente bannaUtente)
         {
-            return View("EliminaAnnuncio");
+            _dashboard = dashboard;
+            _eliminaAnnuncio = eliminaAnnuncio;
+            _bannaUtente = bannaUtente;
         }
+        public IActionResult Index() => _dashboard.show();
 
-        public IActionResult BannaUtente()
-        {
-            return View("BannaUtente");
-        }
+        public IActionResult EliminaAnnuncio() => _eliminaAnnuncio.show();
 
-        public IActionResult Log()
-        {
-            return View("Log");
-        }
+        public IActionResult BannaUtente() => _bannaUtente.show();
 
-        public IActionResult Segnalazioni()
-        {
-            return View("Segnalazioni");
-        }
+        public IActionResult Log() => _dashboard.showLog();
+
+        public IActionResult Segnalazioni() => _dashboard.showSegnalazioni();
     }
 }
