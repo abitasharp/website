@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Abitasharp.Controllers.Interfacce;
+using Abitasharp.Controllers.Ricerca;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Abitasharp.Controllers
@@ -10,13 +10,23 @@ namespace Abitasharp.Controllers
     public class CercaAnnunciController : Controller
     {
         private readonly ICercaAnnunci _cercaAnnunci;
+        private readonly IRegCercaAnnunci _regCercaAnnunci;
 
-        public CercaAnnunciController(ICercaAnnunci cercaAnnunci)
+        public CercaAnnunciController(ICercaAnnunci cercaAnnunci, IRegCercaAnnunci regCercaAnnunci)
         {
             _cercaAnnunci = cercaAnnunci;
+            _regCercaAnnunci = regCercaAnnunci;
         }
-        public IActionResult Index() => _cercaAnnunci.show();
+        public IActionResult Index()
+        {
+            if(true)
+                return _cercaAnnunci.show();
+        }
 
-        public IActionResult Visualizza() => _cercaAnnunci.visualizza();
+        public IActionResult Visualizza()
+        {
+            if (true)
+                return _cercaAnnunci.visualizza();
+        }
     }
 }

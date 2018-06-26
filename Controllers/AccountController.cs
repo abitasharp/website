@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Abitasharp.Controllers.Interfacce;
+using Abitasharp.Controllers.Account;
 using Abitasharp.Models;
 using Abitasharp.Models.Validators;
 using Microsoft.AspNetCore.Identity;
@@ -51,6 +51,6 @@ namespace Abitasharp.Controllers
         public async Task<IActionResult> Login(LoginValidator data) { return await _login.login(data); }
 
         [HttpPost]
-        public IActionResult Registrazione(Object obj) => _registrazione.show();
+        public async Task<IActionResult> Registrazione(RegistrazioneValidator data) { return await _registrazione.registra(data); }
     }
 }

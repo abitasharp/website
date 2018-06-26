@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Abitasharp.Controllers.Interfacce;
+using Abitasharp.Controllers.GestioneProfilo;
+using Abitasharp.Models.Validators;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Abitasharp.Controllers
@@ -11,15 +12,26 @@ namespace Abitasharp.Controllers
     {
         private readonly IGestioneProfilo _gestioneProfilo;
         private readonly ICancellaProfilo _cancellaProfilo;
+        private readonly IModificaInfo _modificaInfo;
 
-        public GestioneProfiloController(IGestioneProfilo gestioneProfilo, ICancellaProfilo cancellaProfilo)
+        public GestioneProfiloController(IGestioneProfilo gestioneProfilo, ICancellaProfilo cancellaProfilo, IModificaInfo modificaInfo)
         {
             _gestioneProfilo = gestioneProfilo;
             _cancellaProfilo = cancellaProfilo;
+            _modificaInfo = modificaInfo;
         }
 
+
+        [HttpGet]
         public IActionResult Index() => _gestioneProfilo.show();
 
-        public IActionResult Elimina() => _cancellaProfilo.show();
+
+        [HttpPost]
+        public async Task<IActionResult> modificaInfo(ModificaInfoProfiloValidator data) {
+            if (true)
+                return await _modificaInfo.modificaInfoPrivato(data);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Cancella(CancellaProfiloValidator data) { return await _cancellaProfilo.cancella(data); }
     }
 }

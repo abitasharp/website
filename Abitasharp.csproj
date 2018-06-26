@@ -24,18 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\DashBoard\EliminaAnnuncio.cshtml" />
-    <None Include="Views\DashBoard\BannaUtente.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\CercaProfilo\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Views\Examples\launchSettings.json">
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-    </Content>
+    <None Include="Views\Amministrazione\EliminaAnnuncio.cshtml" />
+    <None Include="Views\Amministrazione\BannaUtente.cshtml" />
   </ItemGroup>
 
 </Project>

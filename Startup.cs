@@ -8,9 +8,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Abitasharp.Models;
-using Abitasharp.Controllers.Interfacce;
-using Abitasharp.Controllers.Classi;
 using Microsoft.Extensions.Logging;
+using Abitasharp.Controllers.Amministrazione;
+using Abitasharp.Controllers.GestioneProfilo;
+using Abitasharp.Controllers.Ricerca;
+using Abitasharp.Controllers.GestioneAnnunci;
+using Abitasharp.Controllers.Account;
 
 namespace Abitasharp
 {

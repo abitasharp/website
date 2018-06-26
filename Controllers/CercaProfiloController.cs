@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Abitasharp.Controllers.Interfacce;
+using Abitasharp.Controllers.Ricerca;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Abitasharp.Controllers

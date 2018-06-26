@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Abitasharp.Controllers.Interfacce;
+using Abitasharp.Controllers.Amministrazione;
+using Abitasharp.Models.Validators;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Abitasharp.Controllers
@@ -19,14 +20,28 @@ namespace Abitasharp.Controllers
             _eliminaAnnuncio = eliminaAnnuncio;
             _bannaUtente = bannaUtente;
         }
+
+        [HttpGet]
         public IActionResult Index() => _dashboard.show();
 
+        [HttpGet]
         public IActionResult EliminaAnnuncio() => _eliminaAnnuncio.show();
 
+        [HttpGet]
         public IActionResult BannaUtente() => _bannaUtente.show();
 
+        [HttpGet]
         public IActionResult Log() => _dashboard.showLog();
 
+        [HttpGet]
         public IActionResult Segnalazioni() => _dashboard.showSegnalazioni();
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> EliminaAnnuncio(EliminaAnnuncioValidator data) { return await _eliminaAnnuncio.elimina(data); }
+
+        [HttpPost]
+        public async Task<IActionResult> BannaUtente(BannaUtenteValidator data) { return await _bannaUtente.ban(data); }
     }
 }

@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Abitasharp.Models;
-using Abitasharp.Controllers.Interfacce;
+using Abitasharp.Models.Validators;
+using Abitasharp.Controllers.GestioneAnnunci;
 
 namespace Abitasharp.Controllers
 {
@@ -23,7 +24,7 @@ namespace Abitasharp.Controllers
         }
 
 
-        public async Task<IActionResult> Index() => _gestioneAnnunci.show();
+        public IActionResult Index() => _gestioneAnnunci.show();
 
 
 
@@ -35,6 +36,18 @@ namespace Abitasharp.Controllers
 
         [HttpGet]
         public IActionResult Chiudi() => _chiudiAnnuncio.show();
+
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> Crea(CreaAnnuncioValidator data) { return await _creaAnnuncio.crea(data); }
+
+        [HttpPost]
+        public async Task<IActionResult> Modifica(ModificaAnnuncioValidator data) { return await _modificaAnnuncio.modificaAnnuncio(data); }
+
+        [HttpPost]
+        public async Task<IActionResult> Chiudi(String id) { return await _chiudiAnnuncio.chiudiAnnuncio(id); }
 
 
 
