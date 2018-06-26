@@ -25,5 +25,10 @@ namespace Abitasharp.Models
 
         public virtual ProfiloPrivato ProfiloPrivato { get; set; }
 
+        public CaratteristicheUtente()
+        {
+            ProfiloPrivato = new ProfiloPrivato();
+        }
+
     }
 }

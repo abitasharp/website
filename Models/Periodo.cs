@@ -16,5 +16,10 @@ namespace Abitasharp.Models
         public DateTime A { get; set; }
 
         public virtual Annuncio Annuncio { get; set; }
+
+        public Periodo()
+        {
+            Annuncio = new Annuncio();
+        }
     }
 }

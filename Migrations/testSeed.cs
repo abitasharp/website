@@ -4,10 +4,24 @@ using System.Collections.Generic;
 
 namespace Abitasharp.Migrations
 {
-    public partial class initial : Migration
+    public partial class testSeed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Posizioni",
+                columns: table => new
+                {
+                    PosizioneId = table.Column<string>(type: "text", nullable: false),
+                    Indirizzo = table.Column<string>(type: "text", nullable: true),
+                    Lat = table.Column<float>(type: "float4", nullable: false),
+                    Long = table.Column<float>(type: "float4", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Posizioni", x => x.PosizioneId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Ruoli",
                 columns: table => new
@@ -117,6 +131,7 @@ namespace Abitasharp.Migrations
                 {
                     ID = table.Column<string>(type: "text", nullable: false),
                     CaratteristicheUtenteID = table.Column<string>(type: "text", nullable: true),
+                    IndirizzoPosizioneId = table.Column<string>(type: "text", nullable: true),
                     Note = table.Column<string>(type: "text", nullable: true),
                     UtenteRegolareID = table.Column<string>(type: "text", nullable: true),
                     UtenteRegolareID1 = table.Column<string>(type: "text", nullable: true)
@@ -129,6 +144,12 @@ namespace Abitasharp.Migrations
                         column: x => x.CaratteristicheUtenteID,
                         principalTable: "CaratteristicheUtente",
                         principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Annunci_Posizioni_IndirizzoPosizioneId",
+                        column: x => x.IndirizzoPosizioneId,
+                        principalTable: "Posizioni",
+                        principalColumn: "PosizioneId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Annunci_Utenti_UtenteRegolareID",
@@ -160,27 +181,6 @@ namespace Abitasharp.Migrations
                         principalTable: "Annunci",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Indirizzi",
-                columns: table => new
-                {
-                    IndirizzoId = table.Column<string>(type: "text", nullable: false),
-                    Civico = table.Column<string>(type: "text", nullable: true),
-                    Coordinate = table.Column<double[]>(type: "float8[]", nullable: true),
-                    Interno = table.Column<string>(type: "text", nullable: true),
-                    Via = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Indirizzi", x => x.IndirizzoId);
-                    table.ForeignKey(
-                        name: "FK_Indirizzi_Annunci_IndirizzoId",
-                        column: x => x.IndirizzoId,
-                        principalTable: "Annunci",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -273,6 +273,11 @@ namespace Abitasharp.Migrations
                 column: "CaratteristicheUtenteID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Annunci_IndirizzoPosizioneId",
+                table: "Annunci",
+                column: "IndirizzoPosizioneId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Annunci_UtenteRegolareID",
                 table: "Annunci",
                 column: "UtenteRegolareID");
@@ -314,9 +319,6 @@ namespace Abitasharp.Migrations
                 name: "Foto");
 
             migrationBuilder.DropTable(
-                name: "Indirizzi");
-
-            migrationBuilder.DropTable(
                 name: "Periodo");
 
             migrationBuilder.DropTable(
@@ -342,6 +344,9 @@ namespace Abitasharp.Migrations
 
             migrationBuilder.DropTable(
                 name: "CaratteristicheUtente");
+
+            migrationBuilder.DropTable(
+                name: "Posizioni");
 
             migrationBuilder.DropTable(
                 name: "Utenti");

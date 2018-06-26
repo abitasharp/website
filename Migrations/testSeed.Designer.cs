@@ -12,8 +12,8 @@ using System;
 namespace Abitasharp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20180625161504_initial")]
-    partial class initial
+    [Migration("20180626181623_testSeed")]
+    partial class testSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,6 +29,8 @@ namespace Abitasharp.Migrations
 
                     b.Property<string>("CaratteristicheUtenteID");
 
+                    b.Property<string>("IndirizzoPosizioneId");
+
                     b.Property<string>("Note");
 
                     b.Property<string>("UtenteRegolareID");
@@ -38,6 +40,8 @@ namespace Abitasharp.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("CaratteristicheUtenteID");
+
+                    b.HasIndex("IndirizzoPosizioneId");
 
                     b.HasIndex("UtenteRegolareID");
 
@@ -83,23 +87,6 @@ namespace Abitasharp.Migrations
                     b.ToTable("Foto");
                 });
 
-            modelBuilder.Entity("Abitasharp.Models.Indirizzo", b =>
-                {
-                    b.Property<string>("IndirizzoId");
-
-                    b.Property<string>("Civico");
-
-                    b.Property<double[]>("Coordinate");
-
-                    b.Property<string>("Interno");
-
-                    b.Property<string>("Via");
-
-                    b.HasKey("IndirizzoId");
-
-                    b.ToTable("Indirizzi");
-                });
-
             modelBuilder.Entity("Abitasharp.Models.Periodo", b =>
                 {
                     b.Property<string>("PeriodoId");
@@ -111,6 +98,22 @@ namespace Abitasharp.Migrations
                     b.HasKey("PeriodoId");
 
                     b.ToTable("Periodo");
+                });
+
+            modelBuilder.Entity("Abitasharp.Models.Posizione", b =>
+                {
+                    b.Property<string>("PosizioneId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Indirizzo");
+
+                    b.Property<float>("Lat");
+
+                    b.Property<float>("Long");
+
+                    b.HasKey("PosizioneId");
+
+                    b.ToTable("Posizioni");
                 });
 
             modelBuilder.Entity("Abitasharp.Models.Prezzo", b =>
@@ -287,6 +290,10 @@ namespace Abitasharp.Migrations
                         .WithMany()
                         .HasForeignKey("CaratteristicheUtenteID");
 
+                    b.HasOne("Abitasharp.Models.Posizione", "Indirizzo")
+                        .WithMany()
+                        .HasForeignKey("IndirizzoPosizioneId");
+
                     b.HasOne("Abitasharp.Models.UtenteRegolare")
                         .WithMany("ListaAnnunci")
                         .HasForeignKey("UtenteRegolareID");
@@ -311,14 +318,6 @@ namespace Abitasharp.Migrations
                         .HasForeignKey("AnnuncioID");
                 });
 
-            modelBuilder.Entity("Abitasharp.Models.Indirizzo", b =>
-                {
-                    b.HasOne("Abitasharp.Models.Annuncio", "Annuncio")
-                        .WithOne("Indirizzo")
-                        .HasForeignKey("Abitasharp.Models.Indirizzo", "IndirizzoId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("Abitasharp.Models.Periodo", b =>
                 {
                     b.HasOne("Abitasharp.Models.Annuncio", "Annuncio")
@@ -338,8 +337,8 @@ namespace Abitasharp.Migrations
             modelBuilder.Entity("Abitasharp.Models.Recapiti", b =>
                 {
                     b.HasOne("Abitasharp.Models.UtenteRegolare", "UtenteRegolare")
-                        .WithMany("ListaRecapiti")
-                        .HasForeignKey("RecapitiId")
+                        .WithOne("Recapiti")
+                        .HasForeignKey("Abitasharp.Models.Recapiti", "RecapitiId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

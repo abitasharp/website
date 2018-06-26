@@ -10,7 +10,7 @@ namespace Abitasharp.Models
     public class Posizione
     {
         [ForeignKey("Annuncio")]
-        public string IndirizzoId { get; set; }
+        public string PosizioneId { get; set; }
 
         public string Indirizzo { get; set; }
 

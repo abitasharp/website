@@ -8,5 +8,10 @@ namespace Abitasharp.Models
     public class Log
     {
         public ICollection<Entry> Entries { get; set; }
+
+        public Log()
+        {
+            Entries = new List<Entry>();
+        }
     }
 }

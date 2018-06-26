@@ -25,5 +25,10 @@ namespace Abitasharp.Models
         public string Tel3 { get; set; }
 
         public virtual UtenteRegolare UtenteRegolare { get; set; }
+
+        public Recapiti()
+        {
+            UtenteRegolare = new UtenteRegolare();
+        }
     }
 }

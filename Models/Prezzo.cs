@@ -17,5 +17,10 @@ namespace Abitasharp.Models
         public double Valore { get; set; }
 
         public virtual Annuncio Annuncio { get; set; }
+
+        public Prezzo()
+        {
+            Annuncio = new Annuncio();
+        }
     }
 }

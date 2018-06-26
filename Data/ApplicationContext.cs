@@ -22,7 +22,7 @@ namespace Abitasharp.Models
 
         public DbSet<Foto> Foto { get; set; }
 
-        public DbSet<Indirizzo> Indirizzi { get; set; }
+        public DbSet<Posizione> Posizioni { get; set; }
 
         public DbSet<Periodo> Periodo{ get; set; }
 

@@ -21,6 +21,9 @@ namespace Abitasharp.Controllers
         public GestioneAnnunciController(IGestioneAnnunci gestioneAnnunci, ICreaAnnuncio creaAnnuncio, IModificaAnnuncio modificaAnnuncio, IChiudiAnnuncio chiudiAnnuncio)
         {
             _gestioneAnnunci = gestioneAnnunci;
+            _creaAnnuncio = creaAnnuncio;
+            _modificaAnnuncio = modificaAnnuncio;
+            _chiudiAnnuncio = chiudiAnnuncio;
         }
 
 

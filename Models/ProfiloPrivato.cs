@@ -15,6 +15,11 @@ namespace Abitasharp.Models
 
         public CaratteristicheUtente CaratteristicheUtente { get; set; }
 
+        public ProfiloPrivato()
+        {
+            CaratteristicheUtente = new CaratteristicheUtente();
+        }
+
     }
 
 }
