@@ -12,7 +12,7 @@ namespace Abitasharp.Models.Validators
         [StringLength(40)]
         public string AnnuncioId { get; set; }
 
-        [Required]
+        
         [StringLength(1000)]
         public string Messaggio { get; set; }
     }

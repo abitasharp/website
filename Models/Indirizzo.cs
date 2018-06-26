@@ -7,19 +7,15 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Models
 {
-    public class Indirizzo
+    public class Posizione
     {
         [ForeignKey("Annuncio")]
         public string IndirizzoId { get; set; }
 
-        public double[] Coordinate { get; set; }
+        public string Indirizzo { get; set; }
 
-        public string Via { get; set; }
+        public float Lat { get; set; }
 
-        public string Civico { get; set; }
-
-        public string Interno { get; set; }
-
-        public virtual Annuncio Annuncio { get; set; }
+        public float Long { get; set; }
     }
 }

@@ -9,19 +9,19 @@ namespace Abitasharp.Models
     {
         public string ID { get; set; }
 
-        public Boolean? Genere { get; set; }
+        public bool? Genere { get; set; }
 
-        public Boolean? Fumatore { get; set; }
+        public bool? Fumatore { get; set; }
 
-        public Boolean? Erasmus { get; set; }
+        public bool? Erasmus { get; set; }
 
-        public Boolean? Animali { get; set; }
+        public bool? Animali { get; set; }
 
-        public Boolean? Studente { get; set; }
+        public bool? Studente { get; set; }
 
-        public Boolean? Lavoratore { get; set; }
+        public bool? Lavoratore { get; set; }
 
-        public Boolean? Famiglia { get; set; }
+        public bool? Famiglia { get; set; }
 
         public virtual ProfiloPrivato ProfiloPrivato { get; set; }
 
