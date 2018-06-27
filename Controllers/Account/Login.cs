@@ -1,6 +1,9 @@
 ﻿
+using Abitasharp.Models;
 using Abitasharp.Models.Validators;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,24 +13,50 @@ namespace Abitasharp.Controllers.Account
 {
     public class Login : Controller, ILogin
     {
-        public IActionResult login()
+        private SignInManager<Utente> _signInManager;
+        private ILogger<Login> _logger;
+        private ApplicationContext _context;
+
+        public Login(SignInManager<Utente> signInManager, ILogger<Login> logger, ApplicationContext context)
         {
-            throw new NotImplementedException();
+            _signInManager = signInManager;
+            _logger = logger;
+            _context = context;
         }
 
-        public Task<IActionResult> login(LoginValidator data)
+        public async Task<IActionResult> login(LoginValidator data)
         {
-            throw new NotImplementedException();
+            if (ModelState.IsValid)
+            {
+                Utente utente = _context.Utenti.Where(u => u.Email == data.Email).First();
+                Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(utente, data.Password, true, false);
+                if (result.Succeeded)
+                {
+                    _logger.LogInformation("Login succeded");
+                    return RedirectToAction("Index", "CercaAnnunci");
+                }
+                else
+                {
+                    _logger.LogInformation("Login failed");
+                    return RedirectToAction(nameof(AccountController.Login), null);
+                }
+            }
+            else
+            {
+                return RedirectToAction(nameof(AccountController.Login), null);
+            }
         }
 
-        public IActionResult logout()
+        public async Task<IActionResult> logout()
         {
-            throw new NotImplementedException();
+            await _signInManager.SignOutAsync();
+            _logger.LogInformation("User logged out.");
+            return RedirectToAction(nameof(CercaAnnunciController.Index), null);
         }
 
         public IActionResult show()
         {
-            throw new NotImplementedException();
+            return View("Views/Account/Login.cshtml");
         }
     }
 }

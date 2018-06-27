@@ -262,6 +262,33 @@ namespace Abitasharp.Migrations
                     b.HasDiscriminator<string>("Discriminator").HasValue("Utente");
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ClaimType");
+
+                    b.Property<string>("ClaimValue");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ClaimUtenti");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId");
+
+                    b.Property<string>("RoleId");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.ToTable("IdentityUserRole<string>");
+                });
+
             modelBuilder.Entity("Abitasharp.Models.Admin", b =>
                 {
                     b.HasBaseType("Abitasharp.Models.Utente");

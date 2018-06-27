@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Controllers.Amministrazione
 {
-    public class AmministraPiattaforma : IAmministraPiattaforma
+    public class AmministraPiattaforma : Controller , IAmministraPiattaforma
     {
         public IActionResult show()
         {
-            throw new NotImplementedException();
+            return View("Views/Amministrazione/AmministraPiattaforma.cshtml");
         }
 
         public IActionResult showLog()
         {
-            throw new NotImplementedException();
+            return View("Views/Amministrazione/Log.cshtml");
         }
 
         public IActionResult showSegnalazioni()
         {
-            throw new NotImplementedException();
+            return View("Views/Amministrazione/Segnalazioni.cshtml");
         }
     }
 }

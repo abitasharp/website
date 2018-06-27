@@ -10,7 +10,9 @@ namespace Abitasharp.Controllers.Account
     public interface ILogin
     {
         Task<IActionResult> login(LoginValidator login);
-        IActionResult logout();
+
+        Task<IActionResult> logout();
+
         IActionResult show();
     }
 }

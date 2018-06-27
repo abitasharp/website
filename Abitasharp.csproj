@@ -4,12 +4,6 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <UserSecretsId>e0a6ffd4-933e-4fd0-93ba-bb0de1ec9afb</UserSecretsId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Migrations\20180627150120_identity.cs" />
-    <Compile Remove="Migrations\20180627150120_identity.Designer.cs" />
-    <Compile Remove="Migrations\ApplicationContextModelSnapshot.cs" />
-  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
@@ -22,10 +16,6 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

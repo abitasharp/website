@@ -58,7 +58,7 @@ namespace Abitasharp.Controllers.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("Registrazione riuscita");
-                    return View("Views/Ricerca/CercaAnnunci.cshtml");
+                    return RedirectToAction(nameof(CercaAnnunciController.Index), null);
                 } else
                 {
                     _logger.LogError("Registrazione fallita: " + result.Errors);

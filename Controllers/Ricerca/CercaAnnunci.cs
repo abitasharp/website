@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Controllers.Ricerca
 {
-    public class CercaAnnunci : ICercaAnnunci
+    public class CercaAnnunci : Controller , ICercaAnnunci
     {
         public void filtra()
         {
@@ -16,7 +16,7 @@ namespace Abitasharp.Controllers.Ricerca
 
         public IActionResult show()
         {
-            throw new NotImplementedException();
+            return View("Views/Ricerca/CercaAnnunci.cshtml");
         }
 
         public virtual IActionResult visualizza()

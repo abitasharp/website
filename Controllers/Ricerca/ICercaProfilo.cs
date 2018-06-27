@@ -10,7 +10,7 @@ namespace Abitasharp.Controllers.Ricerca
     {
         IActionResult show();
 
-        IActionResult visualizza();
+        IActionResult visualizza(String userId);
 
         void cerca();
     }

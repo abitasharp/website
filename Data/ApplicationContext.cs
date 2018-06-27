@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Abitasharp.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Abitasharp.Models
 {
@@ -18,6 +19,7 @@ namespace Abitasharp.Models
         {
             modelBuilder.Entity<Preferiti>().HasKey(p => new { p.UtenteRegolareId, p.AnnuncioId });
             modelBuilder.Entity<Segnalazione>().HasKey(p => new { p.UtenteRegolareId, p.AnnuncioId });
+            modelBuilder.Entity<IdentityUserRole<string>>().HasKey(p => new { p.UserId, p.RoleId });
         }
 
         /* Annunci */
@@ -55,5 +57,8 @@ namespace Abitasharp.Models
         public DbSet<ProfiloPrivato> ProfiliPrivati { get; set; }
 
         public DbSet<Admin> Admins { get; set; }
+
+        public DbSet<IdentityUserClaim<string>> ClaimUtenti { get; set; }
+
     }
 }

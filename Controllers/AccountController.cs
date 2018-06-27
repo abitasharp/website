@@ -34,7 +34,7 @@ namespace Abitasharp.Controllers
         public IActionResult Registrazione() => _registrazione.show();
 
         [HttpGet]
-        public IActionResult Logout() => _login.logout();
+        public Task<IActionResult> Logout() => _login.logout();
 
 
         [HttpPost]
