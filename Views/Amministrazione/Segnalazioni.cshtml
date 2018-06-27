@@ -5,34 +5,34 @@
 
 @section script {}
 
-    <form id="container">
-        <h2>Segnalazioni</h2>
-        <hr /><br />
+<form id="container">
+    <h2>Segnalazioni</h2>
+    <hr /><br />
 
-        <div id="tab">
-            <table id="segn">
+    <div id="tab">
+        <table id="segn">
+            <tr>
+                <th>Timestamp</th>
+                <th>AnnuncioId</th>
+                <th>Utente</th>
+                <th>Messaggio</th>
+            </tr>
+                
+            @foreach (Segnalazione s in (ViewData["Segnalazioni"] as ICollection<Segnalazione>))
+            {
                 <tr>
-                    <th>Data</th>
-                    <th>Ora</th>
-                    <th>Annuncio</th>
-                    <th>Utente</th>
-                    <th>Messaggio</th>
-                </tr>
-                <tr>
-                    <td class="datiSeg">04/12/5555</td>
-                    <td class="datiSeg">12:52</td>
-                    <td class="datiSeg">Ciaoasfsdagfggawrfsads</td>
-                    <td class="datiSeg">0938147duashid093</td>
+                    <td class="datiSeg">@s.Timestamp</td>
+                    <td class="datiSeg">@s.AnnuncioId</td>
+                    <td class="datiSeg">@s.UtenteRegolareId</td>
                     <td class="datiSeg" style="max-width:200px">
-                        <div style="overflow-x:scroll;  white-space:nowrap;">
-                            zoooooooooooo oooooooooooo oooooooooooo oooooooooooo oooooooooooo ooooooooooooi!
-                        </div>
-                    
+                        <div style="overflow-x:scroll;  white-space:nowrap;">   @s.Messaggio   </div>
                     </td>
                 </tr>
-            </table>
-        </div><br />
+            }
 
-        <input type="submit" name="chiudi" id="close" value="Chiudi" /><br />
+        </table>
+    </div><br />
 
-    </form>
+    <input type="submit" name="chiudi" id="close" value="Chiudi" /><br />
+
+</form>
