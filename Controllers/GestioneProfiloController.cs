@@ -27,7 +27,7 @@ namespace Abitasharp.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> modificaInfo(ModificaInfoProfiloValidator data) {
+        public async Task<IActionResult> ModificaInfo(ModificaInfoProfiloValidator data) {
             if (true)
                 return await _modificaInfo.modificaInfoPrivato(data);
         }

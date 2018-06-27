@@ -1,17 +1,26 @@
-﻿@section css{
+﻿@model BannaUtenteValidator
+
+@section css{
     <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/form.css")" />
-   }
-
-@section script{
-
 }
 
-<form id="container">
-    <h2>Banna Utente</h2><br />
-    <hr/>
-    <input type="text" name="userid" id="input-userid" value="User ID" /><br />
-    <textarea id="message" id="input-message" value="Message...">Message...</textarea><br />
-    <div></div><br />
-    <input type="submit" name="execute" id="input-submit" value="Elimina" /><br />
-    <input type="submit" name="cancel" id="input-submit" value="Annulla" /><br />
-</form>
+@section script{
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js"></script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+}
+
+    <form asp-controller="Dashboard" asp-action="BannaUtente" id="container">
+        <h2>Banna Utente</h2><br />
+        <hr />
+        <input type="text" asp-for="UtenteId" id="input-userid" value="User ID" /><br />
+        <span asp-validation-for="UtenteId" class="text-danger"></span><br />
+
+        <textarea asp-for="Messaggio" id="input-message" value="Message...">Message...</textarea><br />
+       <span asp-validation-for="Messaggio" class="text-danger"></span><br />
+
+        <div></div><br />
+        <input type="submit" name="execute" id="input-submit" value="Elimina" /><br />
+        <input type="submit" name="cancel" id="input-submit" value="Annulla" /><br />
+    </form>

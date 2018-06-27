@@ -15,25 +15,15 @@ namespace Abitasharp.Controllers
     {
         private readonly ILogin _login;
         private readonly IRegistrazione _registrazione;
-        private readonly UserManager<Utente> _userManager;
-        private readonly SignInManager<Utente> _signInManager;
-        /*private readonly IEmailSender _emailSender;*/
-        private readonly ILogger<AccountController> _logger;
 
-        public AccountController(ILogin login, IRegistrazione registrazione,
-            UserManager<Utente> userManager, SignInManager<Utente> signInManager,
-            ILogger<AccountController> logger)
+        public AccountController(ILogin login, IRegistrazione registrazione)
         {
             _login = login;
             _registrazione = registrazione;
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _logger = logger;
         }
 
         [HttpGet]
         public IActionResult Index() {
-            _logger.LogError("AAAAAAHHHHHHH");
             return _login.show();
         }
 
