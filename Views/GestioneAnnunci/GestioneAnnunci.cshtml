@@ -10,41 +10,40 @@
 <div id="container">
 
     <div id="annuncio-container">
+
         <div id="mieiAnnunci">
-            <div class="annuncio-preview">
-                <div class="tipologia">Affitto posto letto in doppia</div>
-                <div class="indirizzo">Via del Borgo di San Pietro 85, Bologna, BO, Italy</div>
-                <div class="prezzo">Affitto mensile: 260.00 €</div>
-                <div class="disponibilità">A partire dal 01/09/2018</div>
-                <div class="note">Bla bla bla</div>
-                <div class="gallery"></div>
-            </div>
-            <div class="annuncio-preview">
-            </div>
-            <div class="annuncio-preview">
-            </div>
+            @foreach (Annuncio a in (ViewData["AnnunciCreati"] as ICollection<Annuncio>))
+            {
+                <div class="annuncio-preview">
+                    <div class="tipologia">@a.Tipologia.TipoAnnuncio - @a.Tipologia.TipoContratto</div>
+                    <div class="indirizzo">@a.Indirizzo</div>
+                    <div class="prezzo">@a.Prezzo.PrezzoId € - @a.Prezzo.TipoPagamento</div>
+                    <div class="disponibilità">@a.Periodo.Da -> @a.Periodo.A</div>
+                    <div class="note">@a.Note</div>
+                    <div class="gallery"><img src="@a.Foto.First().Path" width="270" height="270"/></div>
+                </div>
+            }
         </div>
 
         <div id="preferiti">
-            <div class="annuncio-preview">
-                <div class="tipologia">Affitto posto letto in doppia</div>
-                <div class="indirizzo">Via del Borgo di San Pietro 85, Bologna, BO, Italy</div>
-                <div class="prezzo">Affitto mensile: 260.00 €</div>
-                <div class="disponibilità">A partire dal 01/09/2018</div>
-                <div class="note"><=========3</div>
-                <div class="gallery"></div>
-            </div>
-            <div class="annuncio-preview">
-            </div>
-            <div class="annuncio-preview">
-            </div>
+            @foreach (Annuncio a in (ViewData["AnnunciCreati"] as ICollection<Annuncio>))
+            {
+                <div class="annuncio-preview">
+                    <div class="tipologia">@a.Tipologia.TipoAnnuncio - @a.Tipologia.TipoContratto</div>
+                    <div class="indirizzo">@a.Indirizzo</div>
+                    <div class="prezzo">@a.Prezzo.PrezzoId € - @a.Prezzo.TipoPagamento</div>
+                    <div class="disponibilità">@a.Periodo.Da -> @a.Periodo.A</div>
+                    <div class="note">@a.Note</div>
+                    <div class="gallery"><img src="@a.Foto.First().Path" width="270" height="270"/></div>
+                </div>
+            }
         </div>
     </div>
 
     <button id="crea">Crea annuncio</button>
 
-        <div id="form">
-            I miei Annunci<input type="radio" id="my" name="pref" checked onclick="ShowForm()" /><br />
-            Preferiti<input type="radio" id="fav" name="pref" onclick="ShowForm()" /><br />
-        </div>
+    <div id="form">
+        I miei Annunci<input type="radio" id="my" name="pref" checked onclick="ShowForm()" /><br />
+        Preferiti<input type="radio" id="fav" name="pref" onclick="ShowForm()" /><br />
+    </div>
 </div>

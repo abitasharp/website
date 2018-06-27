@@ -6,20 +6,25 @@
 
 }
 
-    <div id="annuncio">
-        <div id="foto-container">
-            <img src="@Url.Content("~/img/default-photo.jpg")" />
-        </div>
-        <div class="section">Tipologia: <b>Posto-letto</b> </div>
-        <div class="section">Indirizzo: <b>Via del Borgo di San Pietro 99</b> </div>
-        <div class="section">Prezzo: <b>260.00 € al mese</b> </div>
-        <div class="section">Disponibilità:<b> 17/06/2018 - 10/09/2018</b></div>
-        <div class="section">Caratteristiche affittuario:<b></b> </div>
-        <button>Contatta</button>
-        <div class="section">
-            <b>Note:</b><br />
-            <textarea readonly>La casa è un trilocale con 8 bagni e settordici cucine, i vicini si drogano pesante.</textarea>
-        </div>
-        <br style="clear:both" />
+<div id="annuncio">
+    <div id="foto-container">
+        @foreach (string path in (ViewData["Foto"] as ICollection<string>)) {
+            <img src="@Url.Content(Path)" />
+         }
     </div>
+
+    <div class="section">Tipologia: <b>@ViewData["TipoAnnuncio"], @ViewData["TipoContratto"]</b> </div>
+    <div class="section">Indirizzo: <b>@ViewData["Indirizzo"]</b> </div>
+    <div class="section">Prezzo: <b>@ViewData["Valore"]€, @ViewData["TipoPagamento"]</b> </div>
+    <div class="section">Disponibilità:<b> @ViewData["Da"] - @ViewData["A"]</b></div>
+    <div class="section">Caratteristiche affittuario:<b>@ViewData["CaratteristicheAffittuario"]</b> </div>
+    <button>Contatta</button>
+    <div class="section">
+        <b>Note:</b><br />
+        <textarea readonly>@ViewData["Note"]</textarea>
+    </div>
+    <br style="clear:both" />
+    <button>Segnala</button>
+    <button>Preferiti</button>
+</div>
 

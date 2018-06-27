@@ -1,14 +1,19 @@
-﻿@section css {
-<link type="text/css" rel="stylesheet" href="@Url.Content("~/css/wallpaper.css")" />
-<link type="text/css" rel="stylesheet" href="@Url.Content("~/css/filters.css")" />
-<link type="text/css" rel="stylesheet" href="@Url.Content("~/css/annunci.css")" />
-<link type="text/css" rel="stylesheet" href="@Url.Content("~/css/ol.css")" />
+﻿@model CercaAnnunciValidator
+
+@section css {
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/wallpaper.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/filters.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/annunci.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/ol.css")" />
 }
 
 @section script {
-<script src="@Url.Content("~/script/ol.js")"></script>
-<script src="@Url.Content("~/script/MapAdapter.js")"></script>
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOcvf5dD1bGJpM58W3ez3NtMmCp_Id17w&callback=loadMap"></script> -->
+    <script src="@Url.Content("~/script/ol.js")"></script>
+    <script src="@Url.Content("~/script/MapAdapter.js")"></script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
 }
 
 <div id="wallpaper-container">
@@ -16,61 +21,73 @@
     <img id="arrow-down" src="@Url.Content("~/img/arrow-down.png")" />
 </div>
 <div id="filters-container">
-    <form id="form-filters">
+    <form asp-controller="CercaAnnunci" asp-action="Visualizza" id="form-filters">
         <h3>Cerca annunci</h3><hr />
-        <label for="tipologia">tipologia</label>
-        <select name="tipologia" id="input-tipologia">
+        <label asp-for="TipoAnnuncio">tipologia</label>
+        <select asp-for="TipoAnnuncio" id="input-tipologia">
             <option value="stanza">stanza</option>
             <option value="posto letto">posto letto</option>
             <option value="casa-affitto">casa - affitto</option>
             <option value="casa-vendita">casa - vendita</option>
         </select>
-        <br />
-        <label for="prezzo">prezzo</label>
-        <select name="prezzo" id="input-prezzo">
+
+        <label asp-for="TipoContratto">Pagamento</label>
+        <select asp-for="TipoContratto" id="input-pagamento">
+            <option value="affitto">Affitto</option>
+            <option value="vendita">Vendita</option>
+        </select>
+
+        <label asp-for="TipoPagamento">Pagamento</label>
+        <select asp-for="TipoPagamento" id="input-pagamento">
             <option value="mensile">mensile</option>
             <option value="a notte">a notte</option>
             <option value="tutto">tutto</option>
         </select>
-        <input type="number" name="prezzo-massimo" id="prezzo-massimo" min="1" step="any" /> €
+
+        <input type="number" asp-for="Valore" id="prezzo-massimo" min="1" step="any" /> €
+
         <br />
-        <label for="periodo">a partire da</label>
-        <input type="date" name="periodo" id="input-periodo" min="2018-06-14" value="2018-06-14" />
+        <label asp-for="Da">a partire da</label>
+        <input type="date" asp-for="Da" id="input-periodo" min="2018-06-14" value="2018-06-14" />
         <br />
         <fieldset>
-            <legend>caratteristiche personali</legend>
-            <input type="radio" name="input-sex" id="input-m" value="m" \>uomo
-            <input type="radio" name="input-sex" id="input-f" value="f" \>donna
+            <input type="checkbox" asp-for="Uomo" id="input-m" value="m" />uomo
+            <input type="checkbox" asp-for="Donna" id="input-f" value="f" />donna
             <hr />
-            <label for="fumatore">fumatore</label>
-            <input type="checkbox" name="fumatore" id="input-fumatore" \>
-            <label for="erasmus">erasmus</label>
-            <input type="checkbox" name="erasmus" id="input-erasmus" \>
-            <label for="animali">animali</label>
-            <input type="checkbox" name="animali" id="input-animali" \>
-            <label for="studente">studente</label>
-            <input type="checkbox" name="studente" id="input-studente" \>
-            <label for="lavoratore">lavoratore</label>
-            <input type="checkbox" name="lavoratore" id="input-lavoratore" \>
-            <label for="famiglia">famiglia</label>
-            <input type="checkbox" name="famiglia" id="input-famiglia" \>
+            <label asp-for="Fumatore">fumatore</label>
+            <input type="checkbox" asp-for="Fumatore" id="input-fumatore" />
+
+            <label asp-for="Erasmus">fumatore</label>
+            <input type="checkbox" asp-for="Erasmus" id="input-fumatore" />
+
+            <label asp-for="Animali">fumatore</label>
+            <input type="checkbox" asp-for="Animali" id="input-fumatore" />
+
+            <label asp-for="Studente">fumatore</label>
+            <input type="checkbox" asp-for="Studente" id="input-fumatore" />
+
+            <label asp-for="Lavoratore">fumatore</label>
+            <input type="checkbox" asp-for="Studente" id="input-fumatore" />
+
+            <label asp-for="Famiglia">fumatore</label>
+            <input type="checkbox" asp-for="Famiglia" id="input-fumatore" />
         </fieldset>
         <br />
     </form>
-    <!-- <div id="g-map-wrapper"></div> -->
     <div id="o-map-wrapper"></div>
 </div>
 <div id="annuncio-container">
     <div class="annuncio-preview">
-        <div class="tipologia">Affitto posto letto in doppia</div>
-        <div class="indirizzo">Via del Borgo di San Pietro 85, Bologna, BO, Italy</div>
-        <div class="prezzo">Affitto mensile: 260.00 €</div>
-        <div class="disponibilità">A partire dal 01/09/2018</div>
-        <div class="note">Bla bla bla</div>
-        <div class="gallery"></div>
-    </div>
-    <div class="annuncio-preview">
-    </div>
-    <div class="annuncio-preview">
+        <div class="tipologia">, @ViewData["TipoContratto"]  @ViewData["TipoAnnuncio"]</div>
+        <div class="indirizzo">@ViewData["Indirizzo"]</div>
+        <div class="prezzo">@ViewData["Valore"]€, @ViewData["TipoPagamento"],  @ViewData["Valore"]€</div>
+        <div class="disponibilità">A partire dal @ViewData["Da"]</div>
+        <div class="note">@ViewData["Note"]</div>
+        <div class="gallery">
+        @foreach (string path in (ViewData["Foto"] as ICollection<string>)) {
+            <img src="@Url.Content(Path)" />
+         }
+        </div>
     </div>
 </div>
+

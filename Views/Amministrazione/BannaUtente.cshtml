@@ -11,16 +11,16 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
 }
 
-    <form asp-controller="Dashboard" asp-action="BannaUtente" id="container">
-        <h2>Banna Utente</h2><br />
-        <hr />
-        <input type="text" asp-for="UtenteId" id="input-userid" value="User ID" /><br />
-        <span asp-validation-for="UtenteId" class="text-danger"></span><br />
+<form asp-controller="Dashboard" asp-action="BannaUtente" id="container">
+    <h2>Banna Utente</h2><br />
+    <hr />
+    <input type="text" asp-for="UtenteId" id="input-userid" value="User ID" /><br />
+    <span asp-validation-for="UtenteId" class="text-danger"></span><br />
 
-        <textarea asp-for="Messaggio" id="input-message" value="Message...">Message...</textarea><br />
-       <span asp-validation-for="Messaggio" class="text-danger"></span><br />
+    <textarea asp-for="Messaggio" id="input-message" value="Message...">Message...</textarea><br />
+    <span asp-validation-for="Messaggio" class="text-danger"></span><br />
 
-        <div></div><br />
-        <input type="submit" name="execute" id="input-submit" value="Elimina" /><br />
-        <input type="submit" name="cancel" id="input-submit" value="Annulla" /><br />
-    </form>
+    <div></div><br />
+    <input type="submit" name="execute" id="input-submit" value="Elimina" /><br />
+    <input type="submit" name="cancel" id="input-submit" value="Annulla" /><br />
+</form>

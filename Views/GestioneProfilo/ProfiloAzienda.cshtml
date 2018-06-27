@@ -6,36 +6,36 @@
 
 @section script{}
 
-    <div id="container">
-        <h2 id="title">Profilo Azienda</h2>
-        <hr />
-
-        <div>
-            <div class="section">Nome Azienda:<input type="text" readonly name="nome" value="Tempo Casa" /></div>
-            <div class="section">Partita Iva:<input type="text" readonly name="iva" value="partitaiva" /></div>
-            <br />
-
-            <fieldset>
-                <legend>Contatti</legend>
-                E-mail: <a id="mail" href="mailto:tempocasa@gmail.com">tempocasa@gmail.com</a><br />
-                Telefono: <a class="phone" href="tel:3177594940">317.759.4940</a><br />
-                Telefono: <a class="phone" href="tel:3177594940">317.759.4940</a><br />
-            </fieldset><br />
-        </div>
+<div id="container">
+    <h2 id="title">Profilo Azienda</h2>
+    <hr />
+    <div>
+        <div class="section">Nome Azienda: @ViewData["NomeAzienda"] </div>
+        <div class="section">Partita Iva: @ViewData["PartitaIva"] </div>
+        <br />
+        <fieldset>
+            <legend>Contatti</legend>
+            E-mail: <a id="mail" href="mailto:@ViewData["Email1"]">@ViewData["Email1"]</a><br />
+            E-mail: <a id="mail" href="mailto:@ViewData["Email2"]">@ViewData["Email2"]</a><br />
+            E-mail: <a id="mail" href="mailto:@ViewData["Email3"]">@ViewData["Email3"]</a><br />
+            Telefono: <a class="phone" href="@ViewData["Tel1"]">@ViewData["Tel1"]</a><br />
+            Telefono: <a class="phone" href="@ViewData["Tel2"]">@ViewData["Tel2"]</a><br />
+            Telefono: <a class="phone" href="@ViewData["Tel3"]">@ViewData["Tel3"]</a><br />
+        </fieldset><br />
     </div>
+</div>
 
-        <div id="annuncio-container">
-            <div class="annuncio-preview">
-                <div class="tipologia">Affitto posto letto in doppia</div>
-                <div class="indirizzo">Via del Borgo di San Pietro 85, Bologna, BO, Italy</div>
-                <div class="prezzo">Affitto mensile: 260.00 €</div>
-                <div class="disponibilità">A partire dal 01/09/2018</div>
-                <div class="note">Bla bla bla</div>
-                <div class="gallery"></div>
-            </div>
-            <div class="annuncio-preview">
-            </div>
-            <div class="annuncio-preview">
-            </div>
+<div id="annuncio-container">
+    @foreach (Annuncio a in (ViewData["AnnunciCreati"] as ICollection<Annuncio>))
+    {
+        <div class="annuncio-preview">
+            <div class="tipologia">@a.Tipologia.TipoAnnuncio - @a.Tipologia.TipoContratto</div>
+            <div class="indirizzo">@a.Indirizzo</div>
+            <div class="prezzo">@a.Prezzo.PrezzoId € - @a.Prezzo.TipoPagamento</div>
+            <div class="disponibilità">@a.Periodo.Da -> @a.Periodo.A</div>
+            <div class="note">@a.Note</div>
+            <div class="gallery"><img src="@a.Foto.First().Path" width="270" height="270" /></div>
         </div>
+    }
+</div>
 

@@ -11,64 +11,70 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
 }
 
-    <form asp-controller="GestioneAnnunci" asp-action="Crea" id="container" style="width:50%;font-size:0.85em">
-        <h2>Crea Annuncio</h2>
-        <hr /><br />
+<form asp-controller="GestioneAnnunci" asp-action="Crea" id="container" style="width:50%;font-size:0.85em">
+    <h2>Crea Annuncio</h2>
+    <hr /><br />
 
-        <label asp-for="TipoAnnuncio">Tipologia</label>
-        <select asp-for="TipoAnnuncio" id="input-tipologia">
-            <option value="casa">Casa</option>
-            <option value="stanza">Stanza</option>
-            <option value="postoLetto">Posto letto</option>
-        </select>
+    <label asp-for="TipoAnnuncio">Tipologia</label>
+    <select asp-for="TipoAnnuncio" id="input-tipologia">
+        <option value="casa">Casa</option>
+        <option value="stanza">Stanza</option>
+        <option value="postoLetto">Posto letto</option>
+    </select>
 
-        <label asp-for="TipoContratto">Pagamento</label>
-        <select asp-for="TipoContratto" id="input-pagamento">
-            <option value="affitto">Affitto</option>
-            <option value="vendita">Vendita</option>
-        </select>
+    <label asp-for="TipoContratto">Pagamento</label>
+    <select asp-for="TipoContratto" id="input-pagamento">
+        <option value="affitto">Affitto</option>
+        <option value="vendita">Vendita</option>
+    </select>
 
-        <label asp-for="Valore">Prezzo</label> <input type="number" asp-for="Valore" id="input-prezzo" value="" /><br />
-        <span asp-validation-for="Valore" class="text-danger"></span><br />
-        <label asp-for="TipoPagamento">Pagamento</label>
-        <select asp-for="TipoPagamento" id="input-pagamento">
-            <option value="mensile">mensile</option>
-            <option value="a notte">a notte</option>
-            <option value="tutto">tutto</option>
-        </select>
+    <label asp-for="Valore">Prezzo</label> <input type="number" asp-for="Valore" id="input-prezzo" value="" /><br />
+    <span asp-validation-for="Valore" class="text-danger"></span><br />
 
+    <label asp-for="TipoPagamento">Pagamento</label>
+    <select asp-for="TipoPagamento" id="input-pagamento">
+        <option value="mensile">mensile</option>
+        <option value="a notte">a notte</option>
+        <option value="tutto">tutto</option>
+    </select>
 
-        <label asp-for="Indirizzo">Indirizzo</label> <input type="text" asp-for="Indirizzo" id="input-addr" value="" /><br /><br /><br />
-        <span asp-validation-for="Indirizzo" class="text-danger"></span><br />
+    <label asp-for="Indirizzo">Indirizzo</label> <input type="text" asp-for="Indirizzo" id="input-addr" value="" /><br /><br /><br />
+    <span asp-validation-for="Indirizzo" class="text-danger"></span><br />
 
-        <span name="disponibilita">Disponibilità</span><br />
-        <label asp-for="Da">da:</label><input asp-for="Da" type="date" />     <label asp-for="A">a:</label><input asp-for="A" type="date" /><br />
-        <span asp-validation-for="Da" class="text-danger"></span><br />    <span asp-validation-for="A" class="text-danger"></span><br />
-        <br /><br />
-              <fieldset style="width:50%;margin:auto">
-                  <legend>Caratteristiche affittuario</legend>
-                  <input type="checkbox" asp-for="Uomo" id="input-m" value="m" />uomo
-                  <input type="checkbox" asp-for="Donna" id="input-f" value="f" />donna
-                  <hr />
-                  <label asp-for="Fumatore">fumatore</label>
-                  <input type="checkbox" asp-for="Fumatore" id="input-fumatore" />
-                  <label asp-for="Erasmus">fumatore</label>
-                  <input type="checkbox" asp-for="Erasmus"  id="input-fumatore" />
-                  <label asp-for="Animali">fumatore</label>
-                  <input type="checkbox" asp-for="Animali"  id="input-fumatore" />
-                  <label asp-for="Studente">fumatore</label>
-                  <input type="checkbox" asp-for="Studente"  id="input-fumatore" />
-                  <label asp-for="Lavoratore">fumatore</label>
-                  <input type="checkbox" asp-for="Studente"  id="input-fumatore" />
-                  <label asp-for="Famiglia">fumatore</label>
-                  <input type="checkbox" asp-for="Famiglia"  id="input-fumatore" />
-              </fieldset>
-        <br /><br />
+    <span name="disponibilita">Disponibilità</span><br />
+    <label asp-for="Da">da:</label><input asp-for="Da" type="date" />     <label asp-for="A">a:</label><input asp-for="A" type="date" /><br />
+    <span asp-validation-for="Da" class="text-danger"></span><br />    <span asp-validation-for="A" class="text-danger"></span><br />
 
-        <textarea asp-for="Note" rows="20" cols="50">Note...</textarea><br />
+    <br /><br />
+            <fieldset style="width:50%;margin:auto">
+                <legend>Caratteristiche affittuario</legend>
+                <input type="checkbox" asp-for="Uomo" id="input-m" value="m" />uomo
+                <input type="checkbox" asp-for="Donna" id="input-f" value="f" />donna
+                <hr />
+                <label asp-for="Fumatore">fumatore</label>
+                <input type="checkbox" asp-for="Fumatore" id="input-fumatore" />
 
-        <label asp-for="Foto">Foto</label> <input type="file" asp-for="Foto" accept="image/jpeg,image/x-png" value="Aggiungi foto" multiple /> <br />
+                <label asp-for="Erasmus">fumatore</label>
+                <input type="checkbox" asp-for="Erasmus"  id="input-fumatore" />
 
-        <input name="annulla" type="button" value="Annulla" /> <input name="salva" type="button" value="Salva" /><br />
-        <div></div><br />
-    </form>
+                <label asp-for="Animali">fumatore</label>
+                <input type="checkbox" asp-for="Animali"  id="input-fumatore" />
+
+                <label asp-for="Studente">fumatore</label>
+                <input type="checkbox" asp-for="Studente"  id="input-fumatore" />
+
+                <label asp-for="Lavoratore">fumatore</label>
+                <input type="checkbox" asp-for="Studente"  id="input-fumatore" />
+
+                <label asp-for="Famiglia">fumatore</label>
+                <input type="checkbox" asp-for="Famiglia"  id="input-fumatore" />
+            </fieldset>
+    <br /><br />
+
+    <textarea asp-for="Note" rows="20" cols="50">Note...</textarea><br />
+
+    <label asp-for="Foto">Foto</label> <input type="file" asp-for="Foto" accept="image/jpeg,image/x-png" value="Aggiungi foto" multiple /> <br />
+
+    <input name="annulla" type="button" value="Annulla" /> <input name="salva" type="button" value="Salva" />
+    <br/><br/><br />
+</form>
