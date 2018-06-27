@@ -14,6 +14,8 @@ using Abitasharp.Controllers.GestioneProfilo;
 using Abitasharp.Controllers.Ricerca;
 using Abitasharp.Controllers.GestioneAnnunci;
 using Abitasharp.Controllers.Account;
+using Microsoft.AspNetCore.Identity;
+using Abitasharp.Identity;
 
 namespace Abitasharp
 {
@@ -34,16 +36,59 @@ namespace Abitasharp
             services.AddDbContext<ApplicationContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddIdentity<Utente, Ruolo>()
+               // .AddEntityFrameworkStores<ApplicationContext>()
+                .AddDefaultTokenProviders();
+            services.AddTransient<IUserStore<Utente>, UserStore>();
+            services.AddTransient<IRoleStore<Ruolo>, RoleStore>();
+            services.Configure<IdentityOptions>(options => {
+                // Password settings
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+
+                // Lockout settings
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+                options.Lockout.MaxFailedAccessAttempts = 10;
+                options.Lockout.AllowedForNewUsers = true;
+
+                // User settings
+                options.User.RequireUniqueEmail = true;
+            });
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.LoginPath = "/Account/Login";
+                options.LogoutPath = "/Account/Logout";
+                options.AccessDeniedPath = "/Account/AccessDenied";
+            });
+
             _registerControllers(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, SignInManager<Utente> s)
         {
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
+
+
+
+                //test
+                if (s.UserManager.FindByIdAsync("IDCAZZUTISSIMO").Result == null)
+                {
+                    var result = s.UserManager.CreateAsync(new ProfiloAzienda
+                    {
+                        Id = "IDCAZZUTISSIMO",
+                        Email = "dev@app.com"
+                    }, "Aut94L#G-a").Result;
+                }
+
+
             }
             else
             {
@@ -52,6 +97,8 @@ namespace Abitasharp
 
             app.UseStaticFiles();
 
+            app.UseAuthentication();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -59,7 +106,6 @@ namespace Abitasharp
                     template: "{controller=CercaAnnunci}/{action=Index}/{id?}");
             });
 
-            
         }
 
         private void _registerControllers(IServiceCollection services)

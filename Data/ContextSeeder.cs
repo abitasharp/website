@@ -26,7 +26,7 @@ namespace Abitasharp.Data
            
             //Profilo azienda 
             ProfiloAzienda profiloAzienda = new ProfiloAzienda();
-            profiloAzienda.ID = Guid.NewGuid().ToString();
+            profiloAzienda.Id = Guid.NewGuid().ToString();
             profiloAzienda.NomeAzienda = "Tempocasa";
             profiloAzienda.PartitaIVa = "30528598402";
             profiloAzienda.PasswordHash = "cicirinella90";
@@ -39,7 +39,7 @@ namespace Abitasharp.Data
 
             //Profilo privato
             ProfiloPrivato profiloPrivato = new ProfiloPrivato();
-            profiloPrivato.ID = Guid.NewGuid().ToString();
+            profiloPrivato.Id = Guid.NewGuid().ToString();
             profiloPrivato.Nome = "Bibbo";
             profiloPrivato.Cognome = "Babbo";
             profiloPrivato.DataNascita = new DateTime(1990, 05, 30);
