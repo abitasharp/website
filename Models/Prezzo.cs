@@ -20,7 +20,7 @@ namespace Abitasharp.Models
 
         public Prezzo()
         {
-            Annuncio = new Annuncio();
+            //Annuncio = new Annuncio();
         }
     }
 }

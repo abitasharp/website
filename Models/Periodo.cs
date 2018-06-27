@@ -19,7 +19,7 @@ namespace Abitasharp.Models
 
         public Periodo()
         {
-            Annuncio = new Annuncio();
+            //Annuncio = new Annuncio();
         }
     }
 }

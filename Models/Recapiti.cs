@@ -28,7 +28,7 @@ namespace Abitasharp.Models
 
         public Recapiti()
         {
-            UtenteRegolare = new UtenteRegolare();
+           //UtenteRegolare = new UtenteRegolare();
         }
     }
 }

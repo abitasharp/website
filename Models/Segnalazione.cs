@@ -17,9 +17,13 @@ namespace Abitasharp.Models
 
         public Annuncio Annuncio { get; set; }
 
+        public UtenteRegolare UtenteRegolare { get; set; }
+
         public Segnalazione()
         {
             Annuncio = new Annuncio();
+
+            UtenteRegolare = new UtenteRegolare();
         }
     }
 }

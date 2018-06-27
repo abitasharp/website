@@ -14,6 +14,11 @@ namespace Abitasharp.Models
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Preferiti>().HasKey(p => new { p.UtenteRegolareId, p.AnnuncioId });
+        }
+
         public DbSet<Admin> Admins{ get; set; }
 
         public DbSet<Annuncio> Annunci{ get; set; }
@@ -35,6 +40,7 @@ namespace Abitasharp.Models
         public DbSet<Recapiti> Recapiti{ get; set; }
 
         public DbSet<Ruolo> Ruoli{ get; set; }
+
         public DbSet<RuoloUtente> RuoliUtente{ get; set; }
 
         public DbSet<Segnalazione> Segnalazioni{ get; set; }
@@ -44,5 +50,7 @@ namespace Abitasharp.Models
         public DbSet<Utente> Utenti{ get; set; }
 
         public DbSet<UtenteRegolare> UtentiRegolari{ get; set; }
+
+        public DbSet<Preferiti> Preferiti { get; set; }
     }
 }

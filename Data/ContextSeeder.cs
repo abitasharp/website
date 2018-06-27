@@ -14,9 +14,17 @@ namespace Abitasharp.Data
         {
             _context = context;
         }
+        
+        public void Empty()
+        {
+            _context.ProfiliAzienda.RemoveRange(_context.ProfiliAzienda);
+            _context.ProfiliPrivati.RemoveRange(_context.ProfiliPrivati);
 
+        }
         public void Seed()
         {
+           
+            //Profilo azienda 
             ProfiloAzienda profiloAzienda = new ProfiloAzienda();
             profiloAzienda.ID = Guid.NewGuid().ToString();
             profiloAzienda.NomeAzienda = "Tempocasa";
@@ -29,8 +37,27 @@ namespace Abitasharp.Data
             _context.ProfiliAzienda.Add(profiloAzienda);
 
 
+            //Profilo privato
+            ProfiloPrivato profiloPrivato = new ProfiloPrivato();
+            profiloPrivato.ID = Guid.NewGuid().ToString();
+            profiloPrivato.Nome = "Bibbo";
+            profiloPrivato.Cognome = "Babbo";
+            profiloPrivato.DataNascita = new DateTime(1990, 05, 30);
+            profiloPrivato.PasswordHash = "BibboBabbo1990";
+            profiloPrivato.Email = "bibbobabbo@gmail.com";
+            profiloPrivato.Recapiti.Tel1 = "0569978265";
+            profiloPrivato.CaratteristicheUtente.Fumatore = true;
+            profiloPrivato.CaratteristicheUtente.Animali = false;
+            profiloPrivato.CaratteristicheUtente.Erasmus = true;
+            profiloPrivato.CaratteristicheUtente.Famiglia = false;
+            profiloPrivato.CaratteristicheUtente.Genere = true;
+            profiloPrivato.CaratteristicheUtente.Lavoratore = null;
+            profiloPrivato.CaratteristicheUtente.Studente = true;
 
 
+            _context.ProfiliPrivati.Add(profiloPrivato);
+
+            //
 
 
 

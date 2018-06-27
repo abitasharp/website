@@ -4,10 +4,28 @@ using System.Collections.Generic;
 
 namespace Abitasharp.Migrations
 {
-    public partial class testSeed : Migration
+    public partial class Preferiti : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "CaratteristicheUtente",
+                columns: table => new
+                {
+                    ProfiloPrivatoId = table.Column<string>(type: "text", nullable: false),
+                    Animali = table.Column<bool>(type: "bool", nullable: true),
+                    Erasmus = table.Column<bool>(type: "bool", nullable: true),
+                    Famiglia = table.Column<bool>(type: "bool", nullable: true),
+                    Fumatore = table.Column<bool>(type: "bool", nullable: true),
+                    Genere = table.Column<bool>(type: "bool", nullable: true),
+                    Lavoratore = table.Column<bool>(type: "bool", nullable: true),
+                    Studente = table.Column<bool>(type: "bool", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CaratteristicheUtente", x => x.ProfiloPrivatoId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Posizioni",
                 columns: table => new
@@ -40,6 +58,7 @@ namespace Abitasharp.Migrations
                 {
                     NomeAzienda = table.Column<string>(type: "text", nullable: true),
                     PartitaIVa = table.Column<string>(type: "text", nullable: true),
+                    CaratteristicheUtenteProfiloPrivatoId = table.Column<string>(type: "text", nullable: true),
                     Cognome = table.Column<string>(type: "text", nullable: true),
                     DataNascita = table.Column<DateTime>(type: "timestamp", nullable: true),
                     Nome = table.Column<string>(type: "text", nullable: true),
@@ -51,30 +70,45 @@ namespace Abitasharp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Utenti", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Utenti_CaratteristicheUtente_CaratteristicheUtenteProfiloPrivatoId",
+                        column: x => x.CaratteristicheUtenteProfiloPrivatoId,
+                        principalTable: "CaratteristicheUtente",
+                        principalColumn: "ProfiloPrivatoId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "CaratteristicheUtente",
+                name: "Annunci",
                 columns: table => new
                 {
                     ID = table.Column<string>(type: "text", nullable: false),
-                    Animali = table.Column<bool>(type: "bool", nullable: true),
-                    Erasmus = table.Column<bool>(type: "bool", nullable: true),
-                    Famiglia = table.Column<bool>(type: "bool", nullable: true),
-                    Fumatore = table.Column<bool>(type: "bool", nullable: true),
-                    Genere = table.Column<bool>(type: "bool", nullable: true),
-                    Lavoratore = table.Column<bool>(type: "bool", nullable: true),
-                    Studente = table.Column<bool>(type: "bool", nullable: true)
+                    CaratteristicheUtenteProfiloPrivatoId = table.Column<string>(type: "text", nullable: true),
+                    IndirizzoPosizioneId = table.Column<string>(type: "text", nullable: true),
+                    Note = table.Column<string>(type: "text", nullable: true),
+                    UtenteRegolareID = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CaratteristicheUtente", x => x.ID);
+                    table.PrimaryKey("PK_Annunci", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_CaratteristicheUtente_Utenti_ID",
-                        column: x => x.ID,
+                        name: "FK_Annunci_CaratteristicheUtente_CaratteristicheUtenteProfiloPrivatoId",
+                        column: x => x.CaratteristicheUtenteProfiloPrivatoId,
+                        principalTable: "CaratteristicheUtente",
+                        principalColumn: "ProfiloPrivatoId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Annunci_Posizioni_IndirizzoPosizioneId",
+                        column: x => x.IndirizzoPosizioneId,
+                        principalTable: "Posizioni",
+                        principalColumn: "PosizioneId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Annunci_Utenti_UtenteRegolareID",
+                        column: x => x.UtenteRegolareID,
                         principalTable: "Utenti",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -126,46 +160,6 @@ namespace Abitasharp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Annunci",
-                columns: table => new
-                {
-                    ID = table.Column<string>(type: "text", nullable: false),
-                    CaratteristicheUtenteID = table.Column<string>(type: "text", nullable: true),
-                    IndirizzoPosizioneId = table.Column<string>(type: "text", nullable: true),
-                    Note = table.Column<string>(type: "text", nullable: true),
-                    UtenteRegolareID = table.Column<string>(type: "text", nullable: true),
-                    UtenteRegolareID1 = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Annunci", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Annunci_CaratteristicheUtente_CaratteristicheUtenteID",
-                        column: x => x.CaratteristicheUtenteID,
-                        principalTable: "CaratteristicheUtente",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Annunci_Posizioni_IndirizzoPosizioneId",
-                        column: x => x.IndirizzoPosizioneId,
-                        principalTable: "Posizioni",
-                        principalColumn: "PosizioneId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Annunci_Utenti_UtenteRegolareID",
-                        column: x => x.UtenteRegolareID,
-                        principalTable: "Utenti",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Annunci_Utenti_UtenteRegolareID1",
-                        column: x => x.UtenteRegolareID1,
-                        principalTable: "Utenti",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Foto",
                 columns: table => new
                 {
@@ -197,6 +191,24 @@ namespace Abitasharp.Migrations
                     table.ForeignKey(
                         name: "FK_Periodo_Annunci_PeriodoId",
                         column: x => x.PeriodoId,
+                        principalTable: "Annunci",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Preferiti",
+                columns: table => new
+                {
+                    UtenteRegolareId = table.Column<string>(type: "text", nullable: false),
+                    AnnuncioId = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Preferiti", x => new { x.UtenteRegolareId, x.AnnuncioId });
+                    table.ForeignKey(
+                        name: "FK_Preferiti_Annunci_AnnuncioId",
+                        column: x => x.AnnuncioId,
                         principalTable: "Annunci",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
@@ -268,9 +280,9 @@ namespace Abitasharp.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Annunci_CaratteristicheUtenteID",
+                name: "IX_Annunci_CaratteristicheUtenteProfiloPrivatoId",
                 table: "Annunci",
-                column: "CaratteristicheUtenteID");
+                column: "CaratteristicheUtenteProfiloPrivatoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Annunci_IndirizzoPosizioneId",
@@ -283,14 +295,14 @@ namespace Abitasharp.Migrations
                 column: "UtenteRegolareID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Annunci_UtenteRegolareID1",
-                table: "Annunci",
-                column: "UtenteRegolareID1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Foto_AnnuncioID",
                 table: "Foto",
                 column: "AnnuncioID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Preferiti_AnnuncioId",
+                table: "Preferiti",
+                column: "AnnuncioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RuoliUtente_RuoloID",
@@ -311,6 +323,11 @@ namespace Abitasharp.Migrations
                 name: "IX_Segnalazioni_UtenteRegolareID",
                 table: "Segnalazioni",
                 column: "UtenteRegolareID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Utenti_CaratteristicheUtenteProfiloPrivatoId",
+                table: "Utenti",
+                column: "CaratteristicheUtenteProfiloPrivatoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -320,6 +337,9 @@ namespace Abitasharp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Periodo");
+
+            migrationBuilder.DropTable(
+                name: "Preferiti");
 
             migrationBuilder.DropTable(
                 name: "Prezzo");
@@ -343,13 +363,13 @@ namespace Abitasharp.Migrations
                 name: "Annunci");
 
             migrationBuilder.DropTable(
-                name: "CaratteristicheUtente");
-
-            migrationBuilder.DropTable(
                 name: "Posizioni");
 
             migrationBuilder.DropTable(
                 name: "Utenti");
+
+            migrationBuilder.DropTable(
+                name: "CaratteristicheUtente");
         }
     }
 }

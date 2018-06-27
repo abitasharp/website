@@ -22,7 +22,7 @@ namespace Abitasharp.Models
 
         public TipologiaAnnunci()
         {
-            Annuncio = new Annuncio();
+            //Annuncio = new Annuncio();
         }
     }
 }
