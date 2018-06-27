@@ -1,4 +1,5 @@
 ﻿using Abitasharp.Models;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,32 +10,27 @@ namespace Abitasharp.Data
     public class ContextSeeder
     {
         private ApplicationContext _context;
+        private UserManager<Utente> _userManager;
 
-        public ContextSeeder(ApplicationContext context)
+        public ContextSeeder(ApplicationContext context, UserManager<Utente> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
-        public void Seed()
+        public void SeedAsync()
         {
             ProfiloAzienda profiloAzienda = new ProfiloAzienda();
             profiloAzienda.Id = Guid.NewGuid().ToString();
             profiloAzienda.NomeAzienda = "Tempocasa";
             profiloAzienda.PartitaIVa = "30528598402";
-            profiloAzienda.PasswordHash = "cicirinella90";
             profiloAzienda.Email = "tempocasa@gmail.com";
             profiloAzienda.Recapiti.Tel1 = "0989879876";
 
 
-            _context.ProfiliAzienda.Add(profiloAzienda);
+            _userManager.CreateAsync(profiloAzienda, "password");
 
-
-
-
-
-
-
-            _context.SaveChanges();      
+            return;
 
         }
     }

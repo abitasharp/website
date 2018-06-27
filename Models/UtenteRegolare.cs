@@ -9,18 +9,15 @@ namespace Abitasharp.Models
     {
         public Recapiti Recapiti { get; set; }
 
-        public ICollection<Annuncio> ListaAnnunci { get; set; }
+        public virtual ICollection<Annuncio> ListaAnnunci { get; set; }
 
-        public ICollection<Annuncio> ListaPreferiti { get; set; }
-
-        public ICollection<Segnalazione> ListaSegnalazioni { get; set; }
+        public virtual ICollection<Annuncio> ListaPreferiti { get; set; }
 
         public UtenteRegolare()
         {
             Recapiti = new Recapiti();
             ListaAnnunci = new List<Annuncio>();
             ListaPreferiti = new List<Annuncio>();
-            ListaSegnalazioni = new List<Segnalazione>();
         }
     }
 }

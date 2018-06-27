@@ -15,7 +15,6 @@ using Abitasharp.Controllers.Ricerca;
 using Abitasharp.Controllers.GestioneAnnunci;
 using Abitasharp.Controllers.Account;
 using Microsoft.AspNetCore.Identity;
-using Abitasharp.Identity;
 
 namespace Abitasharp
 {
@@ -36,11 +35,9 @@ namespace Abitasharp
             services.AddDbContext<ApplicationContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<Utente, Ruolo>()
+            services.AddIdentity<Utente, RuoloUtente>()
                 .AddEntityFrameworkStores<ApplicationContext>()
                 .AddDefaultTokenProviders();
-            services.AddTransient<IUserStore<Utente>, UserStore>();
-            services.AddTransient<IRoleStore<Ruolo>, RoleStore>();
             services.Configure<IdentityOptions>(options => {
                 // Password settings
                 options.Password.RequireDigit = false;
@@ -76,7 +73,7 @@ namespace Abitasharp
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
 
-
+                /*
 
                 //test
                 if (s.UserManager.FindByIdAsync("IDCAZZUTISSIMO").Result == null)
@@ -88,7 +85,7 @@ namespace Abitasharp
                     }, "Aut94L#G-a").Result;
                 }
 
-
+    */
             }
             else
             {

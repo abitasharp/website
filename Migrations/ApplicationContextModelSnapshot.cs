@@ -32,9 +32,13 @@ namespace Abitasharp.Migrations
 
                     b.Property<string>("Note");
 
-                    b.Property<string>("UtenteRegolareID");
+                    b.Property<string>("PeriodoId");
 
-                    b.Property<string>("UtenteRegolareID1");
+                    b.Property<string>("PrezzoId");
+
+                    b.Property<string>("UtenteRegolareId");
+
+                    b.Property<string>("UtenteRegolareId1");
 
                     b.HasKey("ID");
 
@@ -42,16 +46,21 @@ namespace Abitasharp.Migrations
 
                     b.HasIndex("IndirizzoPosizioneId");
 
-                    b.HasIndex("UtenteRegolareID");
+                    b.HasIndex("PeriodoId");
 
-                    b.HasIndex("UtenteRegolareID1");
+                    b.HasIndex("PrezzoId");
+
+                    b.HasIndex("UtenteRegolareId");
+
+                    b.HasIndex("UtenteRegolareId1");
 
                     b.ToTable("Annunci");
                 });
 
             modelBuilder.Entity("Abitasharp.Models.CaratteristicheUtente", b =>
                 {
-                    b.Property<string>("ID");
+                    b.Property<string>("ID")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<bool?>("Animali");
 
@@ -88,7 +97,8 @@ namespace Abitasharp.Migrations
 
             modelBuilder.Entity("Abitasharp.Models.Periodo", b =>
                 {
-                    b.Property<string>("PeriodoId");
+                    b.Property<string>("PeriodoId")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("A");
 
@@ -117,7 +127,8 @@ namespace Abitasharp.Migrations
 
             modelBuilder.Entity("Abitasharp.Models.Prezzo", b =>
                 {
-                    b.Property<string>("PrezzoId");
+                    b.Property<string>("PrezzoId")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<int>("TipoPagamento");
 
@@ -130,7 +141,8 @@ namespace Abitasharp.Migrations
 
             modelBuilder.Entity("Abitasharp.Models.Recapiti", b =>
                 {
-                    b.Property<string>("RecapitiId");
+                    b.Property<string>("RecapitiId")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Email1");
 
@@ -149,32 +161,18 @@ namespace Abitasharp.Migrations
                     b.ToTable("Recapiti");
                 });
 
-            modelBuilder.Entity("Abitasharp.Models.Ruolo", b =>
+            modelBuilder.Entity("Abitasharp.Models.RuoloUtente", b =>
                 {
-                    b.Property<string>("ID")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ConcurrencyStamp");
 
                     b.Property<string>("Name");
 
-                    b.HasKey("ID");
+                    b.Property<string>("NormalizedName");
 
-                    b.ToTable("Ruoli");
-                });
-
-            modelBuilder.Entity("Abitasharp.Models.RuoloUtente", b =>
-                {
-                    b.Property<string>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("RuoloID");
-
-                    b.Property<string>("UtenteID");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("RuoloID");
-
-                    b.HasIndex("UtenteID");
+                    b.HasKey("Id");
 
                     b.ToTable("RuoliUtente");
                 });
@@ -192,13 +190,13 @@ namespace Abitasharp.Migrations
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAddOrUpdate();
 
-                    b.Property<string>("UtenteRegolareID");
+                    b.Property<string>("UtenteRegolareId");
 
                     b.HasKey("ID");
 
                     b.HasIndex("AnnuncioID");
 
-                    b.HasIndex("UtenteRegolareID");
+                    b.HasIndex("UtenteRegolareId");
 
                     b.ToTable("Segnalazioni");
                 });
@@ -218,17 +216,41 @@ namespace Abitasharp.Migrations
 
             modelBuilder.Entity("Abitasharp.Models.Utente", b =>
                 {
-                    b.Property<string>("ID")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int>("AccessFailedCount");
+
+                    b.Property<string>("ConcurrencyStamp");
 
                     b.Property<string>("Discriminator")
                         .IsRequired();
 
                     b.Property<string>("Email");
 
+                    b.Property<bool>("EmailConfirmed");
+
+                    b.Property<bool>("LockoutEnabled");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<string>("NormalizedEmail");
+
+                    b.Property<string>("NormalizedUserName");
+
                     b.Property<string>("PasswordHash");
 
-                    b.HasKey("ID");
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<string>("SecurityStamp");
+
+                    b.Property<bool>("TwoFactorEnabled");
+
+                    b.Property<string>("UserName");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Utenti");
 
@@ -249,6 +271,9 @@ namespace Abitasharp.Migrations
                 {
                     b.HasBaseType("Abitasharp.Models.Utente");
 
+                    b.Property<string>("RecapitiId");
+
+                    b.HasIndex("RecapitiId");
 
                     b.ToTable("UtenteRegolare");
 
@@ -272,11 +297,15 @@ namespace Abitasharp.Migrations
                 {
                     b.HasBaseType("Abitasharp.Models.UtenteRegolare");
 
+                    b.Property<string>("CaratteristicheUtenteID");
+
                     b.Property<string>("Cognome");
 
                     b.Property<DateTime>("DataNascita");
 
                     b.Property<string>("Nome");
+
+                    b.HasIndex("CaratteristicheUtenteID");
 
                     b.ToTable("ProfiloPrivato");
 
@@ -293,21 +322,21 @@ namespace Abitasharp.Migrations
                         .WithMany()
                         .HasForeignKey("IndirizzoPosizioneId");
 
+                    b.HasOne("Abitasharp.Models.Periodo", "Periodo")
+                        .WithMany()
+                        .HasForeignKey("PeriodoId");
+
+                    b.HasOne("Abitasharp.Models.Prezzo", "Prezzo")
+                        .WithMany()
+                        .HasForeignKey("PrezzoId");
+
                     b.HasOne("Abitasharp.Models.UtenteRegolare")
                         .WithMany("ListaAnnunci")
-                        .HasForeignKey("UtenteRegolareID");
+                        .HasForeignKey("UtenteRegolareId");
 
                     b.HasOne("Abitasharp.Models.UtenteRegolare")
                         .WithMany("ListaPreferiti")
-                        .HasForeignKey("UtenteRegolareID1");
-                });
-
-            modelBuilder.Entity("Abitasharp.Models.CaratteristicheUtente", b =>
-                {
-                    b.HasOne("Abitasharp.Models.ProfiloPrivato", "ProfiloPrivato")
-                        .WithOne("CaratteristicheUtente")
-                        .HasForeignKey("Abitasharp.Models.CaratteristicheUtente", "ID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UtenteRegolareId1");
                 });
 
             modelBuilder.Entity("Abitasharp.Models.Foto", b =>
@@ -317,50 +346,15 @@ namespace Abitasharp.Migrations
                         .HasForeignKey("AnnuncioID");
                 });
 
-            modelBuilder.Entity("Abitasharp.Models.Periodo", b =>
-                {
-                    b.HasOne("Abitasharp.Models.Annuncio", "Annuncio")
-                        .WithOne("Periodo")
-                        .HasForeignKey("Abitasharp.Models.Periodo", "PeriodoId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Abitasharp.Models.Prezzo", b =>
-                {
-                    b.HasOne("Abitasharp.Models.Annuncio", "Annuncio")
-                        .WithOne("Prezzo")
-                        .HasForeignKey("Abitasharp.Models.Prezzo", "PrezzoId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Abitasharp.Models.Recapiti", b =>
-                {
-                    b.HasOne("Abitasharp.Models.UtenteRegolare", "UtenteRegolare")
-                        .WithOne("Recapiti")
-                        .HasForeignKey("Abitasharp.Models.Recapiti", "RecapitiId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Abitasharp.Models.RuoloUtente", b =>
-                {
-                    b.HasOne("Abitasharp.Models.Ruolo", "Ruolo")
-                        .WithMany("RuoloUtente")
-                        .HasForeignKey("RuoloID");
-
-                    b.HasOne("Abitasharp.Models.Utente", "Utente")
-                        .WithMany()
-                        .HasForeignKey("UtenteID");
-                });
-
             modelBuilder.Entity("Abitasharp.Models.Segnalazione", b =>
                 {
                     b.HasOne("Abitasharp.Models.Annuncio", "Annuncio")
                         .WithMany()
                         .HasForeignKey("AnnuncioID");
 
-                    b.HasOne("Abitasharp.Models.UtenteRegolare")
-                        .WithMany("ListaSegnalazioni")
-                        .HasForeignKey("UtenteRegolareID");
+                    b.HasOne("Abitasharp.Models.UtenteRegolare", "UtenteRegolare")
+                        .WithMany()
+                        .HasForeignKey("UtenteRegolareId");
                 });
 
             modelBuilder.Entity("Abitasharp.Models.TipologiaAnnunci", b =>
@@ -369,6 +363,20 @@ namespace Abitasharp.Migrations
                         .WithOne("Tipologia")
                         .HasForeignKey("Abitasharp.Models.TipologiaAnnunci", "TipologiaAnnunciId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Abitasharp.Models.UtenteRegolare", b =>
+                {
+                    b.HasOne("Abitasharp.Models.Recapiti", "Recapiti")
+                        .WithMany()
+                        .HasForeignKey("RecapitiId");
+                });
+
+            modelBuilder.Entity("Abitasharp.Models.ProfiloPrivato", b =>
+                {
+                    b.HasOne("Abitasharp.Models.CaratteristicheUtente", "CaratteristicheUtente")
+                        .WithMany()
+                        .HasForeignKey("CaratteristicheUtenteID");
                 });
 #pragma warning restore 612, 618
         }

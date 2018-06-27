@@ -7,6 +7,7 @@ using Abitasharp.Data;
 using Abitasharp.Models;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -18,15 +19,17 @@ namespace Abitasharp
         public static void Main(string[] args)
         {
             var host = BuildWebHost(args);
-
+            /*
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
                 var context = services.GetRequiredService<ApplicationContext>();
+                var userManager = services.GetRequiredService<UserManager<Utente>>();
+
                 try
                 {
-                    ContextSeeder seeder = new ContextSeeder(context);
-                    seeder.Seed();
+                    ContextSeeder seeder = new ContextSeeder(context, userManager);
+                    //seeder.SeedAsync();
                 }
                 catch (Exception ex)
                 {
@@ -34,7 +37,7 @@ namespace Abitasharp
                     logger.LogError(ex, "An error occurred seeding the DB.");
                 }
             }
-
+            */
             host.Run();
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,11 +24,8 @@ namespace Abitasharp.Models
 
         public bool? Famiglia { get; set; }
 
-        public virtual ProfiloPrivato ProfiloPrivato { get; set; }
-
         public CaratteristicheUtente()
         {
-            ProfiloPrivato = new ProfiloPrivato();
         }
 
     }

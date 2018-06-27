@@ -34,14 +34,13 @@ namespace Abitasharp.Models
 
         public DbSet<Recapiti> Recapiti{ get; set; }
 
-        public DbSet<Ruolo> Ruoli{ get; set; }
-        public DbSet<RuoloUtente> RuoliUtente{ get; set; }
-
         public DbSet<Segnalazione> Segnalazioni{ get; set; }
 
         public DbSet<TipologiaAnnunci> TipologieAnnunci{ get; set; }
 
         public DbSet<Utente> Utenti{ get; set; }
+
+        public DbSet<RuoloUtente> RuoliUtente { get; set; }
 
         public DbSet<UtenteRegolare> UtentiRegolari{ get; set; }
     }
