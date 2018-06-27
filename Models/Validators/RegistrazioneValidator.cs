@@ -54,6 +54,12 @@ namespace Abitasharp.Models.Validators
         [StringLength(40)]
         public string PartitaIva { get; set; }
 
+        [Range(typeof(bool), "false", "true")]
+        public bool Notifiche { get; set; }
+        [Range(typeof(bool), "false", "true")]
+        public bool Privacy { get; set; }
+        [Range(typeof(bool), "false", "true")]
+
 
     }
 }
