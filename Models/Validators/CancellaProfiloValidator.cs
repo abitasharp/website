@@ -10,7 +10,7 @@ namespace Abitasharp.Models.Validators
     {
             [Required]
             [StringLength(50)]
-            [MinLength(8)]
+            [MinLength(8, ErrorMessage = "La password deve essere almeno di 8 caratteri")]
             public string Password { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,26 +10,53 @@ namespace Abitasharp.Models.Validators
     public class CreaAnnuncioValidator
     {
         [Required]
-        public TipologiaAnnunci TipologiaAnnunci { get; set; }
+        public TipoAnnuncio TipoAnnuncio { get; set; }
+        [Required]
+        public TipoContratto TipoContratto { get; set; }
+
 
         [Required]
-        public Indirizzo Indirizzo { get; set; }
+        public string Indirizzo { get; set; }
+
 
         [Required]
         [DataType(DataType.Currency)]
-        public Prezzo Prezzo { get; set; }
-
+        public float Valore { get; set; }
         [Required]
-        public Periodo Disponibilità { get; set; }
+        public TipoPagamento TipoPagamento { get; set; }
 
+                
         [Required]
-        public CaratteristicheUtente CaratteristicheUtente { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Da { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime A { get; set; }
 
-        [Required]
-        [StringLength(254)]
+
+
+        [Range(typeof(bool), "false", "true")]
+        public bool Uomo { get; set; }
+        [Range(typeof(bool), "false", "true")]
+        public bool Donna { get; set; }
+        [Range(typeof(bool), "false", "true")]
+        public bool? Fumatore { get; set; }
+        [Range(typeof(bool), "false", "true")]
+        public bool? Erasmus { get; set; }
+        [Range(typeof(bool), "false", "true")]
+        public bool? Animali { get; set; }
+        [Range(typeof(bool), "false", "true")]
+        public bool? Studente { get; set; }
+        [Range(typeof(bool), "false", "true")]
+        public bool? Lavoratore { get; set; }
+        [Range(typeof(bool), "false", "true")]
+        public bool? Famiglia { get; set; }
+
+
+        [StringLength(2000)]
         public string Note { get; set; }
 
-        [Required]
-        public Foto Foto { get; set; }
+
+        public List<IFormFile> Foto { get; set; }
     }
 }

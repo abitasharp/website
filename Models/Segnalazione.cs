@@ -16,5 +16,12 @@ namespace Abitasharp.Models
         public string Messaggio { get; set; }
 
         public Annuncio Annuncio { get; set; }
+
+        public Segnalazione()
+        {
+            Annuncio = new Annuncio();
+        }
     }
 }
+
+    

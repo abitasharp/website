@@ -8,7 +8,10 @@ namespace Abitasharp.Models.Validators
 {
     public class RegistrazioneValidator
     {
-        /*  public HtmlInputRadioButton   */
+        [Range(typeof(bool), "false", "true")]
+        public bool Privato { get; set; }
+        [Range(typeof(bool), "false", "true")]
+        public bool Azienda { get; set; }
 
         [Required]
         [StringLength(40)]
@@ -25,6 +28,7 @@ namespace Abitasharp.Models.Validators
 
         [Required]
         [StringLength(50)]
+        [MinLength(8, ErrorMessage = "La password deve contenere almeno 8 caratteri")]
         public string Password { get; set; }
 
         [Required]
@@ -39,6 +43,7 @@ namespace Abitasharp.Models.Validators
 
         [Required]
         [StringLength(20)]
+        [DataType(DataType.Date)]
         public DateTime DataNascita { get; set; }
 
         [Required]

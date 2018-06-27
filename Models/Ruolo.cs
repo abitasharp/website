@@ -9,5 +9,11 @@ namespace Abitasharp.Models
     public class Ruolo : IdentityRole<string>
     {
         public ICollection<RuoloUtente> RuoloUtente { get; set; }
+
+        public Ruolo()
+        {
+            RuoloUtente = new List<RuoloUtente>();
+        }
     }
-}
+
+ }

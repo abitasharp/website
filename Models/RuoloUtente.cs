@@ -16,5 +16,11 @@ namespace Abitasharp.Models
         public Ruolo Ruolo { get; set; }
 
         public Utente Utente { get; set; }
+
+        public RuoloUtente()
+        {
+            Ruolo = new Ruolo();
+            Utente = new Utente();
+        }
     }
 }
