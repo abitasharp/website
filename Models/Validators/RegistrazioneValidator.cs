@@ -8,8 +8,10 @@ namespace Abitasharp.Models.Validators
 {
     public class RegistrazioneValidator
     {
+        [Required]
         [Range(typeof(bool), "false", "true")]
         public bool Privato { get; set; }
+        [Required]
         [Range(typeof(bool), "false", "true")]
         public bool Azienda { get; set; }
 
@@ -58,7 +60,6 @@ namespace Abitasharp.Models.Validators
         public bool Notifiche { get; set; }
         [Range(typeof(bool), "false", "true")]
         public bool Privacy { get; set; }
-        [Range(typeof(bool), "false", "true")]
 
 
     }

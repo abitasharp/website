@@ -1,14 +1,26 @@
-﻿@section css {
+﻿@model LoginValidator
+
+@section css {
     <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/form.css")" />
 }
 
-@section script {}
+@section script {
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js"></script>
 
-<form id="container">
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<form asp-controller="Account" asp-action="Login" id="container">
     <h2>Accedi</h2><br />
-    <hr/>
-    <input type="text" name="email" id="input-email" value="email" /><br />
-    <input type="password" name="password" id="input-password" value="password" /><br />
+    <hr />
+
+    <input type="text" asp-for="Email" id="input-email" value="email" /><br />
+    <span asp-validation-for="Email" class="text-danger"></span><br />
+
+    <input type="password" asp-for="Password" id="input-password" value="password" /><br />
+    <span asp-validation-for="Password" class="text-danger"></span><br />
+
     <div></div><br />
     <input type="submit" name="submit" id="input-submit" value="Login" /><br />
 </form>

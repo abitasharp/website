@@ -1,4 +1,7 @@
-﻿@section css{
+﻿@model ModificaInfoProfiloValidator
+@model Annuncio 
+
+@section css{
     <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/form.css")" />
     <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/modificaProfilo.css")" />
 }
@@ -12,17 +15,20 @@
     <hr />
 
     <div>
-        <form>
-            <div class="section">Nome Azienda:<input type="text" readonly name="nome" value="Tempo Casa" onchange="ShowButton()" /></div>
-            <div class="section">Partita Iva:<input type="text" readonly name="iva" value="partitaiva" onchange="ShowButton()" /></div>
-            <div class="section">Password:<input type="password" name="password" value="" onchange="ShowButton()" /></div>
-            <div class="section">Conferma Password:<input type="password" name="confPass" value="" onchange="ShowButton()" /></div><br />
+        <form asp-controller="GestioneProfilo" asp-action="ModificaInfo">
+            <div class="section">Nome Azienda:<input type="text" readonly asp-for="Nome" value="Tempo Casa" onchange="ShowButton()" /></div>
+
+            <div class="section">Partita Iva:<input type="text" readonly asp-for="PartitaIva" value="partitaiva" onchange="ShowButton()" /></div>
+
+            <div class="section">Password:<input type="password" asp-for="Password" value="" onchange="ShowButton()" /></div>
+  
+            <div class="section">Conferma Password:<input type="password" asp-for="ConfermaPassword" value="" onchange="ShowButton()" /></div><br />
             <br />
         </form>
 
         <fieldset>
             <legend>Contatti</legend>
-            E-mail: <a id="mail" href="mailto:tempocasa@gmail.com">tempocasa@gmail.com</a><br />
+            E-mail: <a id="mail" href=@mailto:tempocasa@gmail.com">tempocasa@gmail.com</a><br />
             Telefono: <a class="phone" href="tel:3177594940">317.759.4940</a><br />
             Telefono: <a class="phone" href="tel:3177594940">317.759.4940</a><br />
         </fieldset><br />
