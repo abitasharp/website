@@ -14,7 +14,13 @@ namespace Abitasharp.Models
         {
         }
 
-        public DbSet<Admin> Admins{ get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Preferiti>().HasKey(p => new { p.UtenteRegolareId, p.AnnuncioId });
+            modelBuilder.Entity<Segnalazione>().HasKey(p => new { p.UtenteRegolareId, p.AnnuncioId });
+        }
+
+        /* Annunci */
 
         public DbSet<Annuncio> Annunci{ get; set; }
 
@@ -28,20 +34,26 @@ namespace Abitasharp.Models
 
         public DbSet<Prezzo> Prezzo{ get; set; }
 
-        public DbSet<ProfiloAzienda> ProfiliAzienda{ get; set; }
-
-        public DbSet<ProfiloPrivato> ProfiliPrivati{ get; set; }
+        public DbSet<TipologiaAnnunci> TipologieAnnunci { get; set; }
 
         public DbSet<Recapiti> Recapiti{ get; set; }
 
-        public DbSet<Segnalazione> Segnalazioni{ get; set; }
+        public DbSet<Segnalazione> Segnalazioni { get; set; }
 
-        public DbSet<TipologiaAnnunci> TipologieAnnunci{ get; set; }
+        public DbSet<Preferiti> Preferiti { get; set; }
+
+        /* Account */
 
         public DbSet<Utente> Utenti{ get; set; }
 
         public DbSet<RuoloUtente> RuoliUtente { get; set; }
 
         public DbSet<UtenteRegolare> UtentiRegolari{ get; set; }
+
+        public DbSet<ProfiloAzienda> ProfiliAzienda { get; set; }
+
+        public DbSet<ProfiloPrivato> ProfiliPrivati { get; set; }
+
+        public DbSet<Admin> Admins { get; set; }
     }
 }

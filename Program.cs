@@ -29,7 +29,9 @@ namespace Abitasharp
                 try
                 {
                     ContextSeeder seeder = new ContextSeeder(context, userManager);
-                    //seeder.SeedAsync();
+                    ContextSeeder seeder = new ContextSeeder(context);
+                    seeder.Empty();
+                    seeder.Seed();
                 }
                 catch (Exception ex)
                 {

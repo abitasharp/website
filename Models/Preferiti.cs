@@ -7,21 +7,18 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Models
 {
-    public class Segnalazione
-    {
-        [ForeignKey("Annuncio")]
-        public string AnnuncioId { get; set; }
+    public class Preferiti
+    {   
 
         [ForeignKey("UtenteRegolare")]
         public string UtenteRegolareId { get; set; }
 
-        [Timestamp]
-        public byte[] Timestamp { get; set; } 
+        [ForeignKey("Annuncio")]
+        public string AnnuncioId { get; set; }
 
-        public string Messaggio { get; set; }
-
-        public Segnalazione()
+        public Preferiti()
         {
+
         }
     }
 }

@@ -18,11 +18,8 @@ namespace Abitasharp.Models
 
         public TipoContratto TipoContratto { get; set; }
 
-        public virtual Annuncio Annuncio { get; set; }
-
         public TipologiaAnnunci()
         {
-            Annuncio = new Annuncio();
         }
     }
 }
