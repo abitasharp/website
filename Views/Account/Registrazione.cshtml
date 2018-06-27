@@ -7,55 +7,87 @@
 
 @section script{
     <script src="@Url.Content("~/script/Registrazione.js")"></script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
 }
 
-    <form asp-controller="Account" asp-action="Registrazione" name="registrazione" id="container" method="post">
-        <h2>Registrazione</h2>
-        <hr/>
-            PRIVATO
-            <input type="radio" name="profilo" asp-for="Privato" id="radio-privato" checked="checked" onclick="ShowForm()"/>
-            AZIENDA
-            <input type="radio" name="profilo" asp-for="Azienda" id="radio-azienda" onclick="ShowForm()" />
-        <div id="privato">
-            <label asp-for="Nome">Nome:</label>
-            <input type="text" asp-for="Nome" id="input-nome" value="" /><br />
-            <label asp-for="Cognome">Cognome:</label>
-            <input type="text" asp-for="Cognome" id="input-cognome" value="" /><br />
-            <label asp-for="Email">E-mail:</label>
-            <input type="text" asp-for="Email" id="input-p-mail" value="" /><br />
-            <label asp-for="Password">Password:</label>
-            <input type="password" asp-for="Password" id="input-p-password" value="" /><br />
-            <label asp-for="ConfermaPassword">Conferma Password:</label>
-            <input type="password" asp-for="ConfermaPassword" id="input-p-confpass" value="" /><br />
-            <label asp-for="Telefono">Telefono:</label>
-            <input type="text" asp-for="Telefono" id="input-p-telefono" value="" /><br />
-            <label asp-for="DataNascita">Data di Nascita:</label>
-            <input type="date" asp-for="DataNascita" id="input-dataNascita" value="" /><br /><br />
-            <label asp-for="Notifiche">Abilita Notifiche</label>
-            <input type="checkbox" asp-for="Notifiche" id="input-notifica" /><br />
-            <label asp-for="Privacy">Accetta il contratto sulla privacy</label>
-            <input type="checkbox" asp-for="Privacy" id="input-p-privacy" /><br />
-            <br /><br />
-        </div>
+<form asp-controller="Account" asp-action="Registrazione" name="registrazione" id="container" method="post">
+    <h2>Registrazione</h2>
+    <hr />
+    PRIVATO
+    <input type="radio" asp-for="TipoProfilo" value="PRIVATO" id="radio-privato" checked="checked" onclick="ShowForm()" />
+    AZIENDA
+    <input type="radio" asp-for="TipoProfilo" value="AZIENDA" id="radio-azienda" onclick="ShowForm()" />
+    <div id="privato">
 
-        <div id="azienda">
-            <label asp-for="NomeAzienda">Nome Azienda:</label>
-            <input type="text" asp-for="NomeAzienda" id="input-nomeAzienda" value="" /><br />
-            <label asp-for="Email">E-mail:</label>
-            <input type="text" name="e-mail" id="input-a-mail" value="" /><br />
-            <label asp-for="Password">Password:</label>
-            <input type="password"asp-for="Password" id="input-a-password" value="" /><br />
-            <label asp-for="ConfermaPassword">Conferma Password:</label>
-            <input type="password" asp-for="ConfermaPassword" id="input-a-confpass" value="" /><br />
-            <label asp-for="Telefono">Telefono:</label>
-            <input type="text" asp-for="Telefono" id="input-a-telefono" value="" /><br />
-            <label asp-for="PartitaIva">Partita Iva:</label>
-            <input type="text" asp-for="PartitaIva" id="input-iva" value="" /><br /><br />
-            <label asp-for="Privacy">Accetta il contratto sulla privacy</label>
-            <input type="checkbox" asp-for="Privacy" id="input-a-privacy" /><br />
-            <br/><br/>
-        </div>
-        <input type="submit" name="registra" id="submit" value="Registra" />
-        <input type="submit" name="annulla" id="cancel" value="Annulla" /><br />
+        <label asp-for="Nome">Nome:</label>
+        <input type="text" asp-for="Nome" id="input-nome" value="" /><br />
+        <span asp-validation-for="Nome" class="text-danger"></span>
 
-    </form>
+        <label asp-for="Cognome">Cognome:</label>
+        <input type="text" asp-for="Cognome" id="input-cognome" value="" /><br />
+        <span asp-validation-for="Cognome" class="text-danger"></span>
+
+        <label asp-for="Email">E-mail:</label>
+        <input type="text" asp-for="Email" id="input-p-mail" value="" /><br />
+        <span asp-validation-for="Email" class="text-danger"></span>
+
+        <label asp-for="Password">Password:</label>
+        <input type="password" asp-for="Password" id="input-p-password" value="" /><br />
+        <span asp-validation-for="Password" class="text-danger"></span>
+
+        <label asp-for="ConfermaPassword">Conferma Password:</label>
+        <input type="password" asp-for="ConfermaPassword" id="input-p-confpass" value="" /><br />
+        <span asp-validation-for="ConfermaPassword" class="text-danger"></span>
+
+        <label asp-for="Telefono">Telefono:</label>
+        <input type="text" asp-for="Telefono" id="input-p-telefono" value="" /><br />
+        <span asp-validation-for="Telefono" class="text-danger"></span>
+
+        <label asp-for="DataNascita">Data di Nascita:</label>
+        <input type="date" asp-for="DataNascita" id="input-dataNascita" value="" /><br /><br />
+        <span asp-validation-for="DataNascita" class="text-danger"></span>
+
+        <label asp-for="Notifiche">Abilita Notifiche</label>
+        <input type="checkbox" asp-for="Notifiche" id="input-notifica" /><br />
+
+        <label asp-for="Privacy">Accetta il contratto sulla privacy</label>
+        <input type="checkbox" asp-for="Privacy" id="input-p-privacy" /><br />
+        <span asp-validation-for="Privacy" class="text-danger"></span>
+        <br /><br />
+    </div>
+
+    <div id="azienda">
+        <label asp-for="NomeAzienda">Nome Azienda:</label>
+        <input type="text" asp-for="NomeAzienda" id="input-nomeAzienda" value="" /><br />
+        <span asp-validation-for="NomeAzienda" class="text-danger"></span>
+
+        <label asp-for="Email">E-mail:</label>
+        <input type="text" name="e-mail" id="input-a-mail" value="" /><br />
+        <span asp-validation-for="Email" class="text-danger"></span>
+
+        <label asp-for="Password">Password:</label>
+        <input type="password" asp-for="Password" id="input-a-password" value="" /><br />
+        <span asp-validation-for="Password" class="text-danger"></span>
+
+        <label asp-for="ConfermaPassword">Conferma Password:</label>
+        <input type="password" asp-for="ConfermaPassword" id="input-a-confpass" value="" /><br />
+        <span asp-validation-for="ConfermaPassword" class="text-danger"></span>
+
+        <label asp-for="Telefono">Telefono:</label>
+        <input type="text" asp-for="Telefono" id="input-a-telefono" value="" /><br />
+        <span asp-validation-for="Telefono" class="text-danger"></span>
+
+        <label asp-for="PartitaIva">Partita Iva:</label>
+        <input type="text" asp-for="PartitaIva" id="input-iva" value="" /><br /><br />
+        <span asp-validation-for="PartitaIva" class="text-danger"></span>
+
+        <label asp-for="Privacy">Accetta il contratto sulla privacy</label>
+        <input type="checkbox" asp-for="Privacy" id="input-a-privacy" /><br />
+        <span asp-validation-for="Privacy" class="text-danger"></span>
+        <br /><br />
+    </div>
+    <button type="submit">Registra</button>
+</form>
