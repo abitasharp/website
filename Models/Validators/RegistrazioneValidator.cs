@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Models.Validators
 {
+
+    public enum TipoProfilo
+    {
+        PRIVATO, AZIENDA
+    }
+
     public class RegistrazioneValidator
     {
-        [Required]
-        [Range(typeof(bool), "false", "true")]
-        public bool Privato { get; set; }
-        [Required]
-        [Range(typeof(bool), "false", "true")]
-        public bool Azienda { get; set; }
+        public TipoProfilo TipoProfilo { get; set; }
 
         [Required]
         [StringLength(40)]
@@ -46,7 +47,7 @@ namespace Abitasharp.Models.Validators
         [Required]
         [StringLength(20)]
         [DataType(DataType.Date)]
-        public DateTime DataNascita { get; set; }
+        public string DataNascita { get; set; }
 
         [Required]
         [StringLength(40)]
@@ -58,9 +59,9 @@ namespace Abitasharp.Models.Validators
 
         [Range(typeof(bool), "false", "true")]
         public bool Notifiche { get; set; }
-        [Range(typeof(bool), "false", "true")]
-        public bool Privacy { get; set; }
 
+       // [Required(ErrorMessage = "Acconsenti alla privacy policy.")]
+        public bool Privacy { get; set; }
 
     }
 }
