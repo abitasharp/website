@@ -34,16 +34,16 @@ namespace Abitasharp.Models.Validators
         [Range(typeof(bool), "false", "true")]
         public bool Donna { get; set; }
         [Range(typeof(bool), "false", "true")]
-        public bool? Fumatore { get; set; }
+        public bool Fumatore { get; set; }
         [Range(typeof(bool), "false", "true")]
-        public bool? Erasmus { get; set; }
+        public bool Erasmus { get; set; }
         [Range(typeof(bool), "false", "true")]
-        public bool? Animali { get; set; }
+        public bool Animali { get; set; }
         [Range(typeof(bool), "false", "true")]
-        public bool? Studente { get; set; }
+        public bool Studente { get; set; }
         [Range(typeof(bool), "false", "true")]
-        public bool? Lavoratore { get; set; }
+        public bool Lavoratore { get; set; }
         [Range(typeof(bool), "false", "true")]
-        public bool? Famiglia { get; set; }
+        public bool Famiglia { get; set; }
     }
 }

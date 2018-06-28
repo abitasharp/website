@@ -17,6 +17,6 @@ namespace Abitasharp.Controllers
         }
         public IActionResult Index() => _cercaProfilo.show();
 
-        public IActionResult Visualizza() => _cercaProfilo.visualizza();
+        public IActionResult Visualizza(string id) => _cercaProfilo.visualizza(id);
     }
 }

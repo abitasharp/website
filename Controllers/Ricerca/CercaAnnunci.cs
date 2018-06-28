@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,10 @@ namespace Abitasharp.Controllers.Ricerca
         {
             throw new NotImplementedException();
         }
-
+        [Authorize(Roles = "PRIVATO")]
         public IActionResult show()
         {
+            ViewData["Foto"] = new List<string>();
             return View("Views/Ricerca/CercaAnnunci.cshtml");
         }
 

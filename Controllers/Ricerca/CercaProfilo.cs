@@ -31,7 +31,21 @@ namespace Abitasharp.Controllers.Ricerca
 
         public IActionResult visualizza(String userId)
         {
-            throw new NotImplementedException();
+            Utente user = _context.Utenti.Where(u => u.Id == userId).First();
+            if (true)
+            {
+                ViewData["Nome"] = ((ProfiloPrivato) user).Nome;
+                ViewData["Cognome"] = ((ProfiloPrivato)user).Cognome;
+                ViewData["Email1"] = ((ProfiloPrivato)user).Recapiti.Email1;
+                ViewData["Email2"] = ((ProfiloPrivato)user).Recapiti.Email2;
+                ViewData["Email3"] = ((ProfiloPrivato)user).Recapiti.Email3;
+                ViewData["Tel1"] = ((ProfiloPrivato)user).Recapiti.Tel1;
+                ViewData["Tel2"] = ((ProfiloPrivato)user).Recapiti.Tel2;
+                ViewData["Tel3"] = ((ProfiloPrivato)user).Recapiti.Tel3;
+
+                return View("Views/GestioneProfilo/ProfiloPrivato.cshtml");
+            }
+
         }
     }
 }

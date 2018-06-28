@@ -96,6 +96,7 @@ namespace Abitasharp
 
             app.UseAuthentication();
 
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

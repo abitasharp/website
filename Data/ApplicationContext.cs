@@ -60,5 +60,7 @@ namespace Abitasharp.Models
 
         public DbSet<IdentityUserClaim<string>> ClaimUtenti { get; set; }
 
+        public DbSet<IdentityRoleClaim<string>> ClaimRuoli { get; set; }
+
     }
 }

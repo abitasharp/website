@@ -57,6 +57,8 @@ namespace Abitasharp.Controllers.Account
 
                 if (result.Succeeded)
                 {
+                    var currentUser = await _userManager.FindByEmailAsync(data.Email);
+                    var roleResult = await _userManager.AddToRoleAsync(currentUser, "PRIVATO");
                     _logger.LogInformation("Registrazione riuscita");
                     return RedirectToAction(nameof(CercaAnnunciController.Index), null);
                 } else

@@ -20,8 +20,6 @@ namespace Abitasharp.Controllers.Amministrazione
             _logger = logger;
         }
 
-
-
         public async Task<IActionResult> ban(BannaUtenteValidator data)
         {
             Utente utente = _context.Utenti.Where(u => u.Id == data.UtenteId).First();
