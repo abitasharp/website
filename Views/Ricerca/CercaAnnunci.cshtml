@@ -10,13 +10,14 @@
 @section script {
     <script src="@Url.Content("~/script/ol.js")"></script>
     <script src="@Url.Content("~/script/MapAdapter.js")"></script>
+    <script src="@Url.Content("~/script/Wallpaper.js")"></script>
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
 }
 
-<div id="wallpaper-container">
+<div id="wallpaper-container" onclick="Down()">
     <img id="wallpaper" src="@Url.Content("~/img/bologna.jpg")" />
     <img id="arrow-down" src="@Url.Content("~/img/arrow-down.png")" />
 </div>
@@ -84,9 +85,10 @@
         <div class="disponibilità">A partire dal @ViewData["Da"]</div>
         <div class="note">@ViewData["Note"]</div>
         <div class="gallery">
-        @foreach (string path in (ViewData["Foto"] as ICollection<string>)) {
-            <img src="@Url.Content(Path)" />
-         }
+            @foreach (string path in (ViewData["Foto"] as ICollection<string>))
+            {
+                <img src="@Url.Content(Path)" />
+            }
         </div>
     </div>
 </div>
