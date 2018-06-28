@@ -1,4 +1,5 @@
 ﻿using Abitasharp.Models;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,60 +10,41 @@ namespace Abitasharp.Data
     public class ContextSeeder
     {
         private ApplicationContext _context;
+        private UserManager<Utente> _userManager;
+        private RoleManager<IdentityRole> _roleManager;
 
-        public ContextSeeder(ApplicationContext context)
+        public ContextSeeder(ApplicationContext context, 
+            UserManager<Utente> userManager, 
+            RoleManager<IdentityRole> roleManager)
         {
             _context = context;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
         
         public void Empty()
         {
-            _context.ProfiliAzienda.RemoveRange(_context.ProfiliAzienda);
-            _context.ProfiliPrivati.RemoveRange(_context.ProfiliPrivati);
 
         }
+
         public void Seed()
         {
-           
-            //Profilo azienda 
-            ProfiloAzienda profiloAzienda = new ProfiloAzienda();
-            profiloAzienda.Id = Guid.NewGuid().ToString();
-            profiloAzienda.NomeAzienda = "Tempocasa";
-            profiloAzienda.PartitaIVa = "30528598402";
-            profiloAzienda.PasswordHash = "cicirinella90";
-            profiloAzienda.Email = "tempocasa@gmail.com";
-            profiloAzienda.Recapiti.Tel1 = "0989879876";
+            /* Roles */
+            var tasks = new Task<IdentityResult>[3];
+            tasks[0] = _roleManager.CreateAsync(new IdentityRole("Admin"));
+            tasks[1] = _roleManager.CreateAsync(new IdentityRole("Privato"));
+            tasks[2] = _roleManager.CreateAsync(new IdentityRole("Azienda"));
+            Task.WaitAll(tasks);
+            /* Admin */
+            Admin admin = new Admin();
+            admin.Id = Guid.NewGuid().ToString();
+            admin.UserName = admin.Id;
+            admin.Email = "admin@abitasharp.com";
 
-
-            _context.ProfiliAzienda.Add(profiloAzienda);
-
-
-            //Profilo privato
-            ProfiloPrivato profiloPrivato = new ProfiloPrivato();
-            profiloPrivato.Id = Guid.NewGuid().ToString();
-            profiloPrivato.Nome = "Bibbo";
-            profiloPrivato.Cognome = "Babbo";
-            profiloPrivato.DataNascita = new DateTime(1990, 05, 30);
-            profiloPrivato.PasswordHash = "BibboBabbo1990";
-            profiloPrivato.Email = "bibbobabbo@gmail.com";
-            profiloPrivato.Recapiti.Tel1 = "0569978265";
-            profiloPrivato.CaratteristicheUtente.Fumatore = true;
-            profiloPrivato.CaratteristicheUtente.Animali = false;
-            profiloPrivato.CaratteristicheUtente.Erasmus = true;
-            profiloPrivato.CaratteristicheUtente.Famiglia = false;
-            profiloPrivato.CaratteristicheUtente.Genere = true;
-            profiloPrivato.CaratteristicheUtente.Lavoratore = null;
-            profiloPrivato.CaratteristicheUtente.Studente = true;
-
-
-            _context.ProfiliPrivati.Add(profiloPrivato);
-
-            //
-
-
-
-            _context.SaveChanges();      
-
+            tasks[0] = _userManager.CreateAsync(admin, "ingsoftware");
+            Task.WaitAll(tasks);
+            tasks[0] =  _userManager.AddToRoleAsync(admin, "Admin");
+            Task.WaitAll(tasks);
         }
     }
 }

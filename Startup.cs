@@ -15,6 +15,7 @@ using Abitasharp.Controllers.Ricerca;
 using Abitasharp.Controllers.GestioneAnnunci;
 using Abitasharp.Controllers.Account;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace Abitasharp
 {
@@ -35,7 +36,7 @@ namespace Abitasharp
             services.AddDbContext<ApplicationContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<Utente, RuoloUtente>()
+            services.AddIdentity<Utente, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>()
                 .AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(options => {
@@ -54,38 +55,28 @@ namespace Abitasharp
                 // User settings
                 options.User.RequireUniqueEmail = true;
             });
+
             services.ConfigureApplicationCookie(options =>
             {
                 options.Cookie.HttpOnly = true;
                 options.LoginPath = "/Account/Login";
                 options.LogoutPath = "/Account/Logout";
-                options.AccessDeniedPath = "/Account/AccessDenied";
+                //options.AccessDeniedPath = "/Account/AccessDenied";
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
             });
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             _registerControllers(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, SignInManager<Utente> s)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
-
-                /*
-
-                //test
-                if (s.UserManager.FindByIdAsync("IDCAZZUTISSIMO").Result == null)
-                {
-                    var result = s.UserManager.CreateAsync(new ProfiloAzienda
-                    {
-                        Id = "IDCAZZUTISSIMO",
-                        Email = "dev@app.com"
-                    }, "Aut94L#G-a").Result;
-                }
-
-    */
             }
             else
             {
@@ -95,7 +86,6 @@ namespace Abitasharp
             app.UseStaticFiles();
 
             app.UseAuthentication();
-
 
             app.UseMvc(routes =>
             {

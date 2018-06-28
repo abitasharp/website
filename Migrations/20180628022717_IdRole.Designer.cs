@@ -12,8 +12,8 @@ using System;
 namespace Abitasharp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20180627203906_test_migration")]
-    partial class test_migration
+    [Migration("20180628022717_IdRole")]
+    partial class IdRole
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -173,22 +173,6 @@ namespace Abitasharp.Migrations
                     b.ToTable("Recapiti");
                 });
 
-            modelBuilder.Entity("Abitasharp.Models.RuoloUtente", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ConcurrencyStamp");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("NormalizedName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RuoliUtente");
-                });
-
             modelBuilder.Entity("Abitasharp.Models.Segnalazione", b =>
                 {
                     b.Property<string>("UtenteRegolareId");
@@ -261,6 +245,54 @@ namespace Abitasharp.Migrations
                     b.ToTable("Utenti");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Utente");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<string>", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ConcurrencyStamp");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("NormalizedName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RuoliUtente");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ClaimType");
+
+                    b.Property<string>("ClaimValue");
+
+                    b.Property<string>("RoleId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ClaimRuoli");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ClaimType");
+
+                    b.Property<string>("ClaimValue");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ClaimUtenti");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>

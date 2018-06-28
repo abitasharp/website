@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Abitasharp.Controllers.Amministrazione;
 using Abitasharp.Models.Validators;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Abitasharp.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class DashboardController : Controller
     {
         private readonly IAmministraPiattaforma _dashboard;
@@ -39,9 +41,11 @@ namespace Abitasharp.Controllers
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> EliminaAnnuncio(EliminaAnnuncioValidator data) { return await _eliminaAnnuncio.elimina(data); }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> BannaUtente(BannaUtenteValidator data) { return await _bannaUtente.ban(data); }
     }
 }

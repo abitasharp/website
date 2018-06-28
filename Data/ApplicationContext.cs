@@ -48,8 +48,6 @@ namespace Abitasharp.Models
 
         public DbSet<Utente> Utenti{ get; set; }
 
-        public DbSet<RuoloUtente> RuoliUtente { get; set; }
-
         public DbSet<UtenteRegolare> UtentiRegolari{ get; set; }
 
         public DbSet<ProfiloAzienda> ProfiliAzienda { get; set; }
@@ -57,6 +55,8 @@ namespace Abitasharp.Models
         public DbSet<ProfiloPrivato> ProfiliPrivati { get; set; }
 
         public DbSet<Admin> Admins { get; set; }
+
+        public DbSet<IdentityRole> RuoliUtente { get; set; }
 
         public DbSet<IdentityUserClaim<string>> ClaimUtenti { get; set; }
 

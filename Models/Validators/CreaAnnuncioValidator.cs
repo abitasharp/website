@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace Abitasharp.Models.Validators
 {
+    public enum Genere
+    {
+        NONE, UOMO, DONNA
+    }
     public class CreaAnnuncioValidator
     {
         [Required]
@@ -18,6 +22,11 @@ namespace Abitasharp.Models.Validators
         [Required]
         public string Indirizzo { get; set; }
 
+        [Required]
+        public float Lat { get; set; }
+
+        [Required]
+        public float Lon { get; set; }
 
         [Required]
         [DataType(DataType.Currency)]
@@ -34,22 +43,18 @@ namespace Abitasharp.Models.Validators
         public DateTime A { get; set; }
 
 
+        public Genere Genere { get; set; }
 
-        [Range(typeof(bool), "false", "true")]
-        public bool Uomo { get; set; }
-        [Range(typeof(bool), "false", "true")]
-        public bool Donna { get; set; }
-        [Range(typeof(bool), "false", "true")]
         public bool Fumatore { get; set; }
-        [Range(typeof(bool), "false", "true")]
+     
         public bool Erasmus { get; set; }
-        [Range(typeof(bool), "false", "true")]
+      
         public bool Animali { get; set; }
-        [Range(typeof(bool), "false", "true")]
+ 
         public bool Studente { get; set; }
-        [Range(typeof(bool), "false", "true")]
+    
         public bool Lavoratore { get; set; }
-        [Range(typeof(bool), "false", "true")]
+       
         public bool Famiglia { get; set; }
 
 

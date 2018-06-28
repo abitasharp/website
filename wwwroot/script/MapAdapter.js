@@ -1,6 +1,6 @@
 var MapAdapter = function () {
 
-    this cluster_radius = 10;
+    const cluster_radius = 10;
     const inital_zoom = 13;
     const initial_long = 11.3370906;
     const initial_lat = 44.4949949;

@@ -30,21 +30,21 @@
         <input type="text" asp-for="Cognome" id="input-cognome" value="" /><br />
         <span asp-validation-for="Cognome" class="text-danger"></span>
 
-        <label asp-for="Email">E-mail:</label>
-        <input type="text" asp-for="Email" id="input-p-mail" value="" /><br />
-        <span asp-validation-for="Email" class="text-danger"></span>
+        <label asp-for="EmailPrivato">E-mail:</label>
+        <input type="text" asp-for="EmailPrivato" id="input-p-mail" value="" /><br />
+        <span asp-validation-for="EmailPrivato" class="text-danger"></span>
 
-        <label asp-for="Password">Password:</label>
-        <input type="password" asp-for="Password" id="input-p-password" value="" /><br />
-        <span asp-validation-for="Password" class="text-danger"></span>
+        <label asp-for="PasswordPrivato">Password:</label>
+        <input type="password" asp-for="PasswordPrivato" id="input-p-password" value="" /><br />
+        <span asp-validation-for="PasswordPrivato" class="text-danger"></span>
 
-        <label asp-for="ConfermaPassword">Conferma Password:</label>
-        <input type="password" asp-for="ConfermaPassword" id="input-p-confpass" value="" /><br />
-        <span asp-validation-for="ConfermaPassword" class="text-danger"></span>
+        <label asp-for="ConfermaPasswordPrivato">Conferma Password:</label>
+        <input type="password" asp-for="ConfermaPasswordPrivato" id="input-p-confpass" value="" /><br />
+        <span asp-validation-for="ConfermaPasswordPrivato" class="text-danger"></span>
 
-        <label asp-for="Telefono">Telefono:</label>
-        <input type="text" asp-for="Telefono" id="input-p-telefono" value="" /><br />
-        <span asp-validation-for="Telefono" class="text-danger"></span>
+        <label asp-for="TelefonoPrivato">Telefono:</label>
+        <input type="text" asp-for="TelefonoPrivato" id="input-p-telefono" value="" /><br />
+        <span asp-validation-for="TelefonoPrivato" class="text-danger"></span>
 
         <label asp-for="DataNascita">Data di Nascita:</label>
         <input type="date" asp-for="DataNascita" id="input-dataNascita" value="" /><br /><br />
@@ -53,9 +53,9 @@
         <label asp-for="Notifiche">Abilita Notifiche</label>
         <input type="checkbox" asp-for="Notifiche" id="input-notifica" /><br />
 
-        <label asp-for="Privacy">Accetta il contratto sulla privacy</label>
-        <input type="checkbox" asp-for="Privacy" id="input-p-privacy" /><br />
-        <span asp-validation-for="Privacy" class="text-danger"></span>
+        <label asp-for="PrivacyPrivato">Accetta il contratto sulla privacy</label>
+        <input type="checkbox" asp-for="PrivacyPrivato" id="input-p-privacy" /><br />
+        <span asp-validation-for="PrivacyPrivato" class="text-danger"></span>
         <br /><br />
     </div>
 
@@ -64,29 +64,29 @@
         <input type="text" asp-for="NomeAzienda" id="input-nomeAzienda" value="" /><br />
         <span asp-validation-for="NomeAzienda" class="text-danger"></span>
 
-        <label asp-for="Email">E-mail:</label>
-        <input type="text" name="e-mail" id="input-a-mail" value="" /><br />
-        <span asp-validation-for="Email" class="text-danger"></span>
+        <label asp-for="EmailAzienda">E-mail:</label>
+        <input type="text" asp-for="EmailAzienda" id="input-a-mail" value="" /><br />
+        <span asp-validation-for="EmailAzienda" class="text-danger"></span>
 
-        <label asp-for="Password">Password:</label>
-        <input type="password" asp-for="Password" id="input-a-password" value="" /><br />
-        <span asp-validation-for="Password" class="text-danger"></span>
+        <label asp-for="PasswordAzienda">Password:</label>
+        <input type="password" asp-for="PasswordAzienda" id="input-a-password" value="" /><br />
+        <span asp-validation-for="PasswordAzienda" class="text-danger"></span>
 
-        <label asp-for="ConfermaPassword">Conferma Password:</label>
-        <input type="password" asp-for="ConfermaPassword" id="input-a-confpass" value="" /><br />
-        <span asp-validation-for="ConfermaPassword" class="text-danger"></span>
+        <label asp-for="ConfermaPasswordAzienda">Conferma Password:</label>
+        <input type="password" asp-for="ConfermaPasswordAzienda" id="input-a-confpass" value="" /><br />
+        <span asp-validation-for="ConfermaPasswordAzienda" class="text-danger"></span>
 
-        <label asp-for="Telefono">Telefono:</label>
-        <input type="text" asp-for="Telefono" id="input-a-telefono" value="" /><br />
-        <span asp-validation-for="Telefono" class="text-danger"></span>
+        <label asp-for="TelefonoAzienda">Telefono:</label>
+        <input type="text" asp-for="TelefonoAzienda" id="input-a-telefono" value="" /><br />
+        <span asp-validation-for="TelefonoAzienda" class="text-danger"></span>
 
         <label asp-for="PartitaIva">Partita Iva:</label>
         <input type="text" asp-for="PartitaIva" id="input-iva" value="" /><br /><br />
         <span asp-validation-for="PartitaIva" class="text-danger"></span>
 
-        <label asp-for="Privacy">Accetta il contratto sulla privacy</label>
-        <input type="checkbox" asp-for="Privacy" id="input-a-privacy" /><br />
-        <span asp-validation-for="Privacy" class="text-danger"></span>
+        <label asp-for="PrivacyAzienda">Accetta il contratto sulla privacy</label>
+        <input type="checkbox" asp-for="PrivacyAzienda" id="input-a-privacy" /><br />
+        <span asp-validation-for="PrivacyAzienda" class="text-danger"></span>
         <br /><br />
     </div>
     <button type="submit">Registra</button>

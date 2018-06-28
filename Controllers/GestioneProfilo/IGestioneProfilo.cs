@@ -8,6 +8,8 @@ namespace Abitasharp.Controllers.GestioneProfilo
 {
     public interface IGestioneProfilo
     {
-        IActionResult show();
+        IActionResult showAzienda();
+
+        IActionResult showPrivato();
     }
 }

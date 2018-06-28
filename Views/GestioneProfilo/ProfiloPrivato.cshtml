@@ -12,6 +12,7 @@
     <div>
         <div class="section">Nome: @ViewData["Nome"]</div>
         <div class="section">Cognome: @ViewData["Cognome"]</div><br />
+        <div class="section">DataNascita: @ViewData["DataNascita"]</div><br />
         <fieldset>
             <legend>Contatti</legend>
             E-mail: <a id="mail" href="mailto:@ViewData["Email1"]">@ViewData["Email1"]</a><br />
@@ -24,7 +25,7 @@
     </div>
 </div>
 <div id="annuncio-container">
-    @foreach (Annuncio a in (ViewData["AnnunciCreati"] as ICollection<Annuncio>))
+    @foreach (Annuncio a in (ViewData["AnnunciCreati"] as ICollection<Annuncio>) ?? new List<Annuncio>())
     {
         <div class="annuncio-preview">
             <div class="tipologia">@a.Tipologia.TipoAnnuncio - @a.Tipologia.TipoContratto</div>

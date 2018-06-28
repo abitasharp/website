@@ -172,22 +172,6 @@ namespace Abitasharp.Migrations
                     b.ToTable("Recapiti");
                 });
 
-            modelBuilder.Entity("Abitasharp.Models.RuoloUtente", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ConcurrencyStamp");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("NormalizedName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RuoliUtente");
-                });
-
             modelBuilder.Entity("Abitasharp.Models.Segnalazione", b =>
                 {
                     b.Property<string>("UtenteRegolareId");
@@ -260,6 +244,22 @@ namespace Abitasharp.Migrations
                     b.ToTable("Utenti");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Utente");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ConcurrencyStamp");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("NormalizedName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RuoliUtente");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

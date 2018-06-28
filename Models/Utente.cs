@@ -10,21 +10,4 @@ namespace Abitasharp.Models
     {
         
     }
-
-    public partial class UserLogin : IdentityUserLogin<string>
-    {
-    }
-    public partial class UserRole : IdentityUserRole<string>
-    {
-    }
-    public partial class UserClaim : IdentityUserClaim<string>
-    {
-    }
-
-    public partial class RoleClaim : IdentityRoleClaim<string>
-    {
-    }
-    public partial class UserToken : IdentityUserToken<string>
-    {
-    }
 }

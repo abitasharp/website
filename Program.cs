@@ -19,19 +19,19 @@ namespace Abitasharp
         public static void Main(string[] args)
         {
             var host = BuildWebHost(args);
-            /*
+            
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
                 var context = services.GetRequiredService<ApplicationContext>();
                 var userManager = services.GetRequiredService<UserManager<Utente>>();
+                var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
                 try
                 {
-                    ContextSeeder seeder = new ContextSeeder(context, userManager);
-                    ContextSeeder seeder = new ContextSeeder(context);
+                    ContextSeeder seeder = new ContextSeeder(context, userManager, roleManager);
                     seeder.Empty();
-                    seeder.Seed();
+                    ///seeder.Seed();
                 }
                 catch (Exception ex)
                 {
@@ -39,7 +39,7 @@ namespace Abitasharp
                     logger.LogError(ex, "An error occurred seeding the DB.");
                 }
             }
-            */
+            
             host.Run();
         }
 

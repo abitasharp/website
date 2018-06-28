@@ -26,7 +26,7 @@
 </div>
 
 <div id="annuncio-container">
-    @foreach (Annuncio a in (ViewData["AnnunciCreati"] as ICollection<Annuncio>))
+    @foreach (Annuncio a in (ViewData["AnnunciCreati"] as ICollection<Annuncio>) ?? new List<Annuncio>())
     {
         <div class="annuncio-preview">
             <div class="tipologia">@a.Tipologia.TipoAnnuncio - @a.Tipologia.TipoContratto</div>

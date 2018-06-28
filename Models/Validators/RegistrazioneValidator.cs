@@ -27,22 +27,42 @@ namespace Abitasharp.Models.Validators
         [Required]
         [StringLength(254)]
         [EmailAddress]
-        public string Email { get; set; }
+        public string EmailPrivato { get; set; }
+
+        [Required]
+        [StringLength(254)]
+        [EmailAddress]
+        public string EmailAzienda { get; set; }
 
         [Required]
         [StringLength(50)]
         [MinLength(8, ErrorMessage = "La password deve contenere almeno 8 caratteri")]
-        public string Password { get; set; }
+        public string PasswordPrivato { get; set; }
 
         [Required]
         [StringLength(40)]
-        [Compare("Password", ErrorMessage = "Le password non sono uguali")]
-        public string ConfermaPassword { get; set; }
+        [Compare("PasswordPrivato", ErrorMessage = "Le password non sono uguali")]
+        public string ConfermaPasswordPrivato { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        [MinLength(8, ErrorMessage = "La password deve contenere almeno 8 caratteri")]
+        public string PasswordAzienda { get; set; }
+
+        [Required]
+        [StringLength(40)]
+        [Compare("PasswordAzienda", ErrorMessage = "Le password non sono uguali")]
+        public string ConfermaPasswordAzienda { get; set; }
 
         [Required]
         [StringLength(30)]
         [Phone]
-        public string Telefono { get; set; }
+        public string TelefonoPrivato { get; set; }
+
+        [Required]
+        [StringLength(30)]
+        [Phone]
+        public string TelefonoAzienda { get; set; }
 
         [Required]
         [StringLength(20)]
@@ -61,7 +81,9 @@ namespace Abitasharp.Models.Validators
         public bool Notifiche { get; set; }
 
        // [Required(ErrorMessage = "Acconsenti alla privacy policy.")]
-        public bool Privacy { get; set; }
+        public bool PrivacyPrivato { get; set; }
+
+        public bool PrivacyAzienda { get; set; }
 
     }
 }

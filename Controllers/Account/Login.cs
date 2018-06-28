@@ -38,12 +38,12 @@ namespace Abitasharp.Controllers.Account
                 else
                 {
                     _logger.LogInformation("Login failed");
-                    return RedirectToAction(nameof(AccountController.Login), null);
+                    return RedirectToAction("Index", "Account");
                 }
             }
             else
             {
-                return RedirectToAction(nameof(AccountController.Login), null);
+                return RedirectToAction("Index", "Account");
             }
         }
 
@@ -51,7 +51,7 @@ namespace Abitasharp.Controllers.Account
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
-            return RedirectToAction(nameof(CercaAnnunciController.Index), null);
+            return RedirectToAction("Index", "CercaAnnunci");
         }
 
         public IActionResult show()

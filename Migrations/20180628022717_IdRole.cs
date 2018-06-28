@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
 namespace Abitasharp.Migrations
 {
-    public partial class test_migration : Migration
+    public partial class IdRole : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,6 +25,36 @@ namespace Abitasharp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CaratteristicheUtente", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ClaimRuoli",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int4", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    ClaimType = table.Column<string>(type: "text", nullable: true),
+                    ClaimValue = table.Column<string>(type: "text", nullable: true),
+                    RoleId = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ClaimRuoli", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ClaimUtenti",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int4", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    ClaimType = table.Column<string>(type: "text", nullable: true),
+                    ClaimValue = table.Column<string>(type: "text", nullable: true),
+                    UserId = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ClaimUtenti", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -319,6 +350,12 @@ namespace Abitasharp.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "ClaimRuoli");
+
+            migrationBuilder.DropTable(
+                name: "ClaimUtenti");
+
             migrationBuilder.DropTable(
                 name: "Foto");
 

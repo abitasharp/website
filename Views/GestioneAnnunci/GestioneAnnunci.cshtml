@@ -12,7 +12,7 @@
     <div id="annuncio-container">
 
         <div id="mieiAnnunci">
-            @foreach (Annuncio a in (ViewData["AnnunciCreati"] as ICollection<Annuncio>))
+            @foreach (Annuncio a in (ViewData["AnnunciCreati"] as ICollection<Annuncio>) ?? new List<Annuncio>())
             {
                 <div class="annuncio-preview">
                     <div class="tipologia">@a.Tipologia.TipoAnnuncio - @a.Tipologia.TipoContratto</div>
@@ -26,7 +26,7 @@
         </div>
 
         <div id="preferiti">
-            @foreach (Annuncio a in (ViewData["AnnunciCreati"] as ICollection<Annuncio>))
+            @foreach (Annuncio a in (ViewData["AnnunciPreferiti"] as ICollection<Annuncio>) ?? new List<Annuncio>())
             {
                 <div class="annuncio-preview">
                     <div class="tipologia">@a.Tipologia.TipoAnnuncio - @a.Tipologia.TipoContratto</div>
@@ -40,10 +40,13 @@
         </div>
     </div>
 
-    <button id="crea">Crea annuncio</button>
+    <a asp-controller="GestioneAnnunci" asp-action="Crea">
+        <button id="crea">Crea annuncio</button>
+    </a>
 
     <div id="form">
         I miei Annunci<input type="radio" id="my" name="pref" checked onclick="ShowForm()" /><br />
         Preferiti<input type="radio" id="fav" name="pref" onclick="ShowForm()" /><br />
     </div>
+
 </div>

@@ -36,11 +36,12 @@ namespace Abitasharp.Controllers
         [HttpGet]
         public Task<IActionResult> Logout() => _login.logout();
 
-
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginValidator data) { return await _login.login(data); }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Registrazione(RegistrazioneValidator data) { return await _registrazione.registra(data); }
     }
 }
