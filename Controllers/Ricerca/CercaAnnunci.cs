@@ -1,4 +1,5 @@
 ﻿
+using Abitasharp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace Abitasharp.Controllers.Ricerca
 
         public IActionResult show()
         {
+            ViewData["Foto"] = new List<string>();
+
             return View("Views/Ricerca/CercaAnnunci.cshtml");
         }
 
