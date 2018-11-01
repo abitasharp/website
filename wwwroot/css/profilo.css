@@ -1,0 +1,57 @@
+﻿#container {
+    font-size: 1em;
+    position:fixed;
+    left: 5px;
+    margin-top: initial;
+    top:calc(var(--menu_height) + 5px);
+    width: 350px;
+}
+
+.section{
+    text-align:left;
+}
+
+
+.mioannuncio {
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    display:inline-block;
+    border-radius: 2px;
+}
+
+#container input[type=text]:hover{
+    box-shadow:none;
+}
+
+#container input[type=text] {
+    background-color: rgb(243, 243, 243);
+    border:none;
+}
+
+#container input[type=submit] {
+    float:right;
+}
+
+#mail{
+    color:black;
+    font-size: 0.8em;
+}
+
+#mail:hover {
+    color: rgb(255, 153, 0);
+        
+}
+
+.phone {
+    color: black;
+}
+
+.phone:hover {
+    color: rgb(255, 153, 0);
+}
+
+#annuncio-container {
+    padding-top:calc(var(--menu_height) - 40px);
+}

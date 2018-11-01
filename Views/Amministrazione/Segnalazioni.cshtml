@@ -1,0 +1,38 @@
+﻿@section css {
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/form.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/log.css")" />
+}
+
+@section script {}
+
+<form id="container">
+    <h2>Segnalazioni</h2>
+    <hr /><br />
+
+    <div id="tab">
+        <table id="segn">
+            <tr>
+                <th>Timestamp</th>
+                <th>AnnuncioId</th>
+                <th>Utente</th>
+                <th>Messaggio</th>
+            </tr>
+                
+            @foreach (Segnalazione s in (ViewData["Segnalazioni"] as ICollection<Segnalazione>))
+            {
+                <tr>
+                    <td class="datiSeg">@s.Timestamp</td>
+                    <td class="datiSeg">@s.AnnuncioId</td>
+                    <td class="datiSeg">@s.UtenteRegolareId</td>
+                    <td class="datiSeg" style="max-width:200px">
+                        <div style="overflow-x:scroll;  white-space:nowrap;">   @s.Messaggio   </div>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div><br />
+
+    <input type="submit" name="chiudi" id="close" value="Chiudi" /><br />
+
+</form>

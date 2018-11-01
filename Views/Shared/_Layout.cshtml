@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Abita# @ViewData["Title"]</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/layout.css")" />
+    @RenderSection("css");
+</head>
+<body>
+    <div id="wrapper">
+        <div id="menu">
+            <div id="logo" class="menu-item"><a asp-controller="CercaAnnunci" asp-action="Index"><img src="@Url.Content("~/img/logo.png")" alt="logo" title="Abita sharp" /></a></div>
+
+            @if (User.IsInRole("Privato") || User.IsInRole("Azienda"))
+            {
+                <div class="menu-item"><a asp-controller="GestioneAnnunci" asp-action="Index">I miei annunci</a></div>
+                <div class="menu-item"><a asp-controller="GestioneProfilo" asp-action="Index">Il mio profilo</a></div>
+                <div class="menu-item"><a asp-controller="Account" asp-action="Logout">Logout</a></div>
+            }
+            else if (User.IsInRole("Admin"))
+            {
+                <div class="menu-item"><a asp-controller="Dashboard" asp-action="Index">Dashboard</a></div>
+                <div class="menu-item"><a asp-controller="Account" asp-action="Logout">Logout</a></div>
+            }
+            else
+            {
+                <div class="menu-item"><a asp-controller="Account" asp-action="Index">Accedi</a></div>
+                <div class="menu-item"><a asp-controller="Account" asp-action="Registrazione">Registrati</a></div>
+            }
+        </div>
+
+        @RenderBody()
+
+        <br style="clear:both" />
+    </div>
+    <footer>
+        Footer content
+    </footer>
+</body>
+@RenderSection("script")
+</html>

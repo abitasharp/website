@@ -1,0 +1,14 @@
+{
+  "profiles": {
+
+    "Abitasharp": {
+      "commandName": "Project",       // Kestrel web server
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DOTNET_SKIP_FIRST_TIME_EXPERIENCE": "true"
+      },
+      "applicationUrl": "http://localhost:5000/"
+    }
+
+  }
+}

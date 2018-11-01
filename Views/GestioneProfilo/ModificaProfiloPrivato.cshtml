@@ -1,0 +1,72 @@
+﻿@model ModificaInfoProfiloValidator
+
+@section css{
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/form.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/modificaProfilo.css")" />
+}
+
+@section script{
+    <script src="@Url.Content("~/script/modificaProfilo.js")"></script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js"></script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<div id="container">
+    <h2 id="title">Modifica Profilo</h2>
+    <hr />
+
+    <div>
+        <form asp-controller="GestioneProfilo" asp-action="ModificaInfo">
+            <div class="section">Nome:<input type="text" readonly asp-for="Nome" value="@ViewData["Nome"]" onchange="ShowButton()" /></div>
+            <span asp-validation-for="Nome" class="text-danger"></span><br />
+
+            <div class="section">Cognome:<input type="text" readonly asp-for="Cognome" value="@ViewData["Cognome"]" onchange="ShowButton()" /></div>
+            <span asp-validation-for="Cognome" class="text-danger"></span><br />
+
+            <div class="section">Password:<input type="password" asp-for="Password" value="" onchange="ShowButton()" /></div>
+            <span asp-validation-for="Password" class="text-danger"></span><br />
+
+            <div class="section">Conferma Password:<input type="password" asp-for="ConfermaPassword" value="" onchange="ShowButton()" /></div>
+            <span asp-validation-for="ConfermaPassword" class="text-danger"></span><br />
+            <br />
+        </form>
+
+        <fieldset>
+            <legend>Contatti</legend>
+            <label asp-for="Email1">Email: </label>
+            <input type="text" asp-for="Email1" value="@ViewData["Email1"]" onchange="ShowButton()" />
+            <span asp-validation-for="Email1" class="text-danger"></span><br />
+
+            <label asp-for="Email2">Email: </label>
+            <input type="text" asp-for="Email2" value="@ViewData["Email2"]" onchange="ShowButton()" />
+            <span asp-validation-for="Email2" class="text-danger"></span><br />
+
+            <label asp-for="Email3">Email: </label>
+            <input type="text" asp-for="Email3" value="@ViewData["Email3"]" onchange="ShowButton()" />
+            <span asp-validation-for="Email3" class="text-danger"></span><br />
+
+            <label asp-for="Tel1">Email: </label>
+            <input type="text" asp-for="Tel1" value="@ViewData["Tel1"]" onchange="ShowButton()" />
+            <span asp-validation-for="Tel1" class="text-danger"></span><br />
+
+            <label asp-for="Tel2">Email: </label>
+            <input type="text" asp-for="Tel2" value="@ViewData["Tel2"]" onchange="ShowButton()" />
+            <span asp-validation-for="Tel2" class="text-danger"></span><br />
+
+            <label asp-for="Tel3">Email: </label>
+            <input type="text" asp-for="Tel3" value="@ViewData["Tel3"]" onchange="ShowButton()" />
+            <span asp-validation-for="Tel3" class="text-danger"></span><br />
+        </fieldset><br />
+    </div>
+
+    <input id="applica" type="submit" name="cancel" value="Applica" style="display:none; background-color:rgb(255, 153, 0);" />
+    <input type="submit" name="cancel" id="input-submit" value="Annulla" /><br />
+</div>
+
+
+
+
+

@@ -1,0 +1,31 @@
+
+
+#mieiAnnunci {
+    margin-top: calc(var(--menu_height) * 2)
+}
+
+#preferiti {
+    margin-top: calc(var(--menu_height) * 2);
+    display:none
+}
+
+#crea {
+    position: fixed;
+    top: calc(var(--menu_height) * 2);
+    left: 100px;
+    height: 50px;
+    border-radius: 20px;
+    border-color: orange;
+    background-color: orange;
+    color: white;
+    font-size: 1.2em
+}
+
+#form {
+    position: fixed;
+    left: 110px;
+    top: calc(var(--menu_height) * 3);
+    text-align: right;
+    font-size: 1.2em;
+    font-family: var(--font_fam);
+}

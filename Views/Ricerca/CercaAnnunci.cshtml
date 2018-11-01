@@ -1,0 +1,95 @@
+﻿@model CercaAnnunciValidator
+
+@section css {
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/wallpaper.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/filters.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/annunci.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/ol.css")" />
+}
+
+@section script {
+    <script src="@Url.Content("~/script/ol.js")"></script>
+    <script src="@Url.Content("~/script/MapAdapter.js")"></script>
+    <script src="@Url.Content("~/script/Wallpaper.js")"></script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<div id="wallpaper-container" onclick="Down()">
+    <img id="wallpaper" src="@Url.Content("~/img/bologna.jpg")" />
+    <img id="arrow-down" src="@Url.Content("~/img/arrow-down.png")" />
+</div>
+<div id="filters-container">
+    <form asp-controller="CercaAnnunci" asp-action="Visualizza" id="form-filters">
+        <h3>Cerca annunci</h3><hr />
+        <label asp-for="TipoAnnuncio">tipologia</label>
+        <select asp-for="TipoAnnuncio" id="input-tipologia">
+            <option value="stanza">stanza</option>
+            <option value="posto letto">posto letto</option>
+            <option value="casa-affitto">casa - affitto</option>
+            <option value="casa-vendita">casa - vendita</option>
+        </select>
+
+        <label asp-for="TipoContratto">Pagamento</label>
+        <select asp-for="TipoContratto" id="input-pagamento">
+            <option value="affitto">Affitto</option>
+            <option value="vendita">Vendita</option>
+        </select>
+
+        <label asp-for="TipoPagamento">Pagamento</label>
+        <select asp-for="TipoPagamento" id="input-pagamento">
+            <option value="mensile">mensile</option>
+            <option value="a notte">a notte</option>
+            <option value="tutto">tutto</option>
+        </select>
+
+        <input type="number" asp-for="Valore" id="prezzo-massimo" min="1" step="any" /> €
+
+        <br />
+        <label asp-for="Da">a partire da</label>
+        <input type="date" asp-for="Da" id="input-periodo" min="2018-06-14" value="2018-06-14" />
+        <br />
+        <fieldset>
+            <input type="checkbox" asp-for="Uomo" id="input-m" value="m" />uomo
+            <input type="checkbox" asp-for="Donna" id="input-f" value="f" />donna
+            <hr />
+            <label asp-for="Fumatore">Fumatore</label>
+            <input type="checkbox" asp-for="Fumatore" id="input-fumatore" />
+
+            <label asp-for="Erasmus">Erasmus</label>
+            <input type="checkbox" asp-for="Erasmus" id="input-erasmus" />
+
+            <label asp-for="Animali">Animali</label>
+            <input type="checkbox" asp-for="Animali" id="input-animali" />
+
+            <label asp-for="Studente">Studente</label>
+            <input type="checkbox" asp-for="Studente" id="input-studente" />
+
+            <label asp-for="Lavoratore">Lavoratore</label>
+            <input type="checkbox" asp-for="Lavoratore" id="input-lavoratore" />
+
+            <label asp-for="Famiglia">Famiglia</label>
+            <input type="checkbox" asp-for="Famiglia" id="input-famiglia" />
+        </fieldset>
+        <br />
+    </form>
+    <div id="o-map-wrapper"></div>
+</div>
+<div id="annuncio-container">
+    <div class="annuncio-preview">
+        <div class="tipologia">, @ViewData["TipoContratto"]  @ViewData["TipoAnnuncio"]</div>
+        <div class="indirizzo">@ViewData["Indirizzo"]</div>
+        <div class="prezzo">@ViewData["Valore"]€, @ViewData["TipoPagamento"],  @ViewData["Valore"]€</div>
+        <div class="disponibilità">A partire dal @ViewData["Da"]</div>
+        <div class="note">@ViewData["Note"]</div>
+        <div class="gallery">
+            @foreach (string path in (ViewData["Foto"] as ICollection<string>))
+            {
+                <img src="@Url.Content(Path)" />
+            }
+        </div>
+    </div>
+</div>
+

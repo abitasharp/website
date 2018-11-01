@@ -1,0 +1,52 @@
+﻿@section css {
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/annunci.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/GestioneAnnunci.css")" />
+}
+
+@section script {
+    <script src="@Url.Content("~/script/GestioneAnnunci.js")"></script>
+}
+
+<div id="container">
+
+    <div id="annuncio-container">
+
+        <div id="mieiAnnunci">
+            @foreach (Annuncio a in (ViewData["AnnunciCreati"] as ICollection<Annuncio>) ?? new List<Annuncio>())
+            {
+                <div class="annuncio-preview">
+                    <div class="tipologia">@a.Tipologia.TipoAnnuncio - @a.Tipologia.TipoContratto</div>
+                    <div class="indirizzo">@a.Indirizzo</div>
+                    <div class="prezzo">@a.Prezzo.PrezzoId € - @a.Prezzo.TipoPagamento</div>
+                    <div class="disponibilità">@a.Periodo.Da -> @a.Periodo.A</div>
+                    <div class="note">@a.Note</div>
+                    <div class="gallery"><img src="@a.Foto.First().Path" width="270" height="270"/></div>
+                </div>
+            }
+        </div>
+
+        <div id="preferiti">
+            @foreach (Annuncio a in (ViewData["AnnunciPreferiti"] as ICollection<Annuncio>) ?? new List<Annuncio>())
+            {
+                <div class="annuncio-preview">
+                    <div class="tipologia">@a.Tipologia.TipoAnnuncio - @a.Tipologia.TipoContratto</div>
+                    <div class="indirizzo">@a.Indirizzo</div>
+                    <div class="prezzo">@a.Prezzo.PrezzoId € - @a.Prezzo.TipoPagamento</div>
+                    <div class="disponibilità">@a.Periodo.Da -> @a.Periodo.A</div>
+                    <div class="note">@a.Note</div>
+                    <div class="gallery"><img src="@a.Foto.First().Path" width="270" height="270"/></div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <a asp-controller="GestioneAnnunci" asp-action="Crea">
+        <button id="crea">Crea annuncio</button>
+    </a>
+
+    <div id="form">
+        I miei Annunci<input type="radio" id="my" name="pref" checked onclick="ShowForm()" /><br />
+        Preferiti<input type="radio" id="fav" name="pref" onclick="ShowForm()" /><br />
+    </div>
+
+</div>

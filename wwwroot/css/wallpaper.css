@@ -1,0 +1,29 @@
+:root {
+    --menu_bg_color: rgba(255, 153, 0, 0.7);
+}
+
+#wallpaper-container {
+    display: grid;
+	height: 100vh;
+    overflow: hidden;
+}
+
+#wallpaper {
+	width: 100%;
+    max-height: 100vh;
+    margin: auto;
+    margin-top: 0;
+}
+
+#arrow-down {
+    position: absolute;
+    top: 75vh;
+    left: calc(50% - 32px);
+    border-radius: 32px;
+    transition: 0.2s;
+}
+
+#arrow-down:hover {
+    box-shadow: 0 0 5px 1px white;
+    top: 76vh;
+}

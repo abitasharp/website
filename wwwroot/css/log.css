@@ -1,0 +1,27 @@
+﻿#container{
+    font-size: 1em;
+    width: 50%;
+}
+
+#tab {
+    width: 100%;
+    height: auto;
+    background-color: cadetblue;
+    color:whitesmoke;
+}
+
+table {
+    width: 100%;
+}
+
+table,th,td{
+    border:1px solid black;
+    text-align:left;
+    border-collapse:collapse;
+}
+
+#close{
+    float:right;
+}
+
+

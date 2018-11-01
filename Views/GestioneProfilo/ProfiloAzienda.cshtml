@@ -1,0 +1,41 @@
+﻿@section css{
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/form.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/profilo.css")" />
+    <link type="text/css" rel="stylesheet" href="@Url.Content("~/css/annunci.css")" />
+}
+
+@section script{}
+
+<div id="container">
+    <h2 id="title">Profilo Azienda</h2>
+    <hr />
+    <div>
+        <div class="section">Nome Azienda: @ViewData["NomeAzienda"] </div>
+        <div class="section">Partita Iva: @ViewData["PartitaIva"] </div>
+        <br />
+        <fieldset>
+            <legend>Contatti</legend>
+            E-mail: <a id="mail" href="mailto:@ViewData["Email1"]">@ViewData["Email1"]</a><br />
+            E-mail: <a id="mail" href="mailto:@ViewData["Email2"]">@ViewData["Email2"]</a><br />
+            E-mail: <a id="mail" href="mailto:@ViewData["Email3"]">@ViewData["Email3"]</a><br />
+            Telefono: <a class="phone" href="@ViewData["Tel1"]">@ViewData["Tel1"]</a><br />
+            Telefono: <a class="phone" href="@ViewData["Tel2"]">@ViewData["Tel2"]</a><br />
+            Telefono: <a class="phone" href="@ViewData["Tel3"]">@ViewData["Tel3"]</a><br />
+        </fieldset><br />
+    </div>
+</div>
+
+<div id="annuncio-container">
+    @foreach (Annuncio a in (ViewData["AnnunciCreati"] as ICollection<Annuncio>) ?? new List<Annuncio>())
+    {
+        <div class="annuncio-preview">
+            <div class="tipologia">@a.Tipologia.TipoAnnuncio - @a.Tipologia.TipoContratto</div>
+            <div class="indirizzo">@a.Indirizzo</div>
+            <div class="prezzo">@a.Prezzo.PrezzoId € - @a.Prezzo.TipoPagamento</div>
+            <div class="disponibilità">@a.Periodo.Da -> @a.Periodo.A</div>
+            <div class="note">@a.Note</div>
+            <div class="gallery"><img src="@a.Foto.First().Path" width="270" height="270" /></div>
+        </div>
+    }
+</div>
+
